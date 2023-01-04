@@ -12,125 +12,210 @@ class MyShiftView extends GetView<MyShiftController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        body: Wrap(
-          children: [
-        Stack(
+      body: Wrap(
         children: [
-        Container(
-        height: Get.height * .29,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(60),
-                  bottomLeft: Radius.circular(60)),
-              color: Colors.blue),
-          child: Column(
-            children: [
-              SizedBox(
-                height: Get.height * .19,
-              )
-            ],
-          ),
-        ),
-      Image.asset(
-        AssetHelper.component,
-        scale: 1,
-      ),
-      Positioned(
-        left: 30,
-        top: 40,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
+          Stack(children: [
+            Container(
+              height: Get.height * .29,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(60),
+                      bottomLeft: Radius.circular(60)),
+                  color: Colors.blue),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: Get.height * .19,
+                  )
+                ],
               ),
             ),
-            SizedBox(
-              width: Get.width * .13,
+            Image.asset(
+              AssetHelper.component,
+              scale: 1,
             ),
-            Text(
-              'My Shift',
-              style: TEXTSTYLE(
-                fontweight: FontWeight.w500,
-                fontsize: 24.0,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(
-              width: Get.width * .13,
-            )
-          ],
-        ),
-      ),
-      Positioned(
-        left: 40,
-        top: 100,
-        child: Row(
-          children: [
-            CircleAvatar(
-              child: Image.asset(
-                AssetHelper.profileIMAGE,
-              ),
-              maxRadius: 40,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Amila',
-                  style: TEXTSTYLE(
-                    fontsize: 24.0,
-                    fontweight: FontWeight.w500,
-                    color: Colors.white,
+            Positioned(
+              left: 30,
+              top: 40,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                Text(
-                  'Emp Id  :  xxxx xxxxx',
-                  style: TEXTSTYLE(
+                  SizedBox(
+                    width: Get.width * .13,
+                  ),
+                  Text(
+                    'My Shift',
+                    style: TEXTSTYLE(
                       fontweight: FontWeight.w500,
-                      fontsize: 18.0,
-                      color: Colors.white),
-                )
-              ],
-            )
-          ],
-        ),
+                      fontsize: 24.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    width: Get.width * .13,
+                  )
+                ],
+              ),
+            ),
+            Positioned(
+              left: 40,
+              top: 100,
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    child: Image.asset(
+                      AssetHelper.profileIMAGE,
+                    ),
+                    maxRadius: 40,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Amila',
+                        style: TEXTSTYLE(
+                          fontsize: 24.0,
+                          fontweight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Emp Id  :  xxxx xxxxx',
+                        style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            fontsize: 18.0,
+                            color: Colors.white),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ]),
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Wrap(
+                 // crossAxisAlignment: CrossAxisAlignment.start,
+                  runSpacing: 10,
+                  children: [
+                    Text(
+                      'Shift 1',
+                      style: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        color: Color.fromRGBO(18, 132, 198, 1),
+                        fontsize: 20.0,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Start Date :',
+                              style: TEXTSTYLE(
+                                fontweight: FontWeight.w500,
+                                color: Color.fromRGBO(18, 132, 198, 1),
+                                fontsize: 12.0,
+                              ),
+                            ),
+                            Text(
+                              'Dec 21, 2022',
+                              style: TEXTSTYLE(
+                                fontweight: FontWeight.w500,
+                                color: Colors.black,
+                                fontsize: 12.0,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'End Date :',
+                              style: TEXTSTYLE(
+                                fontweight: FontWeight.w500,
+                                color: Color.fromRGBO(18, 132, 198, 1),
+                                fontsize: 12.0,
+                              ),
+                            ),
+                            Text(
+                              'Dec 21, 2022',
+                              style: TEXTSTYLE(
+                                fontweight: FontWeight.w500,
+                                color: Colors.black,
+                                fontsize: 12.0,
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(children: [
+                      Text(
+                        'Time :',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          color: Color.fromRGBO(18, 132, 198, 1),
+                          fontsize: 12.0,
+                        ),
+                      ),
+                      Text(
+                        ' 9 am to 6 pm',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          color: Colors.black,
+                          fontsize: 12.0,
+                        ),
+                      )
+                    ]),
+                    Row(children: [
+                      Text(
+                        'Department  :',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          color: Color.fromRGBO(18, 132, 198, 1),
+                          fontsize: 12.0,
+                        ),
+                      ),
+                      Text(
+                        ' Emergency Medicine',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          color: Colors.black,
+                          fontsize: 12.0,
+                        ),
+                      )
+                    ]),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
-      ]),
-         Padding(
-           padding: const EdgeInsets.all(18.0),
-           child: Card(
-             elevation: 3,
-             shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(20.0),
-
-           ) ,
-    child: Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: Column(
-      children: [
-        Text('Shift 1', style: TEXTSTYLE(
-          fontweight: FontWeight.w500,
-          color: Color.fromRGBO(18, 132, 198, 1),
-          fontsize: 20.0,
-        ),),
-      ],
-      ),
-    ),
-           ),
-         ),
-    ]
-    ),
     );
   }
 }

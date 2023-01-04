@@ -4,9 +4,13 @@ import 'package:get/get.dart';
 import 'package:ui_with_getx/app/components/mcard.dart';
 import 'package:ui_with_getx/app/components/textstyle.dart';
 import 'package:ui_with_getx/app/modules/forget_password/views/forget_password_view.dart';
+import 'package:ui_with_getx/app/modules/leave_request/bindings/leave_request_binding.dart';
+import 'package:ui_with_getx/app/modules/leave_request/views/leave_request_view.dart';
 import 'package:ui_with_getx/app/modules/login/views/login_view.dart';
 import 'package:ui_with_getx/app/modules/my_leaves/views/my_leaves_view.dart';
 import 'package:ui_with_getx/app/modules/my_shift/views/my_shift_view.dart';
+import 'package:ui_with_getx/app/modules/notice_board/views/notice_board_view.dart';
+import 'package:ui_with_getx/app/routes/app_pages.dart';
 
 import '../../../utils/asset_helper.dart';
 import '../controllers/dashboard_controller.dart';
@@ -125,7 +129,7 @@ class DashboardView extends GetView<DashboardController> {
                   ),
                   Mcard(
                     onTap: () {
-
+                      Get.offNamed(Routes.LEAVE_REQUEST);
                     },
                     AssetHelperImag: AssetHelper.leaverwquest,
                     titile: 'Leave Request',
@@ -138,7 +142,9 @@ class DashboardView extends GetView<DashboardController> {
                     titile: 'My Shift',
                   ),
                   Mcard(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(NoticeBoardView());
+                    },
                     AssetHelperImag: AssetHelper.noticeboard,
                     titile: 'Notice Board',
                   )

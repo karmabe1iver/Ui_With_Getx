@@ -10,6 +10,8 @@ abstract class Routes {
   static const DASHBOARD = _Paths.DASHBOARD;
   static const MY_LEAVES = _Paths.MY_LEAVES;
   static const MY_SHIFT = _Paths.MY_SHIFT;
+  static const NOTICE_BOARD = _Paths.NOTICE_BOARD;
+  static const LEAVE_REQUEST = _Paths.LEAVE_REQUEST;
 }
 
 abstract class _Paths {
@@ -20,4 +22,6 @@ abstract class _Paths {
   static const DASHBOARD = '/dashboard';
   static const MY_LEAVES = '/my-leaves';
   static const MY_SHIFT = '/my-shift';
+  static const NOTICE_BOARD = '/notice-board';
+  static const LEAVE_REQUEST = '/leave-request';
 }
