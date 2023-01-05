@@ -45,6 +45,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                     IconButton(
                       onPressed: () {
                         Get.back();
+
                       },
                       icon: Icon(
                         Icons.arrow_back,
