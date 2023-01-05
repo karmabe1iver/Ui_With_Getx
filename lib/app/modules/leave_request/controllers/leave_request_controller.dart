@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 class LeaveRequestController extends GetxController {
   //TODO: Implement LeaveRequestController
 
-  RxString selectedDrowpdown = 'abc'.obs;
-  List<String> dropdownText = ['abc', 'def', 'ghi'];
+
+  RxString dropdownText = 'Leave Category '.obs as RxString;
+  List<String> df=['Leave Category ','Caual Leave ', 'Sick Leave', ].obs;
 
 //dropdown button in Ui
 
