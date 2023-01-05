@@ -53,7 +53,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                     ),
                     SizedBox(
                       width: Get.width * .13,
-                    ),eer
+                    ),
                     Text(
                       'Leave Request',
                       style: TEXTSTYLE(
