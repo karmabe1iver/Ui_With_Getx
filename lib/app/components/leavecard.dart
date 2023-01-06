@@ -108,7 +108,7 @@ Widget LeaveCard({
                    '$ReasonDes',
                    maxLines: 2,
                    overflow: TextOverflow.ellipsis,
-                   textDirection: TextDirection.rtl,
+                   textDirection: TextDirection.ltr,
                    textAlign: TextAlign.justify,
                    style: TEXTSTYLE(fontsize: 12.0,
                        fontweight: FontWeight.w200,

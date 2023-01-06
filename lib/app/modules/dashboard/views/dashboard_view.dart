@@ -129,7 +129,7 @@ class DashboardView extends GetView<DashboardController> {
                   ),
                   Mcard(
                     onTap: () {
-                      Get.offNamed(Routes.LEAVE_REQUEST);
+                      Get.toNamed(Routes.LEAVE_REQUEST);
                     },
                     AssetHelperImag: AssetHelper.leaverwquest,
                     titile: 'Leave Request',

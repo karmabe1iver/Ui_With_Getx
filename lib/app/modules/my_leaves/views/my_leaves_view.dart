@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/components/leavecard.dart';
 import 'package:ui_with_getx/app/components/leavefield.dart';
+import 'package:ui_with_getx/app/routes/app_pages.dart';
 
 import '../../../components/textstyle.dart';
 import '../../../utils/asset_helper.dart';
@@ -29,7 +30,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: Get.height * .19,
+                  height: 10,
                   )
                 ],
               ),
@@ -111,7 +112,8 @@ class MyLeavesView extends GetView<MyLeavesController> {
               left: 20,
                 bottom: 20,
                 child: Wrap(
-                 spacing: 30,
+                 spacing: 40,
+                  //crossAxisAlignment:WrapCrossAlignment.center,
 
                   children: [
                     LeaveField(
@@ -188,6 +190,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
 
       backgroundColor: Colors.blue,
       onPressed: () {
+        Get.toNamed(Routes.LEAVE_REQUEST);
 
 
       },
