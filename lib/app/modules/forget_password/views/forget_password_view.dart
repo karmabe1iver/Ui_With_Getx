@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:ui_with_getx/app/routes/app_pages.dart';
 
 import '../../../components/mbutton.dart';
 import '../../../components/mtextformfield.dart';
@@ -56,7 +57,9 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
 
           Center(
             child: MButton(
-              onPress: () {},
+              onPress: () {
+                Get.offNamed(Routes.DASHBOARD);
+              },
               string: 'Submit',
             ),
           ),

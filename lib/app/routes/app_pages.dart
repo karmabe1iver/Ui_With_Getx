@@ -16,7 +16,6 @@ import '../modules/my_shift/bindings/my_shift_binding.dart';
 import '../modules/my_shift/views/my_shift_view.dart';
 import '../modules/notice_board/bindings/notice_board_binding.dart';
 import '../modules/notice_board/views/notice_board_view.dart';
-import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
 part 'app_routes.dart';
@@ -24,14 +23,14 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.DASHBOARD;
+  static const INITIAL = Routes.SPLASH;
 
 
   static final routes = [
     GetPage(
       name: _Paths.SPLASH,
-      page: () => const SplashView(),
-      binding: SplashBinding(),
+      page: () => const SplashScreen(),
+      // binding: SplashBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN,

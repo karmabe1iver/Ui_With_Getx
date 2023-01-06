@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/components/mbutton.dart';
 import 'package:ui_with_getx/app/modules/forget_password/views/forget_password_view.dart';
+import 'package:ui_with_getx/app/routes/app_pages.dart';
 import 'package:ui_with_getx/app/utils/asset_helper.dart';
 
 import '../../../components/mtextformfield.dart';
@@ -74,7 +75,7 @@ class LoginView extends GetView<LoginController> {
                 ]),
                 TextButton(
                     onPressed: () {
-                      Get.to(ForgetPasswordView());
+                      Get.toNamed(Routes.FORGET_PASSWORD);
                     },
                     child: Text(
                       'ForgetPassword',
@@ -86,7 +87,9 @@ class LoginView extends GetView<LoginController> {
           ),
            Center(
              child: MButton(
-                onPress: () {},
+                onPress: () {
+                  Get.offNamed(Routes.DASHBOARD);
+                },
                 string: 'Login',
               ),
            ),
