@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:ui_with_getx/app/components/dropdown.dart';
 import 'package:ui_with_getx/app/components/mbutton.dart';
 
 import '../../../components/textstyle.dart';
@@ -114,44 +115,59 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
             () => Padding(
               padding:
                   const EdgeInsets.only(left: 18.0, right: 18.0, top: 10.0),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                elevation: 3,
-                child: Container(
-                  height: 70,
-                  width: 380,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  // decoration: BoxDecoration(
-                  //     color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              // child: Card(
+              //   shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(20)),
+              //   elevation: 3,
+              //   child: Container(
+              //     height: 70,
+              //     width: 380,
+              //     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              //     // decoration: BoxDecoration(
+              //     //     color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              //
+              //     child: DropdownButtonHideUnderline(
+              //       child: DropdownButton<String>(
+              //         value: controller.dropdownText.value,
+              //         icon: Icon(Icons.keyboard_arrow_down_outlined),
+              //         hint: Text('Leave Type'),
+              //         elevation: 10,
+              //         style: TEXTSTYLE(
+              //             fontsize: 18.0,
+              //             fontweight: FontWeight.w400,
+              //             color: Colors.black),
+              //         onChanged: (String? value) {
+              //           // This is called when the user selects an item.
+              //           controller.dropdownText.value = value!;
+              //         },
+              //         items: controller.df
+              //             .map<DropdownMenuItem<String>>((String value) {
+              //           return DropdownMenuItem<String>(
+              //             value: value,
+              //             child: Text(value),
+              //           );
+              //         }).toList(),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              child: dropDownBox(
+                  FunctioOnchanged:  (String? value) {
+                    // This is called when the user selects an item.
+                    controller.dropdownText.value=value!;
+                  },
+                  ListItem: controller.df .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  ListValue:controller.dropdownText.value
 
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      value: controller.dropdownText.value,
-                      icon: Icon(Icons.keyboard_arrow_down_outlined),
-                      hint: Text('Leave Type'),
-                      elevation: 10,
-                      style: TEXTSTYLE(
-                          fontsize: 18.0,
-                          fontweight: FontWeight.w400,
-                          color: Colors.black),
-                      onChanged: (String? value) {
-                        // This is called when the user selects an item.
-                        controller.dropdownText.value = value!;
-                      },
-                      items: controller.df
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
                 ),
               ),
             ),
-          ),
+
           Padding(
             padding: const EdgeInsets.only(
               left: 18.0,
@@ -300,42 +316,57 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                 () => Padding(
               padding:
               const EdgeInsets.only(left: 18.0, right: 18.0,),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                elevation: 3,
-                child: Container(
-                  height: 70,
-                  width: 380,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  // decoration: BoxDecoration(
-                  //     color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              // child: Card(
+              //   shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(20)),
+              //   elevation: 3,
+              //   child: Container(
+              //     height: 70,
+              //     width: 380,
+              //     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              //     // decoration: BoxDecoration(
+              //     //     color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              //
+              //     child: DropdownButtonHideUnderline(
+              //       child: DropdownButton<String>(
+              //         value: controller.departmentType.value,
+              //         icon: Icon(Icons.keyboard_arrow_down_outlined),
+              //         hint: Text('Leave Type'),
+              //         elevation: 10,
+              //         style: TEXTSTYLE(
+              //             fontsize: 18.0,
+              //             fontweight: FontWeight.w400,
+              //             color: Colors.black),
+              //         onChanged: (String? value) {
+              //           // This is called when the user selects an item.
+              //           controller.departmentType.value = value!;
+              //         },
+              //         items: controller.department
+              //             .map<DropdownMenuItem<String>>((String value) {
+              //           return DropdownMenuItem<String>(
+              //             value: value,
+              //             child: Text(value),
+              //           );
+              //         }).toList(),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+                  child: dropDownBox(
+                    ListValue: controller.departmentType.value,
+                    ListItem:  controller.department
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    FunctioOnchanged: (String? value) {
+                      //            This is called when the user selects an item.
+                      controller.departmentType.value = value!;
+                    },
 
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      value: controller.departmentType.value,
-                      icon: Icon(Icons.keyboard_arrow_down_outlined),
-                      hint: Text('Leave Type'),
-                      elevation: 10,
-                      style: TEXTSTYLE(
-                          fontsize: 18.0,
-                          fontweight: FontWeight.w400,
-                          color: Colors.black),
-                      onChanged: (String? value) {
-                        // This is called when the user selects an item.
-                        controller.departmentType.value = value!;
-                      },
-                      items: controller.department
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
                   ),
-                ),
-              ),
             ),
           ),
           Padding(
