@@ -279,7 +279,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
           ),
           Obx(
             () => Padding(
-              padding: const EdgeInsets.only(left: 18.0),
+              padding: const EdgeInsets.only(left: 18.0,right: 18.0),
               child: Card(
                 elevation: 2,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -304,7 +304,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                   borderColor: Colors.transparent,
                   constraints: BoxConstraints(
                     minHeight: Get.height * .07,
-                    minWidth: Get.width * .45,
+                    minWidth: Get.width * .44,
                   ),
                   isSelected: controller.Selected,
                   children: controller.HalforFull,
