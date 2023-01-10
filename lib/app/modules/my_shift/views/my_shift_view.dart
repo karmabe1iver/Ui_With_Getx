@@ -43,10 +43,11 @@ class MyShiftView extends GetView<MyShiftController> {
               scale: 1,
             ),
             Positioned(
-              left: 26,
+              left: 16,
               top: 40,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
                     onPressed: () {
@@ -58,7 +59,7 @@ class MyShiftView extends GetView<MyShiftController> {
                     ),
                   ),
                   SizedBox(
-                    width: Get.width * .13,
+                    width: Get.width * .19,
                   ),
                   Text(
                     'My Shift',

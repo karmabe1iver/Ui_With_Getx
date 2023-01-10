@@ -26,9 +26,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(60),
                         bottomLeft: Radius.circular(60)),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(offset: Offset.zero, blurRadius: 2)
-                  ],
+
                   //  color: Colors.blue
                   gradient: LinearGradient(
                       colors: [Color.fromRGBO(76, 178, 229, 1),Color.fromRGBO(44, 157, 215, 1)]

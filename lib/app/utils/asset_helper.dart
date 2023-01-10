@@ -33,7 +33,7 @@ abstract class AssetHelper {
 
   static get Calender => images('AlternateCalendar.png');
 
-  static get userSm => images('UserCircle');
+  static get userSm => images('UserCircle.png');
 
   static get profileIMAGE => images('Ellipse.png');
 

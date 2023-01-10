@@ -3,9 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/utils/asset_helper.dart';
 
-Widget Mcard({AssetHelperImag, titile, onTap,scale}) {
+Widget Mcard({AssetHelperImag,AssetHelperImag2 ,titile, onTap,scale}) {
   return GestureDetector(
     onTap: onTap,
+
     // child: Card(
     //   elevation: 1,
     //   shape: RoundedRectangleBorder(
@@ -28,7 +29,22 @@ Widget Mcard({AssetHelperImag, titile, onTap,scale}) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(AssetHelperImag,scale: scale,),
+            if(titile=='My Shift')
+
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(),
+
+                Image.asset(AssetHelperImag,scale: scale,),
+                Positioned(left: 90,
+                    bottom: 0,
+                    child: Image.asset(AssetHelperImag2))
+              ],
+
+            )
+            else
+              Image.asset(AssetHelperImag,scale: scale,),
             SizedBox(height: 10,),
             Text(
               '$titile',

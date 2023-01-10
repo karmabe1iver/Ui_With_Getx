@@ -71,7 +71,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                       offset: Offset.zero,
                       color: Colors.grey.shade300,
                       blurStyle: BlurStyle.outer,
-                      blurRadius: 3,
+                      blurRadius: 2,
                     )
                   ]),
               // child: Card(

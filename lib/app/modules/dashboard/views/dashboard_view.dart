@@ -93,9 +93,13 @@ class DashboardView extends GetView<DashboardController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
+
                       onPressed: () {
                         Get.back();
                       },
+                       highlightColor: Colors.black,
+                   splashColor : Colors.black,
+                      splashRadius: 30,
                       icon: Icon(
                         Icons.arrow_back,
                         color: Colors.white,
@@ -137,6 +141,7 @@ class DashboardView extends GetView<DashboardController> {
                       Get.to(MyLeavesView());
                     },
                     AssetHelperImag: AssetHelper.leave,
+                    AssetHelperImag2: AssetHelper.userSm,
                     titile: 'My Leaves',
                   ),
                   Mcard(
@@ -144,6 +149,7 @@ class DashboardView extends GetView<DashboardController> {
                       Get.toNamed(Routes.LEAVE_REQUEST);
                     },
                     AssetHelperImag: AssetHelper.leaverwquest,scale: .8,
+                    AssetHelperImag2: AssetHelper.userSm,
                     titile: 'Leave Request',
                   ),
                   Mcard(
@@ -151,6 +157,7 @@ class DashboardView extends GetView<DashboardController> {
                       Get.to(MyShiftView());
                     },
                     AssetHelperImag: AssetHelper.Calender,
+                    AssetHelperImag2: AssetHelper.userSm,
                     titile: 'My Shift',
                   ),
                   Mcard(
@@ -158,6 +165,7 @@ class DashboardView extends GetView<DashboardController> {
                       Get.to(NoticeBoardView());
                     },
                     AssetHelperImag: AssetHelper.noticeboard,
+                    AssetHelperImag2: AssetHelper.userSm,
                     titile: 'Notice Board',
                   )
                 ],
