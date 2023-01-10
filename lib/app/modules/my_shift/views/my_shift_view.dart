@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../../components/textstyle.dart';
@@ -19,10 +18,18 @@ class MyShiftView extends GetView<MyShiftController> {
               height: Get.height * .29,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(60),
-                      bottomLeft: Radius.circular(60)),
-                  color: Colors.blue),
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(60),
+                    bottomLeft: Radius.circular(60)),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(offset: Offset.zero, blurRadius: 2)
+                ],
+                // color: Colors.blue
+                gradient: LinearGradient(colors: [
+                  Color.fromRGBO(76, 178, 229, 1),
+                  Color.fromRGBO(44, 157, 215, 1)
+                ]),
+              ),
               child: Column(
                 children: [
                   SizedBox(
@@ -36,7 +43,7 @@ class MyShiftView extends GetView<MyShiftController> {
               scale: 1,
             ),
             Positioned(
-              left: 30,
+              left: 26,
               top: 40,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,16 +113,26 @@ class MyShiftView extends GetView<MyShiftController> {
             ),
           ]),
           Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Card(
-              elevation: 3,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
+            padding: const EdgeInsets.only(left: 24.0,top: 24,right: 24),
+            child: Container(
+              // elevation: 3,
+              // shape: RoundedRectangleBorder(
+              //   borderRadius: BorderRadius.circular(20.0),
+              // ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset.zero,
+                      color: Colors.grey.shade300,
+                      blurStyle: BlurStyle.outer,
+                      blurRadius: 10,
+                    )
+                  ]),
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Wrap(
-                 // crossAxisAlignment: CrossAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   runSpacing: 10,
                   children: [
                     Text(

@@ -41,15 +41,15 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MTextFormField(
-                      Style: TEXTSTYLE(fontsize: 16.0,fontweight: FontWeight.w400,color: Colors.black),
+                      Style: TEXTSTYLE(fontsize: 14.0,fontweight: FontWeight.w400,color: Colors.black),
                       AssetName: AssetHelper.EmailIcon,
                       HintText: 'Email'),
                   MTextFormField(
-                      Style: TEXTSTYLE(fontsize:16.0, fontweight:FontWeight.w400, color:Colors.black),
+                      Style: TEXTSTYLE(fontsize:14.0, fontweight:FontWeight.w400, color:Colors.black),
                       AssetName: AssetHelper.password,
                       HintText: 'New Password'),
                   MTextFormField(
-                      Style: TEXTSTYLE(fontsize:16.0, fontweight:FontWeight.w400, color:Colors.black),
+                      Style: TEXTSTYLE(fontsize:14.0, fontweight:FontWeight.w400, color:Colors.black),
                       AssetName: AssetHelper.password,
                       HintText: 'Confirm Password'),
                 ],

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/components/textstyle.dart';
+import 'package:ui_with_getx/app/data/leavemodel.dart';
+import 'package:ui_with_getx/app/routes/app_pages.dart';
 import 'package:ui_with_getx/app/utils/asset_helper.dart';
 bool stat= true;
 Widget LeaveCard({
@@ -12,11 +14,21 @@ Widget LeaveCard({
 
   return Padding(
     padding: const EdgeInsets.only(left: 18.0, right: 18.0),
-    child: Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
+    child: Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset.zero,
+              color: Colors.grey.shade300,
+              blurStyle: BlurStyle.outer,
+              blurRadius: 10,
+            )
+          ]),
+      //elevation: 2,
+     // shape: RoundedRectangleBorder(
+       // borderRadius: BorderRadius.circular(10.0),
+    //  ),
       child: Padding(
         padding: const EdgeInsets.only(
           top: 18.0,
@@ -51,27 +63,50 @@ Widget LeaveCard({
                     )
                   ],
                 ),
+                if(Status=='Pending')
                 Container(
                   height: 20,
                   width: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: StatusBgColor),
+                      color: Color.fromRGBO(253, 231, 200, 1),),
                   child: Wrap(
                     spacing: 5,
                     alignment: WrapAlignment.center,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      Image.asset(StatusImg),
+                      Image.asset(AssetHelper.pending,),
                       Text(
                         '$Status',
                         style: TEXTSTYLE(
-                          color: StatusTextColor
+                          color: Color.fromRGBO(255, 149, 3, 1),
                         ),
                       )
                     ],
                   ),
                 )
+                else if(Status=='Approved')
+                  Container(
+                    height: 20,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color:  Color.fromRGBO(210, 246, 214, 1),),
+                    child: Wrap(
+                      spacing: 5,
+                      alignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Image.asset(AssetHelper.approved,),
+                        Text(
+                          '$Status',
+                          style: TEXTSTYLE(
+                            color:  Color.fromRGBO(53, 164, 67, 1),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
               ],
             ),
             Row(
@@ -103,8 +138,9 @@ Widget LeaveCard({
          if(stat==sts)
            Row(
              children: [
-               Expanded(
-                 child: Text(
+              Expanded(
+                 child:
+                 Text(
                    '$ReasonDes',
                    maxLines: 2,
                    overflow: TextOverflow.ellipsis,
@@ -115,9 +151,11 @@ Widget LeaveCard({
                        color: Colors.grey),
                  ),
                ),
-               SizedBox(width: Get.width * .3,),
-               GestureDetector(onTap: () {}, child: Image.asset(Edit)),
-               SizedBox(width: 10,),
+               SizedBox(width: Get.width * .25,),
+               GestureDetector(onTap: () {
+                 Get.toNamed(Routes.LEAVE_REQUEST);
+               }, child: Image.asset(Edit)),
+               SizedBox(width: 20,),
                GestureDetector(
                    onTap: () {}, child: Image.asset(Delete, scale: .8,)),
              ],

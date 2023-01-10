@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ui_with_getx/app/components/customcontainer.dart';
 
 class LeaveRequestController extends GetxController {
 
@@ -11,7 +12,7 @@ class LeaveRequestController extends GetxController {
   List<String> df=['Leave Type ','Caual Leave ', 'Sick Leave', ].obs;
   RxString EndDate= 'EndDate'.obs as RxString;
   RxString StartDate= 'StartDate'.obs as RxString;
-  List<Widget> HalforFull=<Widget>[Text('Full Day'),Text( 'Half Day')].obs;
+  List<Widget> HalforFull=<Widget>[CustomContainer(child: Text('Full Day',),),CustomContainer(child: Text( 'Half Day'))].obs;
   List<bool> Selected=<bool>[true,false].obs;
   RxString departmentType = 'Department Head'.obs as RxString;
   List<String> department=['Department Head','Emergency Medicine ','Icu care ', 'Ward ', ].obs;

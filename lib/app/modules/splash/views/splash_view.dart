@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/routes/app_pages.dart';
@@ -28,11 +29,11 @@ class _SplashScreenState extends State<SplashScreen> {
         crossAxisAlignment: WrapCrossAlignment.center,
         runSpacing: 12.0,
         children: [
-          Image.asset(AssetHelper.logoImag,),
+          SvgPicture.asset('asset/images/image.svg'),
           Image.asset(AssetHelper.images('splash.png'),
           ),
         ],
-      ) ,
+       ) ,
       ),
     );
   }

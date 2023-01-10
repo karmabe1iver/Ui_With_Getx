@@ -48,4 +48,5 @@ abstract class AssetHelper {
   static get Delete => images('DeleteIcon.png');
 
   static get Edit => images('ReWriteIcon.png');
+  static get svg => images('image.svg');
 }

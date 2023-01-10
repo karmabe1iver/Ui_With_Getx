@@ -25,7 +25,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
             scale: 1,
           ),
           Positioned(
-            left: 30,
+            left: 16,
             top: 40,
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -41,7 +41,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                   ),
                 ),
                 SizedBox(
-                  width: Get.width * .13,
+                  width: Get.width * .16,
                 ),
                 Text(
                   'Notice Board',
@@ -63,11 +63,22 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
             child: Container(
               width: Get.width * .85,
               height: Get.height * .23,
-              child: Card(
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset.zero,
+                      color: Colors.grey.shade300,
+                      blurStyle: BlurStyle.outer,
+                      blurRadius: 3,
+                    )
+                  ]),
+              // child: Card(
+              //   elevation: 2,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(20.0),
+              //   ),
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
@@ -132,7 +143,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                 ),
               ),
             ),
-          ),
+         // ),
           Positioned(left: 30, top: 320, child:  Container(
             width: Get.width * .85,
             height: Get.height * .23,

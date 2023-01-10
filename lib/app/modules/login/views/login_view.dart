@@ -62,7 +62,9 @@ class LoginView extends GetView<LoginController> {
                             ? controller.selected.value = 1
                             : controller.selected.value = null;
                       },
-                      checkColor: Color.fromRGBO(18, 132, 198, 1),
+                      hoverColor:Color.fromRGBO(18, 132, 198, 1) ,
+
+                      // Color.fromRGBO(18, 132, 198, 1),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                     ),

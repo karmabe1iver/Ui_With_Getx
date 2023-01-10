@@ -28,17 +28,27 @@ class DashboardView extends GetView<DashboardController> {
             alignment: Alignment.topLeft,
             children: [
               Container(
-                height: Get.height * .50,
+                height: Get.height * .48,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(60),
                       bottomLeft: Radius.circular(60)),
-                  color: Color.fromRGBO(18, 132, 198, 1),
+                  //color: Color.fromRGBO(18, 132, 198, 1),
+                    gradient: LinearGradient(
+                      colors: [Color.fromRGBO(76, 178, 229, 1),Color.fromRGBO(44, 157, 215, 1)]
+                    ),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset.zero,
+                      blurRadius: 2,
+                      blurStyle: BlurStyle.outer,
+                    )
+                  ]
                 ),
                 child: Column(children: [
                   SizedBox(
-                    height: Get.height * .10,
+                    height: Get.height * .11,
                   ),
                   CircleAvatar(
                     maxRadius: 65,
@@ -55,6 +65,7 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ),
                   ),
+                  SizedBox(height: Get.height*.01,),
                   Text(
                     'Registered Nurse',
                     style: TEXTSTYLE(
@@ -76,10 +87,10 @@ class DashboardView extends GetView<DashboardController> {
                 scale: 1,
               ),
               Positioned(
-                left: 30,
+                left: 16,
                 top: 40,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
                       onPressed: () {
@@ -91,19 +102,20 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ),
                     SizedBox(
-                      width: Get.width * .13,
+                      width: Get.width * .16,
                     ),
-                    Text(
-                      'DashBoard',
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        fontsize: 24.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: Get.width * .13,
-                    )
+                     Text(
+                       'DashBoard',
+                       style: TEXTSTYLE(
+                         fontweight: FontWeight.w500,
+                         fontsize: 24.0,
+                         color: Colors.white,
+                       ),
+                     ),
+
+                    // SizedBox(
+                    //   width: Get.width * .13,
+                    // )
                   ],
                 ),
               ),
@@ -114,8 +126,8 @@ class DashboardView extends GetView<DashboardController> {
             child:
             Center(
               child: Wrap(
-                spacing: 10,
-                runSpacing: 10,
+                spacing: 20,
+                runSpacing: 20,
                 children: [
                   // child: GridView.count(crossAxisCount: 2,
                   //   scrollDirection: Axis.vertical,
@@ -131,7 +143,7 @@ class DashboardView extends GetView<DashboardController> {
                     onTap: () {
                       Get.toNamed(Routes.LEAVE_REQUEST);
                     },
-                    AssetHelperImag: AssetHelper.leaverwquest,
+                    AssetHelperImag: AssetHelper.leaverwquest,scale: .8,
                     titile: 'Leave Request',
                   ),
                   Mcard(

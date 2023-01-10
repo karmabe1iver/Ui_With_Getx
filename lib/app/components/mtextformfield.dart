@@ -2,6 +2,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 Widget MTextFormField(
     {AssetName,
@@ -11,18 +13,19 @@ Widget MTextFormField(
   return Padding(
     padding: const EdgeInsets.only(left: 18.0,right: 18.0 ,top: 18.0),
     child: Container(
-      // height: Get.height*.07,
-        height: 60,
+      height: Get.height*.058,
+
 
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(30),
+          border: Border.all(color:Color.fromRGBO(196, 199, 201, 1)),
+          borderRadius: BorderRadius.circular(50),
         ),
         child:
 
         Padding(
           padding: const EdgeInsets.only(left: 18.0),
           child: TextFormField(
+
             style: Style,
             //controller: TextEditingController,
             decoration: InputDecoration(
