@@ -133,34 +133,45 @@ class MyLeavesView extends GetView<MyLeavesController> {
           ),
           Expanded(
             child: Container(
-              child: ListView.builder(
-                itemCount: Leavefield.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 24.0,),
-                    child: SingleChildScrollView(
-                      child: Wrap(
-                        runSpacing: 40,
-                        children: [
-                          LeaveCard(
-                            sts: Leavefield[index].sts,
-                            Reason: Leavefield[index].Reason,
-                            Catogery: Leavefield[index].Category,
-                            Status: Leavefield[index].Status,
-                            StatusBgColor: Color.fromRGBO(253, 231, 200, 1),
-                            StatusImg: AssetHelper.pending,
-                            StatusTextColor: Color.fromRGBO(255, 149, 3, 1),
-                            LeaveFrom: Leavefield[index].LeaveFrom,
-                            LeaveTo: Leavefield[index].LeaveTo,
-                            ReasonDes: Leavefield[index].ResonDes,
-                            Edit: AssetHelper.Edit,
-                            Delete: AssetHelper.Delete,
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
+              child: NotificationListener<OverscrollIndicatorNotification>(
+                onNotification: (OverscrollIndicatorNotification overscroll) {
+                  overscroll.disallowIndicator();
+                  return true;
                 },
+                child: ListView.builder(
+                 // physics: ClampingScrollPhysics(),
+                  itemCount: Leavefield.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 24.0,),
+                      
+                       
+                        child: SingleChildScrollView(
+                         // physics: BouncingScrollPhysics(),
+                          child: Wrap(
+                            runSpacing: 40,
+                            children: [
+                              LeaveCard(
+                                sts: Leavefield[index].sts,
+                                Reason: Leavefield[index].Reason,
+                                Catogery: Leavefield[index].Category,
+                                Status: Leavefield[index].Status,
+                                StatusBgColor: Color.fromRGBO(253, 231, 200, 1),
+                                StatusImg: AssetHelper.pending,
+                                StatusTextColor: Color.fromRGBO(255, 149, 3, 1),
+                                LeaveFrom: Leavefield[index].LeaveFrom,
+                                LeaveTo: Leavefield[index].LeaveTo,
+                                ReasonDes: Leavefield[index].ResonDes,
+                                Edit: AssetHelper.Edit,
+                                Delete: AssetHelper.Delete,
+                              ),
+                            ],
+                          ),
+                        ),
+
+                    );
+                  },
+                ),
               ),
               // LeaveCard(
               //     Reason: 'Suffering From Cold',

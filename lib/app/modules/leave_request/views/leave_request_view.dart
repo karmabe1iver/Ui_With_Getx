@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 import 'package:ui_with_getx/app/components/dropdown.dart';
 import 'package:ui_with_getx/app/components/mbutton.dart';
 
@@ -120,161 +121,168 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
             ],
           ),
           Expanded(
-            child: SingleChildScrollView(
-              reverse: false,
-              child: Wrap(runSpacing: 25, children: [
-                Obx(
-                  () => Padding(
-                    padding:
-                        const EdgeInsets.only(left: 24.0, right: 24.0, top: 24),
-                    child: dropDownBox(
-                        FunctioOnchanged: (String? value) {
-                          // This is called when the user selects an item.
-                          controller.dropdownText.value = value!;
-                          print(controller.dropdownText.value);
-                        },
-                        ListItem: controller.df
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        ListValue: controller.dropdownText.value),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 24.0,
-                    right: 24.0,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () async {
-                          DateTime? pickDate = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: //DateTime(1950),
-                                  DateTime.now(),
-                              //- not to allow to choose before today.
-                              lastDate: DateTime(2100));
-                          String convertedDate =
-                              DateFormat.yMMMd('en_US').format(pickDate!);
+            child:  NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (OverscrollIndicatorNotification overscroll) {
+                overscroll.disallowIndicator();
+                return true;
+              },
+              child: SingleChildScrollView(
 
-                          controller.StartDate.value = convertedDate.toString();
-                        },
-                        // child: Card(
-                        //   shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(10)),
-                        //   elevation: 1,
-                        child: Container(
-                          height: Get.height * .06,
-                          width: Get.width * .40,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  offset: Offset.zero,
-                                  color: Colors.grey.shade300,
-                                  blurStyle: BlurStyle.outer,
-                                  blurRadius: 10,
-                                )
-                              ]),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 18.0, top: 12),
-                            child: Wrap(
-                              spacing: 10,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: [
-                                Image.asset(
-                                  AssetHelper.Calender,
-                                  scale: 1.8,
-                                ),
-                                Obx(
-                                  () => Text(
-                                    // controller: ,
-                                    style: TEXTSTYLE(
-                                        fontweight: FontWeight.w400,
-                                        fontsize: 16.0,
-                                        color: Colors.black),
+                reverse: false,
+                child: Wrap(runSpacing: 25, children: [
+                  Obx(
+                    () => Padding(
+                      padding:
+                          const EdgeInsets.only(left: 24.0, right: 24.0, top: 24),
+                      child: dropDownBox(
+                          FunctioOnchanged: (String? value) {
+                            // This is called when the user selects an item.
+                            controller.dropdownText.value = value!;
+                            print(controller.dropdownText.value);
+                          },
+                          ListItem: controller.df
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          ListValue: controller.dropdownText.value),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 24.0,
+                      right: 24.0,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () async {
+                            DateTime? pickDate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: //DateTime(1950),
+                                    DateTime.now(),
+                                //- not to allow to choose before today.
+                                lastDate: DateTime(2100));
+                            String convertedDate =
+                                DateFormat.yMMMd('en_US').format(pickDate!);
 
-                                    '${controller.StartDate.value}',
+                            controller.StartDate.value = convertedDate.toString();
+                          },
+                          // child: Card(
+                          //   shape: RoundedRectangleBorder(
+                          //       borderRadius: BorderRadius.circular(10)),
+                          //   elevation: 1,
+                          child: Container(
+                            height: Get.height * .06,
+                            width: Get.width * .40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    offset: Offset.zero,
+                                    color: Colors.grey.shade300,
+                                    blurStyle: BlurStyle.outer,
+                                    blurRadius: 10,
+                                  )
+                                ]),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 18.0, top: 12),
+                              child: Wrap(
+                                spacing: 10,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    AssetHelper.Calender,
+                                    scale: 1.8,
                                   ),
-                                ),
-                              ],
+                                  Obx(
+                                    () => Text(
+                                      // controller: ,
+                                      style: TEXTSTYLE(
+                                          fontweight: FontWeight.w400,
+                                          fontsize: 16.0,
+                                          color: Colors.black),
+
+                                      '${controller.StartDate.value}',
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      //  ),
-                      GestureDetector(
-                        onTap: () async {
-                          DateTime? pickDate = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: //DateTime(1950),
-                                  DateTime.now(),
-                              //- not to allow to choose before today.
-                              lastDate: DateTime(2100));
-                          // print(pickDate);
-                          String convertedDate =
-                              DateFormat.yMMMd('en_US').format(pickDate!);
+                        //  ),
+                        GestureDetector(
+                          onTap: () async {
+                            DateTime? pickDate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: //DateTime(1950),
+                                    DateTime.now(),
+                                //- not to allow to choose before today.
+                                lastDate: DateTime(2100));
+                            // print(pickDate);
+                            String convertedDate =
+                                DateFormat.yMMMd('en_US').format(pickDate!);
 
-                          controller.EndDate.value = convertedDate.toString();
-                        },
-                        // child: Card(
-                        //   shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(10)),
-                        //   elevation: 1,
-                        child: Container(
-                          height: Get.height * .06,
-                          width: Get.width * .40,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  offset: Offset.zero,
-                                  color: Colors.grey.shade300,
-                                  blurStyle: BlurStyle.outer,
-                                  blurRadius: 10,
-                                )
-                              ]),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 18.0, top: 12.0),
-                            child: Wrap(
-                              spacing: 10,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: [
-                                Image.asset(
-                                  AssetHelper.Calender,
-                                  scale: 1.8,
-                                ),
-                                // if(pickDate)
-                                Obx(
-                                  () => Text(
-                                    // controller: ,
-                                    style: TEXTSTYLE(
-                                        fontweight: FontWeight.w400,
-                                        fontsize: 16.0,
-                                        color: Colors.black),
-
-                                    '${controller.EndDate.value}',
+                            controller.EndDate.value = convertedDate.toString();
+                          },
+                          // child: Card(
+                          //   shape: RoundedRectangleBorder(
+                          //       borderRadius: BorderRadius.circular(10)),
+                          //   elevation: 1,
+                          child: Container(
+                            height: Get.height * .06,
+                            width: Get.width * .40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    offset: Offset.zero,
+                                    color: Colors.grey.shade300,
+                                    blurStyle: BlurStyle.outer,
+                                    blurRadius: 10,
+                                  )
+                                ]),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 18.0, top: 12.0),
+                              child: Wrap(
+                                spacing: 10,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    AssetHelper.Calender,
+                                    scale: 1.8,
                                   ),
-                                ),
-                              ],
+                                  // if(pickDate)
+                                  Obx(
+                                    () => Text(
+                                      // controller: ,
+                                      style: TEXTSTYLE(
+                                          fontweight: FontWeight.w400,
+                                          fontsize: 16.0,
+                                          color: Colors.black),
+
+                                      '${controller.EndDate.value}',
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        // ),
-                      )
-                    ],
+                          // ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Obx(
-                  () => Padding(
+                  // Obx(
+                  //  () =>
+                  Padding(
                     padding: const EdgeInsets.only(left: 24.0, right: 24.0),
                     child: FittedBox(
                       child: Container(
@@ -291,116 +299,143 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                 blurRadius: 10,
                               )
                             ]),
-                        child: ToggleButtons(
-                          direction: Axis.horizontal,
-                          onPressed: (int index) {
-                            // The button that is tapped is set to true, and the others to false.
-                            for (int i = 0;
-                                i < controller.Selected.length;
-                                i++) {
-                              controller.Selected[i] = i == index;
-                            }
+                        child: ToggleSwitch(
+                          minWidth: Get.width * .44,
+                          minHeight: Get.height * .058,
+                          cornerRadius: 10.0,
+                          activeBgColors: [
+                            [
+                              Color.fromRGBO(18, 132, 198, 1),
+                            ],
+                            [
+                              Color.fromRGBO(18, 132, 198, 1),
+                            ]
+                          ],
+                          activeFgColor: Colors.white,
+                          inactiveBgColor: Colors.white,
+                          inactiveFgColor: Color.fromRGBO(18, 132, 198, 1),
+                          initialLabelIndex: 1,
+                          fontSize: 17,
+                          totalSwitches: 2,
+                          labels: controller.Halforfull,
+                          radiusStyle: true,
+                          onToggle: (index) {
+                            print('switched to: $index');
                           },
+                        ),
+
+                        // ToggleButtons(
+                        //   direction: Axis.horizontal,
+                        //   onPressed: (int index) {
+                        //     // The button that is tapped is set to true, and the others to false.
+                        //     for (int i = 0;
+                        //         i < controller.Selected.length;
+                        //         i++) {
+                        //       controller.Selected[i] = i == index;
+                        //     }
+                        //   },
+                        //   borderRadius: BorderRadius.circular(10),
+                        //   renderBorder: false,
+                        //   // selectedBorderColor: Colors.blue,
+                        //   selectedColor: Colors.white,
+                        //   fillColor: Color.fromRGBO(18, 132, 198, 1),
+                        //   color: Color.fromRGBO(18, 132, 198, 1),
+                        //   textStyle: TEXTSTYLE(
+                        //     fontweight: FontWeight.w400,
+                        //     fontsize: 18.0,
+                        //   ),
+                        //
+                        //   borderColor: Colors.transparent,
+                        //   constraints: BoxConstraints.expand(
+                        //       width: Get.width * .434,
+                        //       height: Get.height * .067),
+                        //   //number 2 is number of toggle buttons
+                        //
+                        //   isSelected: controller.Selected,
+                        //   children: controller.HalforFull,
+                        // ),
+                      ),
+                    ),
+                  ),
+                  //  ),
+                  Obx(
+                    () => Padding(
+                      padding: const EdgeInsets.only(
+                        left: 24.0,
+                        right: 24.0,
+                      ),
+                      child: dropDownBox(
+                        ListValue: controller.departmentType.value,
+                        ListItem: controller.department
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        FunctioOnchanged: (String? value) {
+                          //            This is called when the user selects an item.
+                          controller.departmentType.value = value!;
+                        },
+                      ),
+                    ),
+                  ),
+                  //if(!isKeyBoard)
+                  // Padding(
+                  //   padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+                  // child: Card(
+                  //   elevation: 1,
+                  //   shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(20)),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: 24.0,right: 24.0,
+                        bottom: MediaQuery.of(context).viewInsets.top),
+                    child: Container(
+                      height: Get.height * .16,
+                      decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          renderBorder: true,
-                          // selectedBorderColor: Colors.blue,
-                          selectedColor: Colors.white,
-                          fillColor: Color.fromRGBO(18, 132, 198, 1),
-                          color: Color.fromRGBO(18, 132, 198, 1),
-                          textStyle: TEXTSTYLE(
-                            fontweight: FontWeight.w400,
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset.zero,
+                              color: Colors.grey.shade300,
+                              blurStyle: BlurStyle.outer,
+                              blurRadius: 10,
+                            )
+                          ]),
+                      //  child:
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 12.0),
+                        child: TextFormField(
+                          //autofocus: true,
+
+                          // initialValue: 'Reason',
+                          style: TEXTSTYLE(
                             fontsize: 18.0,
+                            fontweight: FontWeight.w500,
                           ),
-                          borderColor: Colors.transparent,
-                          constraints: BoxConstraints.expand(
-                              width: Get.width * .434,
-                              height: Get.height * .067),
-                          //number 2 is number of toggle buttons
-
-                          isSelected: controller.Selected,
-                          children: controller.HalforFull,
+                          decoration: InputDecoration(
+                              border: InputBorder.none, hintText: 'Reason'),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Obx(
-                  () => Padding(
-                    padding: const EdgeInsets.only(
-                      left: 24.0,
-                      right: 24.0,
-                    ),
-                    child: dropDownBox(
-                      ListValue: controller.departmentType.value,
-                      ListItem: controller.department
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      FunctioOnchanged: (String? value) {
-                        //            This is called when the user selects an item.
-                        controller.departmentType.value = value!;
-                      },
-                    ),
-                  ),
-                ),
-                //if(!isKeyBoard)
-                // Padding(
-                //   padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-                // child: Card(
-                //   elevation: 1,
-                //   shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(20)),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: 18.0,
-                      bottom: MediaQuery.of(context).viewInsets.top),
-                  child: Container(
-                    height: Get.height * .16,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: Offset.zero,
-                            color: Colors.grey.shade300,
-                            blurStyle: BlurStyle.outer,
-                            blurRadius: 10,
-                          )
-                        ]),
-                    //  child:
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: TextFormField(
-                        //autofocus: true,
 
-                        // initialValue: 'Reason',
-                        style: TEXTSTYLE(
-                          fontsize: 18.0,
-                          fontweight: FontWeight.w500,
-                        ),
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Reason'),
-                      ),
+                  //),
+                  if (WidgetsBinding.instance.window.viewInsets.bottom > 0.0)
+                    SizedBox(
+                      height: 10,
+                      width: double.infinity,
+                    )
+                  else
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MButton(onPress: () {}, string: 'Submit Request'),
+                      ],
                     ),
-                  ),
-                ),
-
-                //),
-                if (WidgetsBinding.instance.window.viewInsets.bottom > 0.0)
-                  SizedBox(
-                    height: 10,
-                    width: double.infinity,
-                  )
-                else
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MButton(onPress: () {}, string: 'Submit Request'),
-                    ],
-                  ),
-              ]),
+                ]),
+              ),
             ),
           ),
         ],

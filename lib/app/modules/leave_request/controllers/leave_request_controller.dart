@@ -13,6 +13,7 @@ class LeaveRequestController extends GetxController {
   RxString EndDate= 'EndDate'.obs as RxString;
   RxString StartDate= 'StartDate'.obs as RxString;
   List<Widget> HalforFull=<Widget>[CustomContainer(child: Text('Full Day',),),CustomContainer(child: Text( 'Half Day'))].obs;
+  List<String> Halforfull=['Full Day','Half Day'].obs;
   List<bool> Selected=<bool>[true,false].obs;
   RxString departmentType = 'Department Head'.obs as RxString;
   List<String> department=['Department Head','Emergency Medicine ','Icu care ', 'Ward ', ].obs;
