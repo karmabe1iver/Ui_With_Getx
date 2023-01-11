@@ -156,7 +156,7 @@ class DashboardView extends GetView<DashboardController> {
                     onTap: () {
                       Get.to(MyShiftView());
                     },
-                    AssetHelperImag: AssetHelper.Calender,
+                    AssetHelperImag: AssetHelper.calender,
                     AssetHelperImag2: AssetHelper.userSm,
                     titile: 'My Shift',
                   ),

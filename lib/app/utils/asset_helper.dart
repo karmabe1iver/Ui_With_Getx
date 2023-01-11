@@ -21,7 +21,7 @@ abstract class AssetHelper {
 
   static get component => images('Component.png');
 
-  static get EmailIcon => images('EmailIcon.png');
+  static get emailIcon => images('EmailIcon.png');
 
   static get password => images('Vector.png');
 
@@ -31,7 +31,7 @@ abstract class AssetHelper {
 
   static get noticeboard => images('noticeboard.png');
 
-  static get Calender => images('AlternateCalendar.png');
+  static get calender => images('AlternateCalendar.png');
 
   static get userSm => images('UserCircle.png');
 
@@ -45,8 +45,8 @@ abstract class AssetHelper {
 
   static get leaveBox => images('leavebox.png');
 
-  static get Delete => images('DeleteIcon.png');
+  static get delete => images('DeleteIcon.png');
 
-  static get Edit => images('ReWriteIcon.png');
+  static get edit => images('ReWriteIcon.png');
   static get svg => images('image.svg');
 }

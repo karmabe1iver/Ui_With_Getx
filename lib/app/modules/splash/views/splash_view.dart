@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/routes/app_pages.dart';
@@ -15,9 +15,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () => Get.offNamed(Routes.LOGIN));
+    Timer(const Duration(seconds: 3), () => Get.offNamed(Routes.LOGIN));
   }
   @override
   Widget build(BuildContext context) {

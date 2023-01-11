@@ -40,7 +40,7 @@ class LoginView extends GetView<LoginController> {
             children: [
               MTextFormField(
                   Style: TEXTSTYL(16.0, FontWeight.w400, Colors.black),
-                  AssetName: AssetHelper.EmailIcon,
+                  AssetName: AssetHelper.emailIcon,
                   HintText: 'Email'),
               MTextFormField(
                   Style: TEXTSTYL(16.0, FontWeight.w400, Colors.black),

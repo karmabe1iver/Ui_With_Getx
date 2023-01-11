@@ -121,19 +121,18 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
             ],
           ),
           Expanded(
-            child:  NotificationListener<OverscrollIndicatorNotification>(
+            child: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (OverscrollIndicatorNotification overscroll) {
                 overscroll.disallowIndicator();
                 return true;
               },
               child: SingleChildScrollView(
-
                 reverse: false,
                 child: Wrap(runSpacing: 25, children: [
                   Obx(
                     () => Padding(
-                      padding:
-                          const EdgeInsets.only(left: 24.0, right: 24.0, top: 24),
+                      padding: const EdgeInsets.only(
+                          left: 24.0, right: 24.0, top: 24),
                       child: dropDownBox(
                           FunctioOnchanged: (String? value) {
                             // This is called when the user selects an item.
@@ -169,8 +168,10 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                 lastDate: DateTime(2100));
                             String convertedDate =
                                 DateFormat.yMMMd('en_US').format(pickDate!);
+                            controller.Start.value = pickDate;
 
-                            controller.StartDate.value = convertedDate.toString();
+                            controller.StartDate.value =
+                                convertedDate.toString();
                           },
                           // child: Card(
                           //   shape: RoundedRectangleBorder(
@@ -190,13 +191,14 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                   )
                                 ]),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 18.0, top: 12),
+                              padding:
+                                  const EdgeInsets.only(left: 18.0, top: 12),
                               child: Wrap(
                                 spacing: 10,
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   Image.asset(
-                                    AssetHelper.Calender,
+                                    AssetHelper.calender,
                                     scale: 1.8,
                                   ),
                                   Obx(
@@ -218,16 +220,17 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         //  ),
                         GestureDetector(
                           onTap: () async {
-                            DateTime? pickDate = await showDatePicker(
+                            DateTime? pickedDate = await showDatePicker(
                                 context: context,
-                                initialDate: DateTime.now(),
+                                initialDate: controller.Start.value,
                                 firstDate: //DateTime(1950),
-                                    DateTime.now(),
+                                    controller.Start.value,
+                                //  DateTime.now(),
                                 //- not to allow to choose before today.
                                 lastDate: DateTime(2100));
                             // print(pickDate);
                             String convertedDate =
-                                DateFormat.yMMMd('en_US').format(pickDate!);
+                                DateFormat.yMMMd('en_US').format(pickedDate!);
 
                             controller.EndDate.value = convertedDate.toString();
                           },
@@ -256,7 +259,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   Image.asset(
-                                    AssetHelper.Calender,
+                                    AssetHelper.calender,
                                     scale: 1.8,
                                   ),
                                   // if(pickDate)
@@ -280,84 +283,87 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                       ],
                     ),
                   ),
-                  // Obx(
-                  //  () =>
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-                    child: FittedBox(
-                      child: Container(
-                        // elevation: 1,
-                        // shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(10)),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset.zero,
-                                color: Colors.grey.shade300,
-                                blurStyle: BlurStyle.outer,
-                                blurRadius: 10,
-                              )
-                            ]),
-                        child: ToggleSwitch(
-                          minWidth: Get.width * .44,
-                          minHeight: Get.height * .058,
-                          cornerRadius: 10.0,
-                          activeBgColors: [
-                            [
-                              Color.fromRGBO(18, 132, 198, 1),
+                  Obx(
+                    () =>
+                        Padding(
+                      padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+                      child: FittedBox(
+                        child: Container(
+                          // elevation: 1,
+                          // shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(10)),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  offset: Offset.zero,
+                                  color: Colors.grey.shade300,
+                                  blurStyle: BlurStyle.outer,
+                                  blurRadius: 10,
+                                )
+                              ]),
+                          child: ToggleSwitch(
+                            minWidth: Get.width * .44,
+                            minHeight: Get.height * .058,
+                            cornerRadius: 10.0,
+                            activeBgColors: [
+                              [
+                                Color.fromRGBO(18, 132, 198, 1),
+                              ],
+                              [
+                                Color.fromRGBO(18, 132, 198, 1),
+                              ]
                             ],
-                            [
-                              Color.fromRGBO(18, 132, 198, 1),
-                            ]
-                          ],
-                          activeFgColor: Colors.white,
-                          inactiveBgColor: Colors.white,
-                          inactiveFgColor: Color.fromRGBO(18, 132, 198, 1),
-                          initialLabelIndex: 1,
-                          fontSize: 17,
-                          totalSwitches: 2,
-                          labels: controller.Halforfull,
-                          radiusStyle: true,
-                          onToggle: (index) {
-                            print('switched to: $index');
-                          },
-                        ),
+                            activeFgColor: Colors.white,
+                            inactiveBgColor: Colors.white,
+                            inactiveFgColor: Color.fromRGBO(18, 132, 198, 1),
+                            initialLabelIndex:controller.Intial.value,
+                            fontSize: 17,
+                            totalSwitches: 2,
+                            labels: controller.Halforfull,
+                            radiusStyle: true,
+                            onToggle: (index) {
+                               controller.Intial.value= index!  ;
+                              print('switched to: $index');
+                              print(controller.Selected.length);
+                              print(controller.Intial.value);
+                            },
+                          ),
 
-                        // ToggleButtons(
-                        //   direction: Axis.horizontal,
-                        //   onPressed: (int index) {
-                        //     // The button that is tapped is set to true, and the others to false.
-                        //     for (int i = 0;
-                        //         i < controller.Selected.length;
-                        //         i++) {
-                        //       controller.Selected[i] = i == index;
-                        //     }
-                        //   },
-                        //   borderRadius: BorderRadius.circular(10),
-                        //   renderBorder: false,
-                        //   // selectedBorderColor: Colors.blue,
-                        //   selectedColor: Colors.white,
-                        //   fillColor: Color.fromRGBO(18, 132, 198, 1),
-                        //   color: Color.fromRGBO(18, 132, 198, 1),
-                        //   textStyle: TEXTSTYLE(
-                        //     fontweight: FontWeight.w400,
-                        //     fontsize: 18.0,
-                        //   ),
-                        //
-                        //   borderColor: Colors.transparent,
-                        //   constraints: BoxConstraints.expand(
-                        //       width: Get.width * .434,
-                        //       height: Get.height * .067),
-                        //   //number 2 is number of toggle buttons
-                        //
-                        //   isSelected: controller.Selected,
-                        //   children: controller.HalforFull,
-                        // ),
+                          // ToggleButtons(
+                          //   direction: Axis.horizontal,
+                          //   onPressed: (int index) {
+                          //     // The button that is tapped is set to true, and the others to false.
+                          //     for (int i = 0;
+                          //         i < controller.Selected.length;
+                          //         i++) {
+                          //       controller.Selected[i] = i == index;
+                          //     }
+                          //   },
+                          //   borderRadius: BorderRadius.circular(10),
+                          //   renderBorder: false,
+                          //   // selectedBorderColor: Colors.blue,
+                          //   selectedColor: Colors.white,
+                          //   fillColor: Color.fromRGBO(18, 132, 198, 1),
+                          //   color: Color.fromRGBO(18, 132, 198, 1),
+                          //   textStyle: TEXTSTYLE(
+                          //     fontweight: FontWeight.w400,
+                          //     fontsize: 18.0,
+                          //   ),
+                          //
+                          //   borderColor: Colors.transparent,
+                          //   constraints: BoxConstraints.expand(
+                          //       width: Get.width * .434,
+                          //       height: Get.height * .067),
+                          //   //number 2 is number of toggle buttons
+                          //
+                          //   isSelected: controller.Selected,
+                          //   children: controller.HalforFull,
+                          // ),
+                        ),
                       ),
                     ),
-                  ),
-                  //  ),
+                 ),
                   Obx(
                     () => Padding(
                       padding: const EdgeInsets.only(
@@ -389,7 +395,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                   //       borderRadius: BorderRadius.circular(20)),
                   Padding(
                     padding: EdgeInsets.only(
-                        left: 24.0,right: 24.0,
+                        left: 24.0,
+                        right: 24.0,
                         bottom: MediaQuery.of(context).viewInsets.top),
                     child: Container(
                       height: Get.height * .16,

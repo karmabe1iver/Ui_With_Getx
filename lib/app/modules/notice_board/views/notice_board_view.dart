@@ -16,7 +16,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          const SizedBox(
             height: double.infinity,
             width: double.infinity,
           ),
@@ -35,7 +35,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                   onPressed: () {
                     Get.back();
                   },
-                  icon: Icon(
+                  icon:const  Icon(
                     Icons.arrow_back,
                     color: Color.fromRGBO(18, 132, 198, 1),
                   ),
@@ -48,7 +48,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                   style: TEXTSTYLE(
                     fontweight: FontWeight.w500,
                     fontsize: 24.0,
-                    color: Color.fromRGBO(18, 132, 198, 1),
+                    color:const Color.fromRGBO(18, 132, 198, 1),
                   ),
                 ),
                 SizedBox(
@@ -90,7 +90,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                         style: TEXTSTYLE(
                           fontweight: FontWeight.w500,
                           fontsize: 20.0,
-                          color: Color.fromRGBO(18, 132, 198, 1),
+                          color:const Color.fromRGBO(18, 132, 198, 1),
                         ),
                       ),
                       Row(
@@ -99,7 +99,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                             'Posted On  :',
                             style: TEXTSTYLE(
                               fontweight: FontWeight.w500,
-                              color: Color.fromRGBO(18, 132, 198, 1),
+                              color:const Color.fromRGBO(18, 132, 198, 1),
                               fontsize: 12.0,
                             ),
                           ),
@@ -127,12 +127,12 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                       ),
                       Row(
                         children: [
-                          Spacer(),
+                         const Spacer(),
                           Text(
                             'Read More',
                             style: TEXTSTYLE(
                               fontweight: FontWeight.w500,
-                              color: Color.fromRGBO(18, 132, 198, 1),
+                              color:const Color.fromRGBO(18, 132, 198, 1),
                               fontsize: 15.0,
                             ),
                           ),
@@ -144,7 +144,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
               ),
             ),
          // ),
-          Positioned(left: 30, top: 320, child:  Container(
+          Positioned(left: 30, top: 320, child:  SizedBox(
             width: Get.width * .85,
             height: Get.height * .23,
             child: Card(
@@ -163,7 +163,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                       style: TEXTSTYLE(
                         fontweight: FontWeight.w500,
                         fontsize: 20.0,
-                        color: Color.fromRGBO(18, 132, 198, 1),
+                        color:const Color.fromRGBO(18, 132, 198, 1),
                       ),
                     ),
                     Row(
@@ -172,7 +172,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                           'Posted On  :',
                           style: TEXTSTYLE(
                             fontweight: FontWeight.w500,
-                            color: Color.fromRGBO(18, 132, 198, 1),
+                            color:const Color.fromRGBO(18, 132, 198, 1),
                             fontsize: 12.0,
                           ),
                         ),
@@ -200,12 +200,12 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                     ),
                     Row(
                       children: [
-                        Spacer(),
+                       const Spacer(),
                         Text(
                           'Read More',
                           style: TEXTSTYLE(
                             fontweight: FontWeight.w500,
-                            color: Color.fromRGBO(18, 132, 198, 1),
+                            color:const Color.fromRGBO(18, 132, 198, 1),
                             fontsize: 15.0,
                           ),
                         ),
@@ -216,7 +216,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
               ),
             ),
           ),),
-          Positioned(left: 30, top: 540, child: Container(
+          Positioned(left: 30, top: 540, child: SizedBox(
             width: Get.width * .85,
             height: Get.height * .23,
             child: Card(
@@ -235,7 +235,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                       style: TEXTSTYLE(
                         fontweight: FontWeight.w500,
                         fontsize: 20.0,
-                        color: Color.fromRGBO(18, 132, 198, 1),
+                        color:const Color.fromRGBO(18, 132, 198, 1),
                       ),
                     ),
                     Row(
@@ -244,7 +244,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                           'Posted On  :',
                           style: TEXTSTYLE(
                             fontweight: FontWeight.w500,
-                            color: Color.fromRGBO(18, 132, 198, 1),
+                            color:const Color.fromRGBO(18, 132, 198, 1),
                             fontsize: 12.0,
                           ),
                         ),
@@ -272,12 +272,12 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                     ),
                     Row(
                       children: [
-                        Spacer(),
+                       const Spacer(),
                         Text(
                           'Read More',
                           style: TEXTSTYLE(
                             fontweight: FontWeight.w500,
-                            color: Color.fromRGBO(18, 132, 198, 1),
+                            color:const Color.fromRGBO(18, 132, 198, 1),
                             fontsize: 15.0,
                           ),
                         ),

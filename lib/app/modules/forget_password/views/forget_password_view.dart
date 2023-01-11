@@ -42,7 +42,7 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
                 children: [
                   MTextFormField(
                       Style: TEXTSTYLE(fontsize: 14.0,fontweight: FontWeight.w400,color: Colors.black),
-                      AssetName: AssetHelper.EmailIcon,
+                      AssetName: AssetHelper.emailIcon,
                       HintText: 'Email'),
                   MTextFormField(
                       Style: TEXTSTYLE(fontsize:14.0, fontweight:FontWeight.w400, color:Colors.black),
