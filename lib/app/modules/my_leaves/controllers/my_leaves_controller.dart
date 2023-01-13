@@ -4,6 +4,7 @@ class MyLeavesController extends GetxController {
   //TODO: Implement MyLeavesController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

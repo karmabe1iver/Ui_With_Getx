@@ -114,7 +114,7 @@ class MyShiftView extends GetView<MyShiftController> {
             ),
           ]),
           Padding(
-            padding: const EdgeInsets.only(left: 24.0,top: 24,right: 24),
+            padding: const EdgeInsets.only(left: 24.0, top: 24, right: 24),
             child: Container(
               // elevation: 3,
               // shape: RoundedRectangleBorder(

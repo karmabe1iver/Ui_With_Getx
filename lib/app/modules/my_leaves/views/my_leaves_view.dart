@@ -23,14 +23,15 @@ class MyLeavesView extends GetView<MyLeavesController> {
                 height: Get.height * .29,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(60),
-                        bottomLeft: Radius.circular(60)),
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(60),
+                      bottomLeft: Radius.circular(60)),
 
                   //  color: Colors.blue
-                  gradient: LinearGradient(
-                      colors: [Color.fromRGBO(76, 178, 229, 1),Color.fromRGBO(44, 157, 215, 1)]
-                  ),
+                  gradient: LinearGradient(colors: [
+                    Color.fromRGBO(76, 178, 229, 1),
+                    Color.fromRGBO(44, 157, 215, 1)
+                  ]),
                 ),
                 child: Column(
                   children: [
@@ -139,36 +140,35 @@ class MyLeavesView extends GetView<MyLeavesController> {
                   return true;
                 },
                 child: ListView.builder(
-                 // physics: ClampingScrollPhysics(),
+                  // physics: ClampingScrollPhysics(),
                   itemCount: Leavefield.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(bottom: 24.0,),
-                      
-                       
-                        child: SingleChildScrollView(
-                         // physics: BouncingScrollPhysics(),
-                          child: Wrap(
-                            runSpacing: 40,
-                            children: [
-                              LeaveCard(
-                                sts: Leavefield[index].sts,
-                                Reason: Leavefield[index].Reason,
-                                Catogery: Leavefield[index].Category,
-                                Status: Leavefield[index].Status,
-                                StatusBgColor: Color.fromRGBO(253, 231, 200, 1),
-                                StatusImg: AssetHelper.pending,
-                                StatusTextColor: Color.fromRGBO(255, 149, 3, 1),
-                                LeaveFrom: Leavefield[index].LeaveFrom,
-                                LeaveTo: Leavefield[index].LeaveTo,
-                                ReasonDes: Leavefield[index].ResonDes,
-                                Edit: AssetHelper.edit,
-                                Delete: AssetHelper.delete,
-                              ),
-                            ],
-                          ),
+                      padding: const EdgeInsets.only(
+                        bottom: 24.0,
+                      ),
+                      child: SingleChildScrollView(
+                        // physics: BouncingScrollPhysics(),
+                        child: Wrap(
+                          runSpacing: 40,
+                          children: [
+                            LeaveCard(
+                              sts: Leavefield[index].sts,
+                              Reason: Leavefield[index].Reason,
+                              Catogery: Leavefield[index].Category,
+                              Status: Leavefield[index].Status,
+                              StatusBgColor: Color.fromRGBO(253, 231, 200, 1),
+                              StatusImg: AssetHelper.pending,
+                              StatusTextColor: Color.fromRGBO(255, 149, 3, 1),
+                              LeaveFrom: Leavefield[index].LeaveFrom,
+                              LeaveTo: Leavefield[index].LeaveTo,
+                              ReasonDes: Leavefield[index].ResonDes,
+                              Edit: AssetHelper.edit,
+                              Delete: AssetHelper.delete,
+                            ),
+                          ],
                         ),
-
+                      ),
                     );
                   },
                 ),

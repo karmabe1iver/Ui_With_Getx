@@ -4,6 +4,7 @@ class NoticeBoardController extends GetxController {
   //TODO: Implement NoticeBoardController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

@@ -4,6 +4,7 @@ class ForgetPasswordController extends GetxController {
   //TODO: Implement ForgetPasswordController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

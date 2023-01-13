@@ -1,9 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-
-
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';import 'package:get/get.dart';
 import 'package:ui_with_getx/app/routes/app_pages.dart';
 import 'package:ui_with_getx/app/utils/asset_helper.dart';
 
@@ -20,28 +17,24 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 3), () => Get.offNamed(Routes.LOGIN));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(child:
-      Wrap(
-        direction: Axis.vertical,
-        alignment: WrapAlignment.center,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        runSpacing: 12.0,
-        children: [
-          Image.asset(AssetHelper.logoImag),
-          Image.asset(AssetHelper.images('splash.png'),
-          ),
-        ],
-       ) ,
+      body: Center(
+        child: Wrap(
+          direction: Axis.vertical,
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runSpacing: 12.0,
+          children: [
+            Image.asset(AssetHelper.logoImag),
+            Image.asset(
+              AssetHelper.images('splash.png'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-
-
-
-
-

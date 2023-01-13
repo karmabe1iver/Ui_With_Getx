@@ -220,20 +220,25 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         //  ),
                         GestureDetector(
                           onTap: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                                context: context,
-                                initialDate: controller.Start.value,
-                                firstDate: //DateTime(1950),
-                                    controller.Start.value,
-                                //  DateTime.now(),
-                                //- not to allow to choose before today.
-                                lastDate: DateTime(2100));
-                            // print(pickDate);
-                            String convertedDate =
-                                DateFormat.yMMMd('en_US').format(pickedDate!);
 
-                            controller.EndDate.value = convertedDate.toString();
-                          },
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: controller.Start.value,
+                                  firstDate: //DateTime(1950),
+                                      controller.Start.value,
+                                  //  DateTime.now(),
+                                  //- not to allow to choose before today.
+
+                                  lastDate: (controller.Start.value).add(Duration(days: 6))// DateTime(2100)
+                              );
+                              // print(pickDate);
+                              String convertedDate =
+                                  DateFormat.yMMMd('en_US').format(pickedDate!);
+
+                              controller.EndDate.value =
+                                  convertedDate.toString();
+                            },
+
                           // child: Card(
                           //   shape: RoundedRectangleBorder(
                           //       borderRadius: BorderRadius.circular(10)),
@@ -284,8 +289,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                     ),
                   ),
                   Obx(
-                    () =>
-                        Padding(
+                    () => Padding(
                       padding: const EdgeInsets.only(left: 24.0, right: 24.0),
                       child: FittedBox(
                         child: Container(
@@ -317,13 +321,13 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                             activeFgColor: Colors.white,
                             inactiveBgColor: Colors.white,
                             inactiveFgColor: Color.fromRGBO(18, 132, 198, 1),
-                            initialLabelIndex:controller.Intial.value,
+                            initialLabelIndex: controller.Intial.value,
                             fontSize: 17,
                             totalSwitches: 2,
                             labels: controller.Halforfull,
                             radiusStyle: true,
                             onToggle: (index) {
-                               controller.Intial.value= index!  ;
+                              controller.Intial.value = index!;
                               print('switched to: $index');
                               print(controller.Selected.length);
                               print(controller.Intial.value);
@@ -363,7 +367,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         ),
                       ),
                     ),
-                 ),
+                  ),
                   Obx(
                     () => Padding(
                       padding: const EdgeInsets.only(

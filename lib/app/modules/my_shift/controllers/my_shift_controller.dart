@@ -4,6 +4,7 @@ class MyShiftController extends GetxController {
   //TODO: Implement MyShiftController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

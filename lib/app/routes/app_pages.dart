@@ -64,6 +64,5 @@ class AppPages {
       page: () => const LeaveRequestView(),
       binding: LeaveRequestBinding(),
     ),
-
   ];
 }

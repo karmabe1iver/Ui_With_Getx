@@ -4,6 +4,7 @@ class DashboardController extends GetxController {
   //TODO: Implement DashboardController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

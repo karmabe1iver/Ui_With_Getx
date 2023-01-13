@@ -7,20 +7,19 @@ class LeaveModel {
   String? ResonDes;
   bool sts;
 
-  LeaveModel({
-    required this.Status,
-    required this.Reason,
-    required this.Category,
-    required this.LeaveFrom,
-    required this.LeaveTo,
-    this.ResonDes,
-    required this.sts
-  });
+  LeaveModel(
+      {required this.Status,
+      required this.Reason,
+      required this.Category,
+      required this.LeaveFrom,
+      required this.LeaveTo,
+      this.ResonDes,
+      required this.sts});
 }
 
 List<LeaveModel> Leavefield = <LeaveModel>[
   LeaveModel(
-    sts: true,
+      sts: true,
       Status: 'Pending',
       Reason: 'Going on Trip',
       Category: 'Casual Leave',
@@ -29,7 +28,7 @@ List<LeaveModel> Leavefield = <LeaveModel>[
       ResonDes:
           'i am  going for a trip to Goa.Kindly grant me leave for the same'),
   LeaveModel(
-    sts: false,
+      sts: false,
       Status: 'Approved',
       Reason: 'Suffering From Cold',
       Category: 'SicK Leave',
@@ -41,24 +40,26 @@ List<LeaveModel> Leavefield = <LeaveModel>[
       Reason: 'Suffering From Cold',
       Category: 'SicK Leave',
       LeaveFrom: 'Nov 8,2022',
-      LeaveTo: 'Nov 7, 2022'), LeaveModel(
-      sts: false,
-      Status: 'Approved',
-      Reason: 'Suffering From Cold',
-      Category: 'SicK Leave',
-      LeaveFrom: 'Nov 8,2022',
-      LeaveTo: 'Nov 7, 2022'), LeaveModel(
-      sts: false,
-      Status: 'Approved',
-      Reason: 'Suffering From Cold',
-      Category: 'SicK Leave',
-      LeaveFrom: 'Nov 8,2022',
-      LeaveTo: 'Nov 7, 2022'), LeaveModel(
+      LeaveTo: 'Nov 7, 2022'),
+  LeaveModel(
       sts: false,
       Status: 'Approved',
       Reason: 'Suffering From Cold',
       Category: 'SicK Leave',
       LeaveFrom: 'Nov 8,2022',
       LeaveTo: 'Nov 7, 2022'),
-
+  LeaveModel(
+      sts: false,
+      Status: 'Approved',
+      Reason: 'Suffering From Cold',
+      Category: 'SicK Leave',
+      LeaveFrom: 'Nov 8,2022',
+      LeaveTo: 'Nov 7, 2022'),
+  LeaveModel(
+      sts: false,
+      Status: 'Approved',
+      Reason: 'Suffering From Cold',
+      Category: 'SicK Leave',
+      LeaveFrom: 'Nov 8,2022',
+      LeaveTo: 'Nov 7, 2022'),
 ];

@@ -1,8 +1,6 @@
-
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../../components/textstyle.dart';
 import '../../../utils/asset_helper.dart';
@@ -35,7 +33,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                   onPressed: () {
                     Get.back();
                   },
-                  icon:const  Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Color.fromRGBO(18, 132, 198, 1),
                   ),
@@ -48,7 +46,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                   style: TEXTSTYLE(
                     fontweight: FontWeight.w500,
                     fontsize: 24.0,
-                    color:const Color.fromRGBO(18, 132, 198, 1),
+                    color: const Color.fromRGBO(18, 132, 198, 1),
                   ),
                 ),
                 SizedBox(
@@ -64,7 +62,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
               width: Get.width * .85,
               height: Get.height * .23,
               decoration: BoxDecoration(
-                color: Colors.white,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -79,6 +77,97 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
               //   shape: RoundedRectangleBorder(
               //     borderRadius: BorderRadius.circular(20.0),
               //   ),
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
+                child: Wrap(
+                  runSpacing: 10,
+                  children: [
+                    Text(
+                      'Id nobis quia quis',
+                      style: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        fontsize: 20.0,
+                        color: const Color.fromRGBO(18, 132, 198, 1),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Posted On  :',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: const Color.fromRGBO(18, 132, 198, 1),
+                            fontsize: 12.0,
+                          ),
+                        ),
+                        Text(
+                          ' Dec 21,2023',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: Colors.black,
+                            fontsize: 12.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    ReadMoreText(
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.',
+                     // maxLines: 2,
+                      trimLines: 3,
+                     trimMode: TrimMode.Line,
+                    //  overflow: TextOverflow.ellipsis,
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.justify,
+                      style: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        color: Colors.black,
+                        fontsize: 12.0,
+
+                      ),
+                      trimCollapsedText: '\n  \n                                              Read More',
+                      moreStyle: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        color: const Color.fromRGBO(18, 132, 198, 1),
+                        fontsize: 15.0,
+                      ),
+                      trimExpandedText: ' \n                                                 Read Less',
+                      lessStyle: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        color: const Color.fromRGBO(18, 132, 198, 1),
+                        fontsize: 15.0,
+                      ),
+                    ),
+                    // Row(
+                    //   children: [
+                    //     const Spacer(),
+                    //     Text(
+                    //       'Read More',
+                    //       style: TEXTSTYLE(
+                    //         fontweight: FontWeight.w500,
+                    //         color: const Color.fromRGBO(18, 132, 198, 1),
+                    //         fontsize: 15.0,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          // ),
+          Positioned(
+            left: 30,
+            top: 320,
+            child: SizedBox(
+              width: Get.width * .85,
+              height: Get.height * .23,
+              child: Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
                 child: Padding(
                   padding:
                       const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
@@ -90,7 +179,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                         style: TEXTSTYLE(
                           fontweight: FontWeight.w500,
                           fontsize: 20.0,
-                          color:const Color.fromRGBO(18, 132, 198, 1),
+                          color: const Color.fromRGBO(18, 132, 198, 1),
                         ),
                       ),
                       Row(
@@ -99,7 +188,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                             'Posted On  :',
                             style: TEXTSTYLE(
                               fontweight: FontWeight.w500,
-                              color:const Color.fromRGBO(18, 132, 198, 1),
+                              color: const Color.fromRGBO(18, 132, 198, 1),
                               fontsize: 12.0,
                             ),
                           ),
@@ -127,12 +216,12 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                       ),
                       Row(
                         children: [
-                         const Spacer(),
+                          const Spacer(),
                           Text(
                             'Read More',
                             style: TEXTSTYLE(
                               fontweight: FontWeight.w500,
-                              color:const Color.fromRGBO(18, 132, 198, 1),
+                              color: const Color.fromRGBO(18, 132, 198, 1),
                               fontsize: 15.0,
                             ),
                           ),
@@ -143,151 +232,83 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                 ),
               ),
             ),
-         // ),
-          Positioned(left: 30, top: 320, child:  SizedBox(
-            width: Get.width * .85,
-            height: Get.height * .23,
-            child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Padding(
-                padding:
-                const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
-                child: Wrap(
-                  runSpacing: 10,
-                  children: [
-                    Text(
-                      'Id nobis quia quis',
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        fontsize: 20.0,
-                        color:const Color.fromRGBO(18, 132, 198, 1),
+          ),
+          Positioned(
+            left: 30,
+            top: 540,
+            child: SizedBox(
+              width: Get.width * .85,
+              height: Get.height * .23,
+              child: Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
+                  child: Wrap(
+                    runSpacing: 10,
+                    children: [
+                      Text(
+                        'Id nobis quia quis',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          fontsize: 20.0,
+                          color: const Color.fromRGBO(18, 132, 198, 1),
+                        ),
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Posted On  :',
-                          style: TEXTSTYLE(
-                            fontweight: FontWeight.w500,
-                            color:const Color.fromRGBO(18, 132, 198, 1),
-                            fontsize: 12.0,
+                      Row(
+                        children: [
+                          Text(
+                            'Posted On  :',
+                            style: TEXTSTYLE(
+                              fontweight: FontWeight.w500,
+                              color: const Color.fromRGBO(18, 132, 198, 1),
+                              fontsize: 12.0,
+                            ),
                           ),
-                        ),
-                        Text(
-                          ' Dec 21,2023',
-                          style: TEXTSTYLE(
-                            fontweight: FontWeight.w500,
-                            color: Colors.black,
-                            fontsize: 12.0,
+                          Text(
+                            ' Dec 21,2023',
+                            style: TEXTSTYLE(
+                              fontweight: FontWeight.w500,
+                              color: Colors.black,
+                              fontsize: 12.0,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.justify,
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        color: Colors.black,
-                        fontsize: 12.0,
+                        ],
                       ),
-                    ),
-                    Row(
-                      children: [
-                       const Spacer(),
-                        Text(
-                          'Read More',
-                          style: TEXTSTYLE(
-                            fontweight: FontWeight.w500,
-                            color:const Color.fromRGBO(18, 132, 198, 1),
-                            fontsize: 15.0,
-                          ),
+                      Text(
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        textDirection: TextDirection.ltr,
+                        textAlign: TextAlign.justify,
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          color: Colors.black,
+                          fontsize: 12.0,
                         ),
-                      ],
-                    )
-                  ],
+                      ),
+                      Row(
+                        children: [
+                          const Spacer(),
+                          Text(
+                            'Read More',
+                            style: TEXTSTYLE(
+                              fontweight: FontWeight.w500,
+                              color: const Color.fromRGBO(18, 132, 198, 1),
+                              fontsize: 15.0,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),),
-          Positioned(left: 30, top: 540, child: SizedBox(
-            width: Get.width * .85,
-            height: Get.height * .23,
-            child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Padding(
-                padding:
-                const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
-                child: Wrap(
-                  runSpacing: 10,
-                  children: [
-                    Text(
-                      'Id nobis quia quis',
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        fontsize: 20.0,
-                        color:const Color.fromRGBO(18, 132, 198, 1),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Posted On  :',
-                          style: TEXTSTYLE(
-                            fontweight: FontWeight.w500,
-                            color:const Color.fromRGBO(18, 132, 198, 1),
-                            fontsize: 12.0,
-                          ),
-                        ),
-                        Text(
-                          ' Dec 21,2023',
-                          style: TEXTSTYLE(
-                            fontweight: FontWeight.w500,
-                            color: Colors.black,
-                            fontsize: 12.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.justify,
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        color: Colors.black,
-                        fontsize: 12.0,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                       const Spacer(),
-                        Text(
-                          'Read More',
-                          style: TEXTSTYLE(
-                            fontweight: FontWeight.w500,
-                            color:const Color.fromRGBO(18, 132, 198, 1),
-                            fontsize: 15.0,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),),
+          ),
         ],
       ),
     );
