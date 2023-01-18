@@ -33,26 +33,31 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+
     ),
     GetPage(
       name: _Paths.FORGET_PASSWORD,
       page: () => const ForgetPasswordView(),
       binding: ForgetPasswordBinding(),
+
     ),
     GetPage(
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+
     ),
     GetPage(
       name: _Paths.MY_LEAVES,
       page: () => const MyLeavesView(),
       binding: MyLeavesBinding(),
+
     ),
     GetPage(
       name: _Paths.MY_SHIFT,
       page: () => const MyShiftView(),
       binding: MyShiftBinding(),
+
     ),
     GetPage(
       name: _Paths.NOTICE_BOARD,
@@ -63,6 +68,7 @@ class AppPages {
       name: _Paths.LEAVE_REQUEST,
       page: () => const LeaveRequestView(),
       binding: LeaveRequestBinding(),
+
     ),
   ];
 }

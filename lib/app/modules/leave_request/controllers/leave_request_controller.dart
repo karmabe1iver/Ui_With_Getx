@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/components/customcontainer.dart';
 
+import '../../../data/leavemodel.dart';
+
 class LeaveRequestController extends GetxController {
+  final TextEditingController Reson = TextEditingController(text: '');
+  List<LeaveModel> Leavefield = <LeaveModel>[].obs;
+
   RxString dropdownText = 'Leave Type '.obs as RxString;
   List<String> df = [
     'Leave Type ',
-    'Caual Leave ',
+    'Casual Leave ',
     'Sick Leave',
   ].obs;
   RxString EndDate = 'EndDate'.obs as RxString;
   RxString StartDate = 'StartDate'.obs as RxString;
   Rx<DateTime> Start = DateTime.now().obs;
+
   RxInt Intial = 0.obs as RxInt;
 
   List<Widget> HalforFull = <Widget>[

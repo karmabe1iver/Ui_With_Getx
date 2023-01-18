@@ -4,6 +4,7 @@ class NoticeBoardController extends GetxController {
   //TODO: Implement NoticeBoardController
 
   final count = 0.obs;
+  var isReadmore= false.obs;
 
   @override
   void onInit() {

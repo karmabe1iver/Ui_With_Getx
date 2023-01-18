@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:ui_with_getx/app/components/textstyle.dart';
-import 'package:ui_with_getx/app/routes/app_pages.dart';
 import 'package:ui_with_getx/app/utils/asset_helper.dart';
 
 bool stat = true;
@@ -19,6 +18,8 @@ Widget LeaveCard(
     LeaveTo,
     ReasonDes,
     Edit,
+    OnTapE,
+    onTap,
     Delete}) {
   return Padding(
     padding: const EdgeInsets.only(left: 18.0, right: 18.0),
@@ -52,12 +53,22 @@ Widget LeaveCard(
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      '$Reason',
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w600,
-                        color: Colors.black,
-                        fontsize: 20.0,
+                    Container(
+                      width: Get.width * .55,
+                      child: Text(
+                        '$Reason',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Poppins',
+                          color: Colors.black,
+                        ),
+                        // TEXTSTYLE(
+                        //   fontweight: FontWeight.w600,
+                        //   color: Colors.black,
+                        //   fontsize: 20.0,
                       ),
                     ),
                     Text(
@@ -72,52 +83,58 @@ Widget LeaveCard(
                 ),
                 if (Status == 'Pending')
                   Container(
-                    height: 20,
-                    width: 100,
+                    // height: 20,
+                    // width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Color.fromRGBO(253, 231, 200, 1),
                     ),
-                    child: Wrap(
-                      spacing: 5,
-                      alignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Image.asset(
-                          AssetHelper.pending,
-                        ),
-                        Text(
-                          '$Status',
-                          style: TEXTSTYLE(
-                            color: Color.fromRGBO(255, 149, 3, 1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Wrap(
+                        spacing: 5,
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Image.asset(
+                            AssetHelper.pending,
                           ),
-                        )
-                      ],
+                          Text(
+                            '$Status',
+                            style: TEXTSTYLE(
+                              color: Color.fromRGBO(255, 149, 3, 1),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   )
                 else if (Status == 'Approved')
                   Container(
-                    height: 20,
-                    width: 100,
+                    // height: 20,
+                    // width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Color.fromRGBO(210, 246, 214, 1),
                     ),
-                    child: Wrap(
-                      spacing: 5,
-                      alignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Image.asset(
-                          AssetHelper.approved,
-                        ),
-                        Text(
-                          '$Status',
-                          style: TEXTSTYLE(
-                            color: Color.fromRGBO(53, 164, 67, 1),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Wrap(
+                        spacing: 5,
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Image.asset(
+                            AssetHelper.approved,
                           ),
-                        )
-                      ],
+                          Text(
+                            '$Status',
+                            style: TEXTSTYLE(
+                              color: Color.fromRGBO(53, 164, 67, 1),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   )
               ],
@@ -132,20 +149,23 @@ Widget LeaveCard(
                   width: 10,
                 ),
                 RichText(
-                    text: TextSpan(
-                        text: 'Leave From  : ',
-                        style: TEXTSTYLE(
-                            color: Colors.grey,
-                            fontweight: FontWeight.w400,
-                            fontsize: 13.0),
-                        children: [
+                  text: TextSpan(
+                    text: 'Leave From  : ',
+                    style: TEXTSTYLE(
+                        color: Colors.grey,
+                        fontweight: FontWeight.w400,
+                        fontsize: 13.0),
+                    children: [
                       TextSpan(
-                          text: '$LeaveFrom - $LeaveTo',
-                          style: TEXTSTYLE(
-                              fontweight: FontWeight.bold,
-                              fontsize: 12.0,
-                              color: Colors.black))
-                    ]))
+                        text: '$LeaveFrom - $LeaveTo',
+                        style: TEXTSTYLE(
+                            fontweight: FontWeight.bold,
+                            fontsize: 12.0,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
             if (stat == sts)
@@ -168,21 +188,26 @@ Widget LeaveCard(
                     width: Get.width * .25,
                   ),
                   GestureDetector(
-                      onTap: () {
-                        Get.toNamed(Routes.LEAVE_REQUEST);
-                      },
+                      onTap: OnTapE,
+                      //     () {
+                      //   Get.toNamed(Routes.LEAVE_REQUEST);
+                      // },
                       child: Image.asset(Edit)),
                   SizedBox(
                     width: 20,
                   ),
                   GestureDetector(
-                      onTap: () {},
-                      child: Image.asset(
-                        Delete,
-                        scale: .8,
-                      )),
+                    onTap: onTap,
+                    //     () {
+                    //   Leavefield.remove(Index)
+                    // },
+                    child: Image.asset(
+                      Delete,
+                      scale: .8,
+                    ),
+                  ),
                 ],
-              )
+              ),
           ],
         ),
       ),

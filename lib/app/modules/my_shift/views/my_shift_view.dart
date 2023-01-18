@@ -196,7 +196,7 @@ class MyShiftView extends GetView<MyShiftController> {
                         'Time :',
                         style: TEXTSTYLE(
                           fontweight: FontWeight.w500,
-                          color: Color.fromRGBO(18, 132, 198, 1),
+                          color: Color.fromRGBO(18, 132, 196, 1),
                           fontsize: 12.0,
                         ),
                       ),

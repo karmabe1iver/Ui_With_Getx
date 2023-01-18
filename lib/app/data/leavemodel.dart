@@ -1,3 +1,10 @@
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
+
+import '../modules/leave_request/controllers/leave_request_controller.dart';
+
 class LeaveModel {
   String Reason;
   String Category;
@@ -7,17 +14,19 @@ class LeaveModel {
   String? ResonDes;
   bool sts;
 
-  LeaveModel(
-      {required this.Status,
-      required this.Reason,
-      required this.Category,
-      required this.LeaveFrom,
-      required this.LeaveTo,
-      this.ResonDes,
-      required this.sts});
+  LeaveModel({required this.Status,
+    required this.Reason,
+    required this.Category,
+    required this.LeaveFrom,
+    required this.LeaveTo,
+    this.ResonDes,
+    required this.sts});
+
 }
 
-List<LeaveModel> Leavefield = <LeaveModel>[
+
+List<LeaveModel> Leavefieldd = <LeaveModel>[
+
   LeaveModel(
       sts: true,
       Status: 'Pending',
@@ -62,4 +71,7 @@ List<LeaveModel> Leavefield = <LeaveModel>[
       Category: 'SicK Leave',
       LeaveFrom: 'Nov 8,2022',
       LeaveTo: 'Nov 7, 2022'),
+
+
 ];
+

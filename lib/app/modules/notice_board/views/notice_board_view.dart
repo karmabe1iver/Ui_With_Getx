@@ -57,10 +57,11 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
           ),
           Positioned(
             left: 30,
+
             top: 100,
             child: Container(
               width: Get.width * .85,
-              height: Get.height * .23,
+              // height: Get.height * .23,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -79,7 +80,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
               //   ),
               child: Padding(
                 padding:
-                    const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
+                const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
                 child: Wrap(
                   runSpacing: 10,
                   children: [
@@ -111,33 +112,37 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                         ),
                       ],
                     ),
-                    ReadMoreText(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.',
-                     // maxLines: 2,
-                      trimLines: 3,
-                     trimMode: TrimMode.Line,
-                    //  overflow: TextOverflow.ellipsis,
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.justify,
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        color: Colors.black,
-                        fontsize: 12.0,
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 18.0),
+                      child: ReadMoreText(
+                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.',
+                          // maxLines: 2,
+                          trimLines: 3,
+                          trimMode: TrimMode.Line,
+                          //  overflow: TextOverflow.ellipsis,
+                          textDirection: TextDirection.ltr,
+                          textAlign: TextAlign.justify,
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: Colors.black,
+                            fontsize: 12.0,
 
-                      ),
-                      trimCollapsedText: '\n  \n                                              Read More',
-                      moreStyle: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        color: const Color.fromRGBO(18, 132, 198, 1),
-                        fontsize: 15.0,
-                      ),
-                      trimExpandedText: ' \n                                                 Read Less',
-                      lessStyle: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        color: const Color.fromRGBO(18, 132, 198, 1),
-                        fontsize: 15.0,
-                      ),
+                          ),
+                          trimCollapsedText: '\n  \n                                              Read More',
+                          moreStyle: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: const Color.fromRGBO(18, 132, 198, 1),
+                            fontsize: 15.0,
+                          ),
+                          trimExpandedText: ' \n                                                 Read Less',
+                          lessStyle: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: const Color.fromRGBO(18, 132, 198, 1),
+                            fontsize: 15.0,
+                          ),
+                        ),
                     ),
+
                     // Row(
                     //   children: [
                     //     const Spacer(),
@@ -170,7 +175,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
+                  const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
                   child: Wrap(
                     runSpacing: 10,
                     children: [
@@ -246,7 +251,7 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
+                  const EdgeInsets.only(left: 18.0, top: 18.0, right: 18.0),
                   child: Wrap(
                     runSpacing: 10,
                     children: [

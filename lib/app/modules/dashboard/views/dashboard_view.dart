@@ -93,7 +93,7 @@ class DashboardView extends GetView<DashboardController> {
                     children: [
                       IconButton(
                         onPressed: () {
-                          Get.back();
+                          //Get.back();
                         },
                         highlightColor: Colors.black,
                         splashColor: Colors.black,
@@ -135,7 +135,7 @@ class DashboardView extends GetView<DashboardController> {
                     //   l
                     Mcard(
                       onTap: () {
-                        Get.to(MyLeavesView());
+                        Get.toNamed(Routes.MY_LEAVES);
                       },
                       AssetHelperImag: AssetHelper.leave,
                       AssetHelperImag2: AssetHelper.userSm,
