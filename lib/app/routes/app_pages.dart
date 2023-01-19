@@ -51,23 +51,33 @@ class AppPages {
       name: _Paths.MY_LEAVES,
       page: () => const MyLeavesView(),
       binding: MyLeavesBinding(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: Duration(seconds: 1),
+
 
     ),
     GetPage(
       name: _Paths.MY_SHIFT,
       page: () => const MyShiftView(),
       binding: MyShiftBinding(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: Duration(seconds: 1),
 
     ),
     GetPage(
       name: _Paths.NOTICE_BOARD,
       page: () => const NoticeBoardView(),
       binding: NoticeBoardBinding(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: Duration(seconds: 1),
     ),
     GetPage(
       name: _Paths.LEAVE_REQUEST,
       page: () => const LeaveRequestView(),
       binding: LeaveRequestBinding(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: Duration(seconds: 1),
+
 
     ),
   ];

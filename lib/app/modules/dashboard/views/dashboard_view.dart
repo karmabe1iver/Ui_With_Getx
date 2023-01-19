@@ -152,7 +152,7 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                     Mcard(
                       onTap: () {
-                        Get.to(MyShiftView());
+                        Get.toNamed(Routes.MY_SHIFT);
                       },
                       AssetHelperImag: AssetHelper.calender,
                       AssetHelperImag2: AssetHelper.userSm,
@@ -160,7 +160,7 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                     Mcard(
                       onTap: () {
-                        Get.to(NoticeBoardView());
+                        Get.toNamed(Routes.NOTICE_BOARD);
                       },
                       AssetHelperImag: AssetHelper.noticeboard,
                       AssetHelperImag2: AssetHelper.userSm,
