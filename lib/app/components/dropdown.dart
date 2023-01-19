@@ -1,7 +1,7 @@
+import 'package:Lakshore/app/components/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:ui_with_getx/app/components/textstyle.dart';
 
 Widget dropDownBox({FunctioOnchanged, ListItem, ListValue}) {
   return

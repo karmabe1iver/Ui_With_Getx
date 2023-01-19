@@ -1,8 +1,9 @@
+import 'package:Lakshore/app/components/textstyle.dart';
+import 'package:Lakshore/app/utils/asset_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/components/textstyle.dart';
-import 'package:ui_with_getx/app/utils/asset_helper.dart';
+
 
 bool stat = true;
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/modules/login/controllers/login_controller.dart';
+
+import '../modules/login/controllers/login_controller.dart';
+
 
 
 

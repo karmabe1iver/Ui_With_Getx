@@ -1,5 +1,6 @@
+import 'package:Lakshore/app/components/textstyle.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_with_getx/app/components/textstyle.dart';
+
 
 Widget RichTex({
   text,
@@ -15,7 +16,7 @@ fontsize: 13.0),
 children: [
 TextSpan(
 text: '$inputtext',
-style: TEXTSTYLE(
+style:        TEXTSTYLE(
 fontweight: FontWeight.bold,
 fontsize: 12.0,
 color: Colors.black),

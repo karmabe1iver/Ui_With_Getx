@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/components/customcontainer.dart';
 
+
+import '../../../components/customcontainer.dart';
 import '../../../data/leavemodel.dart';
 
 class LeaveRequestController extends GetxController {

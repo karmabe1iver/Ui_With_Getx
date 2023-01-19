@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/components/leavecard.dart';
-import 'package:ui_with_getx/app/components/leavefield.dart';
-import 'package:ui_with_getx/app/data/leavemodel.dart';
-import 'package:ui_with_getx/app/routes/app_pages.dart';
 
+
+import '../../../components/leavecard.dart';
+import '../../../components/leavefield.dart';
 import '../../../components/textstyle.dart';
+import '../../../data/leavemodel.dart';
+import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
 import '../controllers/my_leaves_controller.dart';
 

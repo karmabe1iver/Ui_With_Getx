@@ -1,13 +1,13 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/modules/login/controllers/login_controller.dart';
-import 'package:ui_with_getx/app/routes/app_pages.dart';
 
 import '../../../components/mbutton.dart';
 import '../../../components/mtextformfield.dart';
 import '../../../components/textstyle.dart';
+import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
+import '../../login/controllers/login_controller.dart';
 import '../../login/views/login_view.dart';
 import '../controllers/forget_password_controller.dart';
 

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-import 'package:ui_with_getx/app/components/dailogcontent.dart';
-import 'package:ui_with_getx/app/components/dropdown.dart';
-import 'package:ui_with_getx/app/components/mbutton.dart';
-import 'package:ui_with_getx/app/data/leavemodel.dart';
-import 'package:ui_with_getx/app/routes/app_pages.dart';
 
+import '../../../components/dailogcontent.dart';
+import '../../../components/dropdown.dart';
+import '../../../components/mbutton.dart';
 import '../../../components/textstyle.dart';
+import '../../../data/leavemodel.dart';
+import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
 import '../controllers/leave_request_controller.dart';
 

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/components/mcard.dart';
-import 'package:ui_with_getx/app/components/textstyle.dart';
-import 'package:ui_with_getx/app/modules/my_leaves/views/my_leaves_view.dart';
-import 'package:ui_with_getx/app/modules/my_shift/views/my_shift_view.dart';
-import 'package:ui_with_getx/app/modules/notice_board/views/notice_board_view.dart';
-import 'package:ui_with_getx/app/routes/app_pages.dart';
 
+
+import '../../../components/mcard.dart';
+import '../../../components/textstyle.dart';
+import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
 import '../controllers/dashboard_controller.dart';
 

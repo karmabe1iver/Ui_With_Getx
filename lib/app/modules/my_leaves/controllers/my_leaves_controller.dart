@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_with_getx/app/components/leavefield.dart';
-import 'package:ui_with_getx/app/data/leavemodel.dart';
+
+import '../../../data/leavemodel.dart';
 
 class MyLeavesController extends GetxController  {
   //TODO: Implement MyLeavesController
