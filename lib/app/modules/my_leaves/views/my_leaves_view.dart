@@ -178,7 +178,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                       controller.LeaveFieldd[index].ResonDes,
                                   Edit: AssetHelper.edit,
                                   OnTapE: () {
-                                    Get.toNamed(
+                                    Get.offAndToNamed(
                                       Routes
                                           .LEAVE_REQUEST, //arguments: controller.Leavefield[index]
                                     );

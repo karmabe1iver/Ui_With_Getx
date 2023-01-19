@@ -33,18 +33,24 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+        transition: Transition.downToUp,
+        transitionDuration: Duration(seconds: 1 )
 
     ),
     GetPage(
       name: _Paths.FORGET_PASSWORD,
       page: () => const ForgetPasswordView(),
       binding: ForgetPasswordBinding(),
+        transition: Transition.downToUp,
+        transitionDuration: Duration(milliseconds: 3)
 
     ),
     GetPage(
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: Duration(seconds: 1),
 
     ),
     GetPage(

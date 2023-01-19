@@ -538,7 +538,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                     );
                                   } else {
                                     Get.snackbar(
-                                      'Fill Deatils ',
+                                      'Fill Details ',
                                       'Please  Fill Missing details ',
                                       snackPosition: SnackPosition.TOP,
                                       backgroundColor: Colors.white,

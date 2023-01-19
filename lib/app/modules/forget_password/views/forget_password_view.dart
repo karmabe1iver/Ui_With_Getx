@@ -11,11 +11,12 @@ import '../../../utils/asset_helper.dart';
 import '../../login/views/login_view.dart';
 import '../controllers/forget_password_controller.dart';
 
-class ForgetPasswordView extends GetView<ForgetPasswordController> {
+class ForgetPasswordView extends GetView<LoginController> {
   const ForgetPasswordView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: Wrap(children: [
       Image.asset(
@@ -42,51 +43,71 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          MTextFormField(
-      TextFormField:  TextFormField(
-           // controller: controller.userCtrl,
-            //  onChanged: controller.usernameChanged,
-
-
-              style: TEXTSTYLE(fontsize:16.0, fontweight:FontWeight.w400, color:Colors.black),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                  icon:Image.asset( AssetHelper.emailIcon),
-                  hintText: 'Email',
-             // errorText: controller.errorText.value),
-            ),
+         Padding(
+           padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
+           child: TextFormField(
+        controller: controller.emailController,
+        onSaved: (Value) {
+            controller.email = Value!;
+        },
+        //autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (value) {
+            return controller.validateEmail(value!);
+        },
+        style: TEXTSTYLE(fontsize: 16.0,fontweight: FontWeight.w400, color:Colors.black),
+        decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              prefixIcon: Image.asset(AssetHelper.emailIcon),
+              labelText: 'Email',
+              contentPadding: EdgeInsets.all(9),
+              hintText: 'Email'),
       ),
+         ),
 
-    ),
 
-          MTextFormField(
-            TextFormField: TextFormField(
-             // controller: controller.userCtrl,
 
-              //               validator: (val) => val.length < 4
-              // ? 'Your password is too Password too short..'
-              //     : null,
-              style: TEXTSTYLE(fontsize:16.0, fontweight:FontWeight.w400, color:Colors.black),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  icon:Image.asset( AssetHelper.password),
-                  hintText: 'Password'),
-            ),
-          ),
-          MTextFormField(
-            TextFormField: TextFormField(
-             // controller: controller.userCtrl,
+         Padding(
+           padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
+           child: TextFormField(
+               // controller: controller.userCtrl,
 
-              //               validator: (val) => val.length < 4
-              // ? 'Your password is too Password too short..'
-              //     : null,
-              style: TEXTSTYLE(fontsize: 16.0,fontweight: FontWeight.w400, color:Colors.black),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  icon:Image.asset( AssetHelper.password),
-                  hintText: 'Password'),
-            ),
-          ),
+                //               validator: (val) => val.length < 4
+                // ? 'Your password is too Password too short..'
+                //     : null,
+                style: TEXTSTYLE(fontsize:16.0, fontweight:FontWeight.w400, color:Colors.black),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30)),
+               prefixIcon: Image.asset(AssetHelper.password),
+                    //icon:Image.asset( AssetHelper.password),
+                    contentPadding: EdgeInsets.all(9),
+                    labelText: 'New Password',
+                    hintText: 'New Password'),
+              ),
+         ),
+
+           Padding(
+             padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
+             child: TextFormField(
+               // controller: controller.userCtrl,
+
+                //               validator: (val) => val.length < 4
+                // ? 'Your password is too Password too short..'
+                //     : null,
+                style: TEXTSTYLE(fontsize: 16.0,fontweight: FontWeight.w400, color:Colors.black),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    prefixIcon: Image.asset(AssetHelper.password),
+                    // border: InputBorder.none,
+                    // icon:Image.asset( AssetHelper.password),
+                    contentPadding: EdgeInsets.all(9),
+                    labelText: 'Confirm Password',
+                    hintText: 'Confirm Password'),
+              ),
+           ),
+
         ],
       ),
       Center(
