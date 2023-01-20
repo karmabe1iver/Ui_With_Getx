@@ -18,9 +18,20 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
             height: double.infinity,
             width: double.infinity,
           ),
-          Image.asset(
-            AssetHelper.component,
-            scale: 1,
+          Obx(
+              ()=> AnimatedPositioned(
+              duration: Duration(milliseconds: 1800),
+              left: controller.animate.value?0:-20,
+              top: 0,
+              child: AnimatedOpacity(
+                duration: Duration(milliseconds: 1800),
+                opacity: controller.animate.value?1:0,
+                child: Image.asset(
+                  AssetHelper.component,
+                  scale: 1,
+                ),
+              ),
+            ),
           ),
           Positioned(
             left: 16,
@@ -41,12 +52,18 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
                 SizedBox(
                   width: Get.width * .16,
                 ),
-                Text(
-                  'Notice Board',
-                  style: TEXTSTYLE(
-                    fontweight: FontWeight.w500,
-                    fontsize: 24.0,
-                    color: const Color.fromRGBO(18, 132, 198, 1),
+                Obx(
+                    ()=> AnimatedOpacity(
+                    duration: Duration(milliseconds: 1800),
+                    opacity: controller.animate.value?1:0,
+                    child: Text(
+                      'Notice Board',
+                      style: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        fontsize: 24.0,
+                        color: const Color.fromRGBO(18, 132, 198, 1),
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(

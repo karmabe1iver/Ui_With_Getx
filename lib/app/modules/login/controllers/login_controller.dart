@@ -11,6 +11,9 @@ import '../../../routes/app_pages.dart';
 class LoginController extends GetxController {
 
   var isPlaying = false.obs;
+  RxBool animate=false.obs;
+  RxBool animateclose=false.obs;
+
 
   final Rxn<int> selected = Rxn<int>();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -18,11 +21,26 @@ class LoginController extends GetxController {
   late TextEditingController emailController, passwordController;
   var email = '';
   var password = '';
+  Future startanimation() async {
+    await Future.delayed(Duration(milliseconds: 500));
+    animate.value= true;
+    // await Future.delayed(Duration(milliseconds: 1800));
+  }
+  Future startanimations() async {
+
+    Get.toNamed(Routes.FORGET_PASSWORD);
+
+    await Future.delayed(Duration(milliseconds: 10));
+    animateclose.value= true;
+     //await Future.delayed(Duration(milliseconds: 1800));
+
+  }
 
   @override
   void onInit() {
     super.onInit();
     loadUserEmailPassword();
+    startanimation();
     emailController = TextEditingController();
     passwordController = TextEditingController();
 

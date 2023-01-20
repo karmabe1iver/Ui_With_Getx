@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:cross_file_image/cross_file_image.dart';
 
 import '../../../components/mcard.dart';
 import '../../../components/textstyle.dart';
@@ -15,9 +17,9 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: WillPopScope(
-          onWillPop: ()async=>false,
-          child: SingleChildScrollView(
-      child: Wrap(
+      onWillPop: () async => false,
+      child: SingleChildScrollView(
+        child: Wrap(
           children: [
             Stack(
               alignment: Alignment.topLeft,
@@ -45,9 +47,44 @@ class DashboardView extends GetView<DashboardController> {
                     SizedBox(
                       height: Get.height * .11,
                     ),
-                    CircleAvatar(
-                      maxRadius: 65,
-                      child: Image.asset(AssetHelper.profileIMAGE),
+                    GestureDetector(
+                      onTap: () {
+                        print(controller.image.value);
+                        Get.defaultDialog(title: 'Upload',content: Wrap(
+                          runSpacing: 30,
+                          spacing: 50,
+                          children: [
+                             IconButton(onPressed: (){
+                               controller.getImageCam();
+                               Get.back();
+                             }, icon:Icon( Icons.camera_alt_rounded)),
+                             IconButton(onPressed: (){
+                               controller.getImage();
+                               Get.back();
+                             }, icon: Icon(Icons.photo)),
+                          ],
+                        ));
+                        // controller.getImage();
+                        // print('hi');
+                      },
+                      child: Obx(
+                        () => CircleAvatar(
+                          maxRadius: 65,
+                          child:ClipOval(child:
+                          controller.status.value!=false
+
+                         ? Image.file(
+                                 controller.image.value!,
+                                  width: 130,
+                                  height: 130,
+                                  scale: 1,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset(AssetHelper.profileIMAGE)
+
+                        ),
+                      ),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
@@ -169,8 +206,8 @@ class DashboardView extends GetView<DashboardController> {
               ),
             ),
           ],
+        ),
       ),
-    ),
-        ));
+    ));
   }
 }

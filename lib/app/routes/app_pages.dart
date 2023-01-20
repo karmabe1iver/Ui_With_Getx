@@ -34,7 +34,7 @@ class AppPages {
       page: () => const LoginView(),
       binding: LoginBinding(),
         transition: Transition.downToUp,
-        transitionDuration: Duration(seconds: 1 )
+        transitionDuration: Duration(milliseconds: 50 )
 
     ),
     GetPage(

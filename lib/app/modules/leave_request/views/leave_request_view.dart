@@ -97,6 +97,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                       CircleAvatar(
                         maxRadius: 40,
                         child: Image.asset(
+                          //controller.Profile[0].profilePic,
                           AssetHelper.profileIMAGE,
                         ),
                       ),
@@ -498,29 +499,38 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                       content: Container(
                                         child: Wrap(
                                           direction: Axis.vertical,
-                                          spacing:  5,
+                                          spacing: 5,
                                           runSpacing: 5,
                                           children: [
-                                            RichTex(text: 'Leave Type :',inputtext: ' ${controller.dropdownText.value}'),
-                                            RichTex(text: 'Leave From :',inputtext: ' ${controller.StartDate.value} - ${controller.EndDate.value}'),
-
-
+                                            RichTex(
+                                                text: 'Leave Type :',
+                                                inputtext:
+                                                    ' ${controller.dropdownText.value}'),
+                                            RichTex(
+                                                text: 'Leave From :',
+                                                inputtext:
+                                                    ' ${controller.StartDate.value} - ${controller.EndDate.value}'),
                                             if (controller.Intial.value == 0)
-                                        RichTex(text: 'Full day or Half :',inputtext: ' Full day')
-
+                                              RichTex(
+                                                  text: 'Full day or Half :',
+                                                  inputtext: ' Full day')
                                             else
-                                            RichTex(text: 'Full day or Half :',inputtext: ' Half Day'),
-
-                                            RichTex(text: 'Department :',inputtext: ' ${controller.departmentType.value}'),
-                                            RichTex(text: 'Reson :',inputtext: ' ${controller.Reson.value.text}')
-
-
+                                              RichTex(
+                                                  text: 'Full day or Half :',
+                                                  inputtext: ' Half Day'),
+                                            RichTex(
+                                                text: 'Department :',
+                                                inputtext:
+                                                    ' ${controller.departmentType.value}'),
+                                            RichTex(
+                                                text: 'Reson :',
+                                                inputtext:
+                                                    ' ${controller.Reson.value.text}')
                                           ],
                                         ),
                                       ),
                                       textCancel: 'Edit',
-                                      onCancel: () {
-                                      },
+                                      onCancel: () {},
                                       radius: 30.0,
                                       textConfirm: 'Confirm & View Status',
                                       confirmTextColor: Colors.white,
@@ -529,8 +539,10 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                             sts: true,
                                             Status: 'Pending',
                                             Reason: controller.Reson.text,
-                                            Category: controller.dropdownText.value,
-                                            LeaveFrom: controller.StartDate.value,
+                                            Category:
+                                                controller.dropdownText.value,
+                                            LeaveFrom:
+                                                controller.StartDate.value,
                                             LeaveTo: controller.EndDate.value,
                                             ResonDes: controller.Reson.text));
                                         Get.offNamed(Routes.MY_LEAVES);
@@ -577,11 +589,12 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
     // );
   }
 }
-TextStyle TEXTStyle(){
+
+TextStyle TEXTStyle() {
   return TextStyle(
-fontSize:13,
-fontWeight: FontWeight.w500,
-fontFamily: 'Poppins',
-color: Colors.black,
-);
+    fontSize: 13,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Poppins',
+    color: Colors.black,
+  );
 }

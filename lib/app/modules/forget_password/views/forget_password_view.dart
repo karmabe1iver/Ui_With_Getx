@@ -30,13 +30,19 @@ class ForgetPasswordView extends GetView<LoginController> {
           spacing: 20.0,
           children: [
             Image.asset(AssetHelper.splashImag),
-            Text('Reset Password',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
-                  color: Colors.black,
-                )),
+            Obx(() =>
+            AnimatedOpacity(
+              duration: Duration(milliseconds: 1500),
+              opacity: controller.animateclose.value?1:0,
+              child: Text('Reset Password',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins',
+                    color: Colors.black,
+                  )),
+            ),
+            ),
           ],
         ),
       ),
@@ -86,27 +92,33 @@ class ForgetPasswordView extends GetView<LoginController> {
                     hintText: 'New Password'),
               ),
          ),
+          Obx(() =>
+           AnimatedOpacity(
+             duration: Duration(milliseconds: 400),
+             opacity: controller.animateclose.value?1:0,
+             child: AnimatedPadding(
+               padding:  EdgeInsets.only(left: 18.0, right: 18, top: controller.animateclose.value?18:0),
+               duration: Duration(milliseconds: 600),
+               child: TextFormField(
+                 // controller: controller.userCtrl,
 
-           Padding(
-             padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
-             child: TextFormField(
-               // controller: controller.userCtrl,
-
-                //               validator: (val) => val.length < 4
-                // ? 'Your password is too Password too short..'
-                //     : null,
-                style: TEXTSTYLE(fontsize: 16.0,fontweight: FontWeight.w400, color:Colors.black),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    prefixIcon: Image.asset(AssetHelper.password),
-                    // border: InputBorder.none,
-                    // icon:Image.asset( AssetHelper.password),
-                    contentPadding: EdgeInsets.all(9),
-                    labelText: 'Confirm Password',
-                    hintText: 'Confirm Password'),
-              ),
+                  //               validator: (val) => val.length < 4
+                  // ? 'Your password is too Password too short..'
+                  //     : null,
+                  style: TEXTSTYLE(fontsize: 16.0,fontweight: FontWeight.w400, color:Colors.black),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      prefixIcon: Image.asset(AssetHelper.password),
+                      // border: InputBorder.none,
+                      // icon:Image.asset( AssetHelper.password),
+                      contentPadding: EdgeInsets.all(9),
+                      labelText: 'Confirm Password',
+                      hintText: 'Confirm Password'),
+                ),
+             ),
            ),
+          ),
 
         ],
       ),

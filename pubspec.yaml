@@ -16,6 +16,8 @@ dependencies:
   toggle_switch: ^2.0.1
   email_validator: ^2.0.1
   readmore: ^2.2.0
+  image_picker: ^0.8.6
+  cross_file_image: ^0.0.1
   flutter_launcher_icons: ^0.11.0
 
 dev_dependencies:
