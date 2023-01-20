@@ -6,6 +6,7 @@ import '../../../components/leavecard.dart';
 import '../../../components/leavefield.dart';
 import '../../../components/textstyle.dart';
 import '../../../data/leavemodel.dart';
+import '../../../data/profile.dart';
 import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
 import '../controllers/my_leaves_controller.dart';
@@ -84,10 +85,25 @@ class MyLeavesView extends GetView<MyLeavesController> {
                 child: Row(
                   children: [
                     CircleAvatar(
-                      child: Image.asset(
-                        AssetHelper.profileIMAGE,
+                      maxRadius:28 ,
+                      child:
+                      ClipOval(child:
+                      ProfileList.length!=0
+
+                          ? Image.file(
+                        ProfileList.last.profilePic,
+                        width: 130,
+                        height: 130,
+                        scale: 1,
+                        fit: BoxFit.cover,
+                      )
+                          : Image.asset(AssetHelper.profileIMAGE)
+
                       ),
-                      maxRadius: 30,
+                      // Image.asset(
+                      //   AssetHelper.profileIMAGE,
+                      // ),
+                      // maxRadius: 30,
                     ),
                     SizedBox(
                       width: 10,

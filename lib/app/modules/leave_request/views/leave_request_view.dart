@@ -1,3 +1,4 @@
+import 'package:Lakshore/app/data/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -96,11 +97,25 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                     children: [
                       CircleAvatar(
                         maxRadius: 40,
-                        child: Image.asset(
-                          //controller.Profile[0].profilePic,
-                          AssetHelper.profileIMAGE,
+                        child:ClipOval(child:
+                        ProfileList.length!=0
+
+                            ? Image.file(
+                          ProfileList.last.profilePic,
+                          width: 130,
+                          height: 130,
+                          scale: 1,
+                          fit: BoxFit.cover,
+                        )
+                            : Image.asset(AssetHelper.profileIMAGE)
+
                         ),
                       ),
+                    // Image.file(
+                        //     ProfileList.last.profilePic,                            //AssetHelper.profileIMAGE,
+                        //   ),
+                        // ),
+                        //
                       SizedBox(
                         width: 10,
                       ),

@@ -30,7 +30,10 @@ class DashboardController extends GetxController {
       image.value = file;
       ProfileList.add(ProfileModel(
           profilePic: image.value!,
+
       ));
+      print( 'p: ${ProfileList.length}');
+      print( 'p: ${ProfileList.last.profilePic}');
       if(file!=null){
         status.value=true;
 
@@ -60,6 +63,7 @@ class DashboardController extends GetxController {
     ));
     if(file!=null){
       status.value=true;
+      print(ProfileList.length);
 
     }
     // print('Image Path $image');

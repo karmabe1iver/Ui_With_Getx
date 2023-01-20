@@ -5,6 +5,4 @@ class ProfileModel{
   ProfileModel({ required this.profilePic});
 
 }
-List<ProfileModel> ProfileList= <ProfileModel>[
-
-];
+List<ProfileModel> ProfileList= <ProfileModel>[];

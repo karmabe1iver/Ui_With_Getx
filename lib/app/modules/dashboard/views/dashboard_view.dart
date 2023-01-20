@@ -50,7 +50,10 @@ class DashboardView extends GetView<DashboardController> {
                     GestureDetector(
                       onTap: () {
                         print(controller.image.value);
-                        Get.defaultDialog(title: 'Upload',content: Wrap(
+                        Get.defaultDialog(title: 'Upload',
+                            backgroundColor: Color.fromRGBO(76, 178, 229, 1) ,
+                            contentPadding:EdgeInsets.all(10),
+                            content: Wrap(
                           runSpacing: 30,
                           spacing: 50,
                           children: [

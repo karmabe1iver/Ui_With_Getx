@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../components/textstyle.dart';
+import '../../../data/profile.dart';
 import '../../../utils/asset_helper.dart';
 import '../controllers/my_shift_controller.dart';
 
@@ -81,10 +82,21 @@ class MyShiftView extends GetView<MyShiftController> {
               child: Row(
                 children: [
                   CircleAvatar(
-                    child: Image.asset(
-                      AssetHelper.profileIMAGE,
-                    ),
-                    maxRadius: 40,
+                    maxRadius: 38,
+                    child: ClipOval(
+                        child: ProfileList.length != 0
+                            ? Image.file(
+                                ProfileList.last.profilePic,
+                                width: 130,
+                                height: 130,
+                                scale: 1,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.asset(AssetHelper.profileIMAGE)),
+                    // Image.asset(
+                    //   AssetHelper.profileIMAGE,
+                    // ),
+                    // maxRadius: 40,
                   ),
                   SizedBox(
                     width: 10,
