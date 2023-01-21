@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../components/mbutton.dart';
 import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
+import '../../../utils/err_m.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -225,8 +226,8 @@ class LoginView extends GetView<LoginController> {
                       ),
                       onPress: () {
                         controller.isPlaying == true;
-
-                        controller.checkLogin();
+                        errM(() => controller.checkLogin());
+                        // controller.checkLogin();
 
                         // controller.userCtrl.value==val;
 
