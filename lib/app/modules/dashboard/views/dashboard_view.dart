@@ -1,8 +1,8 @@
-import 'dart:io';
+
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:cross_file_image/cross_file_image.dart';
+
 
 import '../../../components/mcard.dart';
 import '../../../components/textstyle.dart';
@@ -47,7 +47,8 @@ class DashboardView extends GetView<DashboardController> {
                     SizedBox(
                       height: Get.height * .11,
                     ),
-                    GestureDetector(
+                    InkWell(
+                      radius:65,
                       onTap: () {
                         print(controller.image.value);
                         Get.defaultDialog(title: 'Upload',

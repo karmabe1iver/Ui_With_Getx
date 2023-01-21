@@ -6,33 +6,48 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 
+import '../../../../app.dart';
+import '../../../data/apires.dart';
+import '../../../data/login_response.dart';
+import '../../../data/service/login_service.dart';
 import '../../../routes/app_pages.dart';
+import '../../../utils/err_m.dart';
+import '../../../utils/local_store.dart';
 
 class LoginController extends GetxController {
 
   var isPlaying = false.obs;
-  RxBool animate=false.obs;
-  RxBool animateclose=false.obs;
+  RxBool animate = false.obs;
+  RxBool animateclose = false.obs;
 
 
   final Rxn<int> selected = Rxn<int>();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
   late TextEditingController emailController, passwordController;
+  final FocusNode userCtrlfocusNode = FocusNode();
+
+  final FocusNode pswdCtrlfocusNode = FocusNode();
   var email = '';
   var password = '';
+  RxBool isLoggingProgress = false.obs;
+
   Future startanimation() async {
     await Future.delayed(Duration(milliseconds: 500));
-    animate.value= true;
+    animate.value = true;
     // await Future.delayed(Duration(milliseconds: 1800));
   }
-  Future startanimations() async {
 
+  void doLogin() async {
+
+  }
+
+  Future startanimations() async {
     Get.toNamed(Routes.FORGET_PASSWORD);
 
     await Future.delayed(Duration(milliseconds: 10));
-    animateclose.value= true;
-     //await Future.delayed(Duration(milliseconds: 1800));
+    animateclose.value = true;
+    //await Future.delayed(Duration(milliseconds: 1800));
 
   }
 
@@ -43,7 +58,6 @@ class LoginController extends GetxController {
     startanimation();
     emailController = TextEditingController();
     passwordController = TextEditingController();
-
   }
 
   @override
@@ -71,7 +85,10 @@ class LoginController extends GetxController {
     return null;
   }
 
-  void checkLogin() {
+  void checkLogin() async {
+    isLoggingProgress.value = true;
+    final String emaill = emailController.text;
+    final String pswdd = passwordController.text;
     Future.delayed(Duration(seconds: 5));
     final isValid = loginFormKey.currentState!.validate();
     if (!isValid) {
@@ -83,12 +100,44 @@ class LoginController extends GetxController {
           icon: Icon(Icons.warning_amber_rounded, color: Colors.red,),
           backgroundColor: Color.fromRGBO(18, 132, 198, 1));
     } else {
+      final ApiResp resp = await LoginServices.fetchUser(emaill, pswdd);
+      if (resp.ok == false) {
+        //MyUtils.msg(resp.msgs);
+        isLoggingProgress.value = false;
+        return;
+      }
+
+      User user = User.fromJson(resp.rdata);
+      user.username = email;
+      App.token = user.token ?? '';
       Get.offNamed(Routes.DASHBOARD,);
+      LocalStore.setData('user_id', user.userid);
+      LocalStore.setData('token', user.token);
+      LocalStore.setData('user_firstname', user.firstname);
+      LocalStore.setData('user_lastname', user.lastname);
+      LocalStore.setData('user_email_verified', user.emailVerified);
+      App.user = user;
+
+      if (App.token.isEmpty && user.twoFactorRequired == false) {
+        Get.snackbar("Failed", "Login failed", backgroundColor: Colors.red);
+        isLoggingProgress.value = false;
+        return;
+      }
+
+
+      if (user.emailVerified == true) {
+        Get.offAllNamed(Routes.DASHBOARD);
+      }
+      else {
+        showMsg("Email not verified", "Failed");
+      }
+
+      loginFormKey.currentState!.save();
     }
-    loginFormKey.currentState!.save();
   }
+
   void loadUserEmailPassword() async {
-     {
+    {
       SharedPreferences _prefs = await SharedPreferences.getInstance();
       var _email = _prefs.getString("email") ?? "";
       var _password = _prefs.getString("password") ?? "";
@@ -97,15 +146,14 @@ class LoginController extends GetxController {
       print(_email);
       print(_password);
       if (_remeberMe) {
-
-         selected== true ;
-        }
-        emailController.text = _email ?? "";
-        passwordController.text = _password ?? "";
+        selected == true;
       }
+      emailController.text = _email ?? "";
+      passwordController.text = _password ?? "";
     }
-
   }
+}
+
 
 
 
