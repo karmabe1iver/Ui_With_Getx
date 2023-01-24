@@ -26,25 +26,25 @@ import '../modules/login/controllers/login_controller.dart';
 
 
           duration: Duration(milliseconds: 500),
-          width: Get.width * .55,
-          height: Get.height * .07,
+          width:isButtonpressed?Get.width*.52: Get.width * .55,
+          height:isButtonpressed?Get.height*.068: Get.height * .07,
           decoration: BoxDecoration(
 
             borderRadius: BorderRadius.circular(50),
             boxShadow:isButtonpressed?[]: [
               BoxShadow(
-                color: Colors.grey.shade400,
-                offset: Offset(3, 5),
-                blurRadius: 1,
+                color: Colors.grey.shade100,
+                offset: Offset(-2, -2),
+                blurRadius: 6,
                 spreadRadius: 1,
                  // blurStyle: BlurStyle.outer
               ),
                BoxShadow(
-                   color: Colors.white,
-                   offset: Offset(-6, -6),
-                   blurRadius: 10,
+                   color: Colors.black54,
+                   offset: Offset(2, 2),
+                   blurRadius: 3,
                    spreadRadius: 1,
-                // blurStyle: BlurStyle.outer
+                 //blurStyle: BlurStyle.outer
               //
                ),
             ],
@@ -54,7 +54,7 @@ import '../modules/login/controllers/login_controller.dart';
 
             //  ]
             // ),
-            color: Colors.black
+            color: Colors.white10
           ),
           child: TextButton(
             onPressed: onPress,
@@ -67,9 +67,9 @@ import '../modules/login/controllers/login_controller.dart';
                      '$string',
                      style:  TextStyle(
                        fontSize: 20,
-                       fontWeight: FontWeight.w500,
+                       fontWeight:isButtonpressed?FontWeight.normal: FontWeight.w500,
                        fontFamily: 'Poppins',
-                       color:isButtonpressed? Colors.blueGrey:Colors.white,
+                       color:isButtonpressed? Colors.white70:Colors.white,
                      ),
                    )
 

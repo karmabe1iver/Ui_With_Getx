@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vibration/vibration.dart';
 
 import '../../../components/mbutton.dart';
 import '../../../components/mtextformfield.dart';
@@ -111,7 +112,8 @@ class ForgetPasswordView extends GetView<LoginController> {
                   },
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) =>
-                      controller.confirmpasswordcontroller.text == controller.newpasswordcontroller.text
+                      controller.confirmpasswordcontroller.text ==
+                              controller.newpasswordcontroller.text
                           ? null
                           : 'password is different',
                   style: TEXTSTYLE(
@@ -138,7 +140,26 @@ class ForgetPasswordView extends GetView<LoginController> {
           () => MButton(
             onPress: () {
               controller.ButtonPressed();
-              Get.offNamed(Routes.DASHBOARD);
+              if (controller.newpasswordcontroller.text!= '' &&
+                  controller.confirmpasswordcontroller.text != ''&&controller.confirmpasswordcontroller.text==controller.newpasswordcontroller.text)
+                {
+                Get.offNamed(Routes.DASHBOARD);
+                  }
+              else{
+                Vibration.vibrate(
+                  duration: 500,
+                );
+                Get.snackbar('Incorrect Details', 'Please Enter Correct Details',
+                    colorText: Colors.white,
+                    snackPosition: SnackPosition.TOP,
+                    isDismissible: true,
+                    dismissDirection: DismissDirection.horizontal,
+                    icon: Icon(
+                      Icons.warning_amber_rounded,
+                      color: Colors.red,
+                    ),
+                    backgroundColor: Color.fromRGBO(18, 132, 198, 1));
+              }
             },
             string: 'Submit',
             isButtonpressed: controller.isButtonpressed.value,

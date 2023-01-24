@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vibration/vibration.dart';
 
 
 import '../../../components/leavecard.dart';
@@ -201,6 +202,9 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                     );
                                   },
                                   onTap: () {
+                                    Vibration.vibrate(
+                                      duration:  10
+                                    );
                                     Leavefieldd.removeAt(index);
                                     controller.LeaveFieldd.removeAt(index);
                                   },

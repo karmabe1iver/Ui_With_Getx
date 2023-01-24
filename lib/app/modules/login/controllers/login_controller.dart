@@ -17,7 +17,7 @@ class LoginController extends GetxController {
 
   Future ButtonPressed() async {
     isButtonpressed.value = true;
-    await Future.delayed(Duration(milliseconds: 900));
+    await Future.delayed(Duration(milliseconds: 400));
     isButtonpressed.value = false;
   }
 
