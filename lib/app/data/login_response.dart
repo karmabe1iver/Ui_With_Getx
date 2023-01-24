@@ -21,6 +21,7 @@ class User {
     this.authSecret,
     this.twoFactorDefault,
     this.twoFactorMethods,
+    required this.profilepic,
   });
 
   String? firstname;
@@ -38,6 +39,7 @@ class User {
   String? authSecret;
   int? twoFactorDefault;
   List<int>? twoFactorMethods;
+  String profilepic;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
     firstname: json["firstname"],
@@ -54,7 +56,7 @@ class User {
     authSecret: json["auth_secret"],
     twoFactorDefault: json["two_factor_default"],
     twoFactorMethods:
-    List<int>.from(json["two_factor_methods"] ?? [0].map((x) => x)),
+    List<int>.from(json["two_factor_methods"] ?? [0].map((x) => x)), profilepic: '',
   );
 
   Map<String, dynamic> toJson() => {

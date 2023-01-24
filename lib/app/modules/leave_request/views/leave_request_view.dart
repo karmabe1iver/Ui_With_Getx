@@ -1,8 +1,10 @@
 import 'package:Lakshore/app/data/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:vibration/vibration.dart';
 
 import '../../../components/dailogcontent.dart';
 import '../../../components/dropdown.dart';
@@ -161,6 +163,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                               left: 24.0, right: 24.0, top: 24),
                           child: dropDownBox(
                               FunctioOnchanged: (String? value) {
+                                Clipboard.setData(ClipboardData());
+                                HapticFeedback.heavyImpact();
                                 // This is called when the user selects an item.
                                 controller.dropdownText.value = value!;
                                 print(controller.dropdownText.value);
@@ -186,6 +190,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                           children: [
                             GestureDetector(
                               onTap: () async {
+                                Clipboard.setData(ClipboardData());
+                                HapticFeedback.heavyImpact();
                                 DateTime? pickDate = await showDatePicker(
                                     context: context,
                                     initialDate: DateTime.now(),
@@ -248,6 +254,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                             //  ),
                             GestureDetector(
                               onTap: () async {
+                                Clipboard.setData(ClipboardData());
+                                HapticFeedback.heavyImpact();
                                 if (controller.StartDate.value != 'StartDate') {
                                   DateTime? pickedDate = await showDatePicker(
                                       context: context,
@@ -272,6 +280,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
 
                                   print(controller.EndDate.value);
                                 } else {
+                                  Vibration.vibrate(duration: 100,);
                                   Get.defaultDialog(
                                       middleText: 'Please Select StartDate');
                                 }
@@ -346,6 +355,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                     )
                                   ]),
                               child: ToggleSwitch(
+
                                 minWidth: Get.width * .44,
                                 minHeight: Get.height * .058,
                                 cornerRadius: 10.0,
@@ -367,6 +377,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                 labels: controller.Halforfull,
                                 radiusStyle: true,
                                 onToggle: (index) {
+                                  Clipboard.setData(ClipboardData());
+                                  HapticFeedback.heavyImpact();
                                   controller.Intial.value = index!;
                                   print('switched to: $index');
                                   print(controller.Selected.length);
@@ -424,6 +436,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                               );
                             }).toList(),
                             FunctioOnchanged: (String? value) {
+                              Clipboard.setData(ClipboardData());
+                              HapticFeedback.heavyImpact();
                               //            This is called when the user selects an item.
                               controller.departmentType.value = value!;
                               print(controller.departmentType.value);
@@ -486,107 +500,112 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            MButton(
-                                onPress: () {
-                                  if (controller.dropdownText.value !=
-                                          'Leave Type ' &&
-                                      controller.StartDate.value !=
-                                          'StartDate' &&
-                                      controller.EndDate.value != 'EndDate' &&
-                                      controller.departmentType.value !=
-                                          'Department Head' &&
-                                      controller.Reson.text != '') {
-                                    print(controller.dropdownText.value);
-                                    print(controller.StartDate.value);
-                                    print(controller.EndDate.value);
-                                    print(controller.Intial.value);
-                                    print(controller.departmentType.value);
-                                    print(controller.Reson.text);
+                            Obx(
+    ()=> MButton(
+                                  onPress: () {
+                                   controller.ButtonPressed();
+                                    if (controller.dropdownText.value !=
+                                            'Leave Type ' &&
+                                        controller.StartDate.value !=
+                                            'StartDate' &&
+                                        controller.EndDate.value != 'EndDate' &&
+                                        controller.departmentType.value !=
+                                            'Department Head' &&
+                                        controller.Reson.text != '') {
+                                      print(controller.dropdownText.value);
+                                      print(controller.StartDate.value);
+                                      print(controller.EndDate.value);
+                                      print(controller.Intial.value);
+                                      print(controller.departmentType.value);
+                                      print(controller.Reson.text);
 
-                                    //Leavefieldd.add(controller.Leavefield.first);
-                                    Get.defaultDialog(
-                                      title: 'Please Check Once More!!',
-                                      contentPadding: EdgeInsets.only(
-                                          top: 10,
-                                          bottom: 20,
-                                          left: 10,
-                                          right: 10),
-                                      content: Container(
-                                        child: Wrap(
-                                          direction: Axis.vertical,
-                                          spacing: 5,
-                                          runSpacing: 5,
-                                          children: [
-                                            RichTex(
-                                                text: 'Leave Type :',
-                                                inputtext:
-                                                    ' ${controller.dropdownText.value}'),
-                                            RichTex(
-                                                text: 'Leave From :',
-                                                inputtext:
-                                                    ' ${controller.StartDate.value} - ${controller.EndDate.value}'),
-                                            if (controller.Intial.value == 0)
+                                      //Leavefieldd.add(controller.Leavefield.first);
+                                      Get.defaultDialog(
+                                        title: 'Please Check Once More!!',
+                                        contentPadding: EdgeInsets.only(
+                                            top: 10,
+                                            bottom: 20,
+                                            left: 10,
+                                            right: 10),
+                                        content: Container(
+                                          child: Wrap(
+                                            direction: Axis.vertical,
+                                            spacing: 5,
+                                            runSpacing: 5,
+                                            children: [
                                               RichTex(
-                                                  text: 'Full day or Half :',
-                                                  inputtext: ' Full day')
-                                            else
+                                                  text: 'Leave Type :',
+                                                  inputtext:
+                                                      ' ${controller.dropdownText.value}'),
                                               RichTex(
-                                                  text: 'Full day or Half :',
-                                                  inputtext: ' Half Day'),
-                                            RichTex(
-                                                text: 'Department :',
-                                                inputtext:
-                                                    ' ${controller.departmentType.value}'),
-                                            RichTex(
-                                                text: 'Reson :',
-                                                inputtext:
-                                                    ' ${controller.Reson.value.text}')
-                                          ],
+                                                  text: 'Leave From :',
+                                                  inputtext:
+                                                      ' ${controller.StartDate.value} - ${controller.EndDate.value}'),
+                                              if (controller.Intial.value == 0)
+                                                RichTex(
+                                                    text: 'Full day or Half :',
+                                                    inputtext: ' Full day')
+                                              else
+                                                RichTex(
+                                                    text: 'Full day or Half :',
+                                                    inputtext: ' Half Day'),
+                                              RichTex(
+                                                  text: 'Department :',
+                                                  inputtext:
+                                                      ' ${controller.departmentType.value}'),
+                                              RichTex(
+                                                  text: 'Reson :',
+                                                  inputtext:
+                                                      ' ${controller.Reson.value.text}')
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      textCancel: 'Edit',
-                                      onCancel: () {},
-                                      radius: 30.0,
-                                      textConfirm: 'Confirm & View Status',
-                                      confirmTextColor: Colors.white,
-                                      onConfirm: () {
-                                        Leavefieldd.add(LeaveModel(
-                                            sts: true,
-                                            Status: 'Pending',
-                                            Reason: controller.Reson.text,
-                                            Category:
-                                                controller.dropdownText.value,
-                                            LeaveFrom:
-                                                controller.StartDate.value,
-                                            LeaveTo: controller.EndDate.value,
-                                            ResonDes: controller.Reson.text));
-                                        Get.offNamed(Routes.MY_LEAVES);
-                                      },
-                                    );
-                                  } else {
-                                    Get.snackbar(
-                                      'Fill Details ',
-                                      'Please  Fill Missing details ',
-                                      snackPosition: SnackPosition.TOP,
-                                      backgroundColor: Colors.white,
-                                      colorText:
-                                          Color.fromRGBO(44, 157, 215, 1),
-                                      icon: Icon(
-                                        Icons.alarm,
-                                        color: Color.fromRGBO(7, 178, 229, 1),
-                                      ),
-                                      //       backgroundGradient:LinearGradient(
-                                      //     colors: [
-                                      //   Color.fromRGBO(7, 178, 229, 1),
-                                      //   Color.fromRGBO(44, 157, 215, 1)
-                                      // ]),
-                                      isDismissible: true,
-                                      dismissDirection:
-                                          DismissDirection.horizontal,
-                                    );
-                                  }
-                                },
-                                string: 'Submit Request'),
+                                        textCancel: 'Edit',
+                                        onCancel: () {},
+                                        radius: 30.0,
+                                        textConfirm: 'Confirm & View Status',
+                                        confirmTextColor: Colors.white,
+                                        onConfirm: () {
+                                          Leavefieldd.add(LeaveModel(
+                                              sts: true,
+                                              Status: 'Pending',
+                                              Reason: controller.Reson.text,
+                                              Category:
+                                                  controller.dropdownText.value,
+                                              LeaveFrom:
+                                                  controller.StartDate.value,
+                                              LeaveTo: controller.EndDate.value,
+                                              ResonDes: controller.Reson.text));
+                                          Get.offNamed(Routes.MY_LEAVES);
+                                        },
+                                      );
+                                    } else {
+                                     controller.ButtonPressed();
+                                      Vibration.vibrate(duration: 100,);
+                                      Get.snackbar(
+                                        'Fill Details ',
+                                        'Please  Fill Missing details ',
+                                        snackPosition: SnackPosition.TOP,
+                                        backgroundColor: Colors.white,
+                                        colorText:
+                                            Color.fromRGBO(44, 157, 215, 1),
+                                        icon: Icon(
+                                          Icons.alarm,
+                                          color: Color.fromRGBO(7, 178, 229, 1),
+                                        ),
+                                        //       backgroundGradient:LinearGradient(
+                                        //     colors: [
+                                        //   Color.fromRGBO(7, 178, 229, 1),
+                                        //   Color.fromRGBO(44, 157, 215, 1)
+                                        // ]),
+                                        isDismissible: true,
+                                        dismissDirection:
+                                            DismissDirection.horizontal,
+                                      );
+                                    }
+                                  },
+                                  string: 'Submit Request', isButtonpressed: controller.isButtonpressed.value,),
+                            ),
                           ],
                         ),
                     ],

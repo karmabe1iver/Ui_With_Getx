@@ -25,6 +25,7 @@ abstract class LocalStore {
 class FetchDataFromLocalStore {
   userData() async {
     App.user = User(
+      profilepic:LocalStore.getData('photo'),
       userid: LocalStore.getInt('user_id'),
       token: LocalStore.getString('token'),
       firstname: LocalStore.getString('user_firstname'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vibration/vibration.dart';
 
 void errM(Function() f, {String msg = "", String title = "Error"}) {
   try {
@@ -34,6 +35,7 @@ Future errMAsync(Future<void> Function() f,
 }
 
 void showMsg(String msg, String title, {leadingIcon, isSuccess = false}) {
+  Vibration.vibrate(duration: 1000,);
   Get.snackbar(
     title,
     msg,

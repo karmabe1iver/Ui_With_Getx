@@ -4,11 +4,18 @@ import 'package:Lakshore/app/data/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 import '../../../components/customcontainer.dart';
 import '../../../data/leavemodel.dart';
 
 class LeaveRequestController extends GetxController {
+  RxBool isButtonpressed = false.obs;
+
+  Future ButtonPressed() async {
+    isButtonpressed.value = true;
+    await Future.delayed(Duration(milliseconds: 500));
+    isButtonpressed.value = false;
+  }
+
   final TextEditingController Reson = TextEditingController(text: '');
   List<LeaveModel> Leavefield = <LeaveModel>[].obs;
 
@@ -57,5 +64,6 @@ class LeaveRequestController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+
   }
 }

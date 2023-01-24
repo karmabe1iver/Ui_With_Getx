@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
@@ -17,9 +18,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive,);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,));
     super.initState();
     startanimation();
    // Timer(const Duration(seconds: 5), () => Get.offNamed(Routes.LOGIN));
+  }
+  @override
+  void dispose() {
+   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top,SystemUiOverlay.bottom]);
+    super.dispose();
   }
 
   @override

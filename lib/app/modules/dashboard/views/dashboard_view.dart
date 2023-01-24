@@ -1,5 +1,6 @@
 
 
+import 'package:Lakshore/app/utils/local_store.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -73,14 +74,14 @@ class DashboardView extends GetView<DashboardController> {
                       },
                       child: Obx(
                         () => CircleAvatar(
-                          maxRadius: 65,
+                          maxRadius: controller.animate.value?0:65,
                           child:ClipOval(child:
                           controller.status.value!=false
-
                          ? Image.file(
                                  controller.image.value!,
-                                  width: 130,
-                                  height: 130,
+                            //LocalStore.setData(user.profilepic,'photo'),
+                                  width: controller.animate.value?0:130,
+                                  height: controller.animate.value?0: 130,
                                   scale: 1,
                                   fit: BoxFit.cover,
                                 )
@@ -92,31 +93,37 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
-                      child: Text(
-                        'Amila',
-                        style: TEXTSTYLE(
-                          fontsize: 30.0,
-                          fontweight: FontWeight.w500,
-                          color: Colors.white,
+                      child: Obx(
+                        ()=> Text(
+                          'Amila',
+                          style: TEXTSTYLE(
+                            fontsize:  controller.animate.value?0.0:30.0,
+                            fontweight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(
                       height: Get.height * .01,
                     ),
-                    Text(
-                      'Registered Nurse',
-                      style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          fontsize: 20.0,
-                          color: Colors.white),
+                Obx(
+                  ()=> Text(
+                        'Registered Nurse',
+                        style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            fontsize: controller.animate.value?0.0: 20.0,
+                            color: Colors.white),
+                      ),
                     ),
-                    Text(
-                      'Emp Id : xxxx xxxxx',
-                      style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          fontsize: 17.0,
-                          color: Colors.white),
+                    Obx(
+                      ()=> Text(
+                        'Emp Id : xxxx xxxxx',
+                        style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            fontsize:  controller.animate.value?0.0:17.0,
+                            color: Colors.white),
+                      ),
                     )
                   ]),
                 ),

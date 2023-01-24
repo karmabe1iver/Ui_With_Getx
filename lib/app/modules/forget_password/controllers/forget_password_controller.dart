@@ -1,7 +1,15 @@
+import 'dart:ffi';
+
 import 'package:get/get.dart';
 
 class ForgetPasswordController extends GetxController {
+  RxBool isButtonpressed = false.obs;
 
+  Future ButtonPressed() async {
+    isButtonpressed.value = true;
+    await Future.delayed(Duration(milliseconds: 500));
+    isButtonpressed.value = false;
+  }
 
   final count = 0.obs;
 

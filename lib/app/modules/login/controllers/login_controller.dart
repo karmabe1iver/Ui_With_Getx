@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
-
+import 'package:vibration/vibration.dart';
 
 import '../../../../app.dart';
 import '../../../data/apires.dart';
@@ -15,19 +13,27 @@ import '../../../utils/err_m.dart';
 import '../../../utils/local_store.dart';
 
 class LoginController extends GetxController {
+  RxBool isButtonpressed = false.obs;
+
+  Future ButtonPressed() async {
+    isButtonpressed.value = true;
+    await Future.delayed(Duration(milliseconds: 900));
+    isButtonpressed.value = false;
+  }
 
   var isPlaying = false.obs;
   RxBool animate = false.obs;
   RxBool animateclose = false.obs;
 
-
   final Rxn<int> selected = Rxn<int>();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
-  late TextEditingController emailController, passwordController;
+  late TextEditingController emailController, passwordController,newpasswordcontroller, confirmpasswordcontroller;
   final FocusNode userCtrlfocusNode = FocusNode();
 
   final FocusNode pswdCtrlfocusNode = FocusNode();
+  final FocusNode newCtrlfocusNode = FocusNode();
+  final FocusNode confirmCtrlfocusNode = FocusNode();
   var email = '';
   var password = '';
   RxBool isLoggingProgress = false.obs;
@@ -38,9 +44,7 @@ class LoginController extends GetxController {
     // await Future.delayed(Duration(milliseconds: 1800));
   }
 
-  void doLogin() async {
-
-  }
+  void doLogin() async {}
 
   Future startanimations() async {
     Get.toNamed(Routes.FORGET_PASSWORD);
@@ -48,7 +52,6 @@ class LoginController extends GetxController {
     await Future.delayed(Duration(milliseconds: 10));
     animateclose.value = true;
     //await Future.delayed(Duration(milliseconds: 1800));
-
   }
 
   @override
@@ -56,6 +59,8 @@ class LoginController extends GetxController {
     super.onInit();
     loadUserEmailPassword();
     startanimation();
+    newpasswordcontroller=TextEditingController();
+    confirmpasswordcontroller=TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
   }
@@ -92,12 +97,18 @@ class LoginController extends GetxController {
     Future.delayed(Duration(seconds: 5));
     final isValid = loginFormKey.currentState!.validate();
     if (!isValid) {
+      Vibration.vibrate(
+        duration: 1000,
+      );
       Get.snackbar('Incorrect Details', 'Please Enter Correct Details',
           colorText: Colors.white,
           snackPosition: SnackPosition.TOP,
           isDismissible: true,
           dismissDirection: DismissDirection.horizontal,
-          icon: Icon(Icons.warning_amber_rounded, color: Colors.red,),
+          icon: Icon(
+            Icons.warning_amber_rounded,
+            color: Colors.red,
+          ),
           backgroundColor: Color.fromRGBO(18, 132, 198, 1));
     } else {
       final ApiResp resp = await LoginServices.fetchUser(emaill, pswdd);
@@ -110,7 +121,9 @@ class LoginController extends GetxController {
       User user = User.fromJson(resp.rdata);
       user.username = email;
       App.token = user.token ?? '';
-      Get.offNamed(Routes.DASHBOARD,);
+      Get.offNamed(
+        Routes.DASHBOARD,
+      );
       LocalStore.setData('user_id', user.userid);
       LocalStore.setData('token', user.token);
       LocalStore.setData('user_firstname', user.firstname);
@@ -119,17 +132,21 @@ class LoginController extends GetxController {
       App.user = user;
 
       if (App.token.isEmpty && user.twoFactorRequired == false) {
+        Vibration.vibrate(
+          duration: 100,
+        );
         Get.snackbar("Failed", "Login failed", backgroundColor: Colors.red);
         isLoggingProgress.value = false;
         return;
       }
 
-
       if (user.emailVerified == true) {
         Get.offAllNamed(Routes.DASHBOARD);
-      }
-      else {
+      } else {
         showMsg("Email not verified", "Failed");
+        Vibration.vibrate(
+          duration: 1000,
+        );
       }
 
       loginFormKey.currentState!.save();
@@ -153,10 +170,6 @@ class LoginController extends GetxController {
     }
   }
 }
-
-
-
-
 
 final count = 0.obs;
 // void submitCommand() {

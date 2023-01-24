@@ -1,7 +1,9 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vibration/vibration.dart';
 
 import '../../../components/mbutton.dart';
 import '../../../routes/app_pages.dart';
@@ -150,7 +152,10 @@ class LoginView extends GetView<LoginController> {
                                 () => AnimatedOpacity(
                                   duration: Duration(milliseconds: 1800),
                                   opacity: controller.animate.value ? 1 : 0,
+
                                   child: Checkbox(
+                                    overlayColor: MaterialStateProperty.all(Colors.blue),
+                                    focusColor: Colors.blue,
                                     value: controller.selected.value == 1,
                                     onChanged: (val) {
                                       val ?? true
@@ -177,7 +182,10 @@ class LoginView extends GetView<LoginController> {
                                     hoverColor: Color.fromRGBO(18, 132, 198, 1),
 
                                     // Color.fromRGBO(18, 132, 198, 1),
+                                    side: BorderSide(color: Colors.blue),
                                     shape: RoundedRectangleBorder(
+
+
                                         borderRadius: BorderRadius.circular(5)),
                                   ),
                                 ),
@@ -209,31 +217,25 @@ class LoginView extends GetView<LoginController> {
                   () => AnimatedOpacity(
                     duration: Duration(milliseconds: 1800),
                     opacity: controller.animate.value ? 1 : 0,
-                    child: MButton(
-                      child: Column(
-                        children: [
-                          if (controller.isPlaying == false)
-                            Text(
-                              'Submit',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'Poppins',
-                                color: Colors.white,
-                              ),
-                            ),
-                        ],
+                    child: Obx(
+    ()=> MButton(
+
+                        onPress: () {
+                          //controller.isButtonpressed.value=true;
+                          controller.ButtonPressed();
+                          Clipboard.setData(ClipboardData());
+                          HapticFeedback.heavyImpact();
+
+                          controller.isPlaying == true;
+                          errM(() => controller.checkLogin());
+                          // controller.checkLogin();
+
+                          // controller.userCtrl.value==val;
+
+                          //  Get.offNamed(Routes.DASHBOARD);
+                        }, isButtonpressed: controller.isButtonpressed.value,
+                        string: 'Login',
                       ),
-                      onPress: () {
-                        controller.isPlaying == true;
-                        errM(() => controller.checkLogin());
-                        // controller.checkLogin();
-
-                        // controller.userCtrl.value==val;
-
-                        //  Get.offNamed(Routes.DASHBOARD);
-                      },
-                      //string: 'Login',
                     ),
                   ),
                 ),
