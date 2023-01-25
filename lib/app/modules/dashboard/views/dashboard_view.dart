@@ -94,13 +94,26 @@ class DashboardView extends GetView<DashboardController> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Obx(
-                        ()=> Text(
-                          'Amila',
-                          style: TEXTSTYLE(
-                            fontsize:  controller.animate.value?0.0:30.0,
-                            fontweight: FontWeight.w500,
-                            color: Colors.white,
+                        ()=> Wrap(
+                          runAlignment: WrapAlignment.center,
+
+                          //spacing: 5,
+                          children: [
+                            SizedBox(width: 30,),
+                            Text(
+                            'Amila',
+                            style: TEXTSTYLE(
+                              fontsize:  controller.animate.value?0.0:30.0,
+                              fontweight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
                           ),
+                            IconButton(
+                              onPressed: (){
+                                Get.toNamed(Routes.PROFILEDETAILS);
+                              },
+                                icon: Icon(Icons.edit_calendar_outlined),color: Colors.white,),
+                        ]
                         ),
                       ),
                     ),

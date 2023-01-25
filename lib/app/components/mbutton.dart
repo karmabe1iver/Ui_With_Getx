@@ -72,17 +72,6 @@ import '../modules/login/controllers/login_controller.dart';
                        color:isButtonpressed? Colors.white70:Colors.white,
                      ),
                    )
-
-
-                // Container(
-                //   height: 45,
-                //   width: 200,
-                //   child: RiveAnimation.asset('asset/arrow.riv',
-                //     fit: BoxFit.cover,
-                //
-                //
-                //   ),
-                // ),
               ],
             ),
             style: ButtonStyle(
