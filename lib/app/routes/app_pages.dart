@@ -1,8 +1,5 @@
 import 'package:get/get.dart';
 
-import 'package:Lakshore/app/modules/profiledetails/bindings/profiledetails_binding.dart';
-import 'package:Lakshore/app/modules/profiledetails/views/profiledetails_view.dart';
-
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forget_password/bindings/forget_password_binding.dart';
@@ -15,10 +12,13 @@ import '../modules/my_leaves/bindings/my_leaves_binding.dart';
 import '../modules/my_leaves/views/my_leaves_view.dart';
 import '../modules/my_shift/bindings/my_shift_binding.dart';
 import '../modules/my_shift/views/my_shift_view.dart';
-
 import '../modules/notice_board/bindings/notice_board_binding.dart';
 import '../modules/notice_board/views/notice_board_view.dart';
+import '../modules/profiledetails/bindings/profiledetails_binding.dart';
+import '../modules/profiledetails/views/profiledetails_view.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/updationrequest/bindings/updationrequest_binding.dart';
+import '../modules/updationrequest/views/updationrequest_view.dart';
 
 part 'app_routes.dart';
 
@@ -80,11 +80,19 @@ class AppPages {
       transition: Transition.cupertinoDialog,
       transitionDuration: Duration(seconds: 1),
     ),
-
     GetPage(
       name: _Paths.PROFILEDETAILS,
       page: () => ProfiledetailsView(),
       binding: ProfiledetailsBinding(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: Duration(seconds: 1),
+    ),
+    GetPage(
+      name: _Paths.UPDATIONREQUEST,
+      page: () => const UpdationrequestView(),
+      binding: UpdationrequestBinding(),
+      transition: Transition.noTransition,
+      transitionDuration: Duration(seconds: 1),
     ),
   ];
 }

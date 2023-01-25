@@ -76,8 +76,8 @@ class ForgetPasswordView extends GetView<LoginController> {
           Padding(
             padding: const EdgeInsets.only(left: 18.0, right: 18, top: 18),
             child: TextFormField(
+              obscureText: true,
               controller: controller.newpasswordcontroller,
-
               //              validator: (val) => val.length < 4
               // ? 'Your password is too Password too short..'
               //     : null,
@@ -140,16 +140,17 @@ class ForgetPasswordView extends GetView<LoginController> {
           () => MButton(
             onPress: () {
               controller.ButtonPressed();
-              if (controller.newpasswordcontroller.text!= '' &&
-                  controller.confirmpasswordcontroller.text != ''&&controller.confirmpasswordcontroller.text==controller.newpasswordcontroller.text)
-                {
+              if (controller.newpasswordcontroller.text != '' &&
+                  controller.confirmpasswordcontroller.text != '' &&
+                  controller.confirmpasswordcontroller.text ==
+                      controller.newpasswordcontroller.text) {
                 Get.offNamed(Routes.DASHBOARD);
-                  }
-              else{
+              } else {
                 Vibration.vibrate(
                   duration: 500,
                 );
-                Get.snackbar('Incorrect Details', 'Please Enter Correct Details',
+                Get.snackbar(
+                    'Incorrect Details', 'Please Enter Correct Details',
                     colorText: Colors.white,
                     snackPosition: SnackPosition.TOP,
                     isDismissible: true,

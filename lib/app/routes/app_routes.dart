@@ -14,6 +14,7 @@ abstract class Routes {
   static const LEAVE_REQUEST = _Paths.LEAVE_REQUEST;
   static const MYPROFILE = _Paths.MYPROFILE;
   static const PROFILEDETAILS = _Paths.PROFILEDETAILS;
+  static const UPDATIONREQUEST = _Paths.UPDATIONREQUEST;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const LEAVE_REQUEST = '/leave-request';
   static const MYPROFILE = '/myprofile';
   static const PROFILEDETAILS = '/profiledetails';
+  static const UPDATIONREQUEST = '/updationrequest';
 }

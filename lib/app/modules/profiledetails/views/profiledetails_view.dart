@@ -1,5 +1,6 @@
 import 'package:Lakshore/app/components/profiledetials.dart';
 import 'package:Lakshore/app/components/textstyle.dart';
+import 'package:Lakshore/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,6 +16,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+
             children: [
               SizedBox(
                 height: 20,
@@ -158,7 +160,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
           child: Icon(Icons.edit_calendar_outlined),
           backgroundColor: Color.fromRGBO(18, 132, 198, 1),
           onPressed: () {
-            // Get.offAndToNamed(Routes.LEAVE_REQUEST);
+            Get.toNamed(Routes.UPDATIONREQUEST);
           },
         ),
       ),

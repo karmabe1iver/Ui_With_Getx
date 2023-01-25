@@ -70,6 +70,7 @@ class LoginView extends GetView<LoginController> {
                               top: 18),
                           duration: Duration(milliseconds: 1800),
                           child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             controller: controller.emailController,
                             onSaved: (Value) {
                               controller.email = Value!;

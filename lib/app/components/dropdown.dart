@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-Widget dropDownBox({FunctioOnchanged, ListItem, ListValue}) {
+Widget dropDownBox({FunctioOnchanged, ListItem, ListValue, color, shadow}) {
   return
       //  Card(
       //  shape: RoundedRectangleBorder(
@@ -14,7 +14,9 @@ Widget dropDownBox({FunctioOnchanged, ListItem, ListValue}) {
     height: Get.height * .06,
     width: 350,
     decoration:
-        BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
+        BoxDecoration(
+          border: Border.all(color:color==null? Colors.transparent:color),
+            borderRadius: BorderRadius.circular(10), boxShadow:shadow==null? [
       BoxShadow(
         color: Colors.grey.shade300,
         offset: Offset.zero,
@@ -22,7 +24,7 @@ Widget dropDownBox({FunctioOnchanged, ListItem, ListValue}) {
         blurRadius: 10,
         blurStyle: BlurStyle.outer, //spreadRadius: 35
       )
-    ]),
+    ]:shadow),
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     // decoration: BoxDecoration(
     //     color: Colors.white, borderRadius: BorderRadius.circular(10)),

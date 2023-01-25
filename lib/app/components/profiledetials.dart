@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 class DetailsCard extends StatelessWidget {
   final heading;
   late Widget wrap;
-  DetailsCard( {Key? key,required this.heading,required this.wrap}) : super(key: key);
+   late final TextStyle;
+   final Alignment;
+   final Dcolor;
+
+  DetailsCard( {Key? key,required this.heading,required this.wrap,this.TextStyle,this.Alignment,this.Dcolor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,20 +34,20 @@ class DetailsCard extends StatelessWidget {
               //direction: Axis.vertical,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment:Alignment==null? MainAxisAlignment.start:Alignment,
                   children: [
                     Text(
                         heading,
-                      style: TEXTSTYLE(
+                      style: TextStyle==null? TEXTSTYLE(
                         fontsize: 18.0,
                         fontweight: FontWeight.w800,
-                      ),
+                      ): TextStyle
                     ),
                   ],
                 ),
                 Divider(
                   thickness: 2.0,
-                  color: Colors.grey.shade300,
+                  color:Dcolor==null? Colors.grey.shade300:Dcolor,
                 ),
                wrap
               ],
