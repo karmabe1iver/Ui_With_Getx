@@ -17,7 +17,7 @@ class DashboardController extends GetxController {
   Future Animate() async {
     // await Future.delayed(Duration(milliseconds: 600));
     animate.value = true;
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(Duration(milliseconds: 100));
     animate.value = false;
   }
 

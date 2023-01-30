@@ -10,6 +10,12 @@ class UpdationrequestController extends GetxController {
     'Single',
     'Married',
   ].obs;
+  RxBool animate= false.obs;
+  Future startanimation() async {
+    await Future.delayed(Duration(milliseconds: 1));
+    animate.value= true;
+    // await Future.delayed(Duration(milliseconds: 1800));
+  }
   RxBool Upload=false.obs;
   Rx<File> files =File('') .obs;
   Future Filepick()async {
@@ -27,6 +33,7 @@ class UpdationrequestController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    startanimation();
   }
 
   @override
