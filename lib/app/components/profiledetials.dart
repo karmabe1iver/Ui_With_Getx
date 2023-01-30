@@ -14,7 +14,7 @@ class DetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-        padding: const EdgeInsets.only(left: 18.0,right: 18.0,top: 18.0),
+        padding: const EdgeInsets.only(top: 18.0),
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -26,7 +26,10 @@ class DetailsCard extends StatelessWidget {
                   blurStyle: BlurStyle.outer,
                   blurRadius: 5,
                 ),
-              ]),
+
+              ],
+            color: Colors.white
+          ),
           child: Padding(
             padding: const EdgeInsets.all(18.0),
             child: Column(

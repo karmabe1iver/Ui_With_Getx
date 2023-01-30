@@ -13,34 +13,44 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                color: Color.fromRGBO(44, 157, 215, 1),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      maxRadius: 48,
-                      child: ClipOval(
-                          child: ProfileList.length != 0
-                              ? Image.file(
-                                  ProfileList.last.profilePic,
-                                  width: 130,
-                                  height: 130,
-                                  scale: 1,
-                                  fit: BoxFit.cover,
-                                )
-                              : Image.asset(AssetHelper.profileIMAGE)),
-                    ),
-                  ],
-                ),
+      body: Stack(
+        children: [
+          Container(),
+          Image.asset(AssetHelper.component),
+          Positioned(
+            left: 16,
+            top: 50,
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(Icons.arrow_back),
+              iconSize: 30,
+              color: Color.fromRGBO(44, 157, 215, 1),
+            ),
+          ),
+          Positioned(
+            top: 40,
+            left: 25,
+            right: 25,
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    maxRadius: 48,
+                    child: ClipOval(
+                        child: ProfileList.length != 0
+                            ? Image.file(
+                                ProfileList.last.profilePic,
+                                width: 130,
+                                height: 130,
+                                scale: 1,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.asset(AssetHelper.profileIMAGE)),
+                  ),
+                ],
               ),
               DetailsCard(
                   heading: 'Profile Details',
@@ -149,9 +159,9 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                       content(field: 'Branch', deatail: 'kochi')
                     ],
                   )),
-            ],
+            ]),
           ),
-        ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: Padding(

@@ -10,6 +10,9 @@ void main() {
         (value) =>
   runApp(
     GetMaterialApp(
+      theme: ThemeData(
+        useMaterial3: true
+      ),
       debugShowCheckedModeBanner: false,
       title: "Application",
       initialRoute: AppPages.INITIAL,

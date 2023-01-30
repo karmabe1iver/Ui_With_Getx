@@ -4,9 +4,9 @@ import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 
 class UpdationrequestController extends GetxController {
-  RxString dropdownText = 'Maritial Status'.obs as RxString;
+  RxString dropdownText = 'Marital Status'.obs as RxString;
   List<String> df = [
-    'Maritial Status',
+    'Marital Status',
     'Single',
     'Married',
   ].obs;
