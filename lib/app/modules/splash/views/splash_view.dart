@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive,);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,));
     super.initState();
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   void dispose() {
-   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top,SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top,SystemUiOverlay.bottom]);
     super.dispose();
   }
 

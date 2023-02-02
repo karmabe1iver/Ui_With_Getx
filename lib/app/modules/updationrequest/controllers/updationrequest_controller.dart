@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class UpdationrequestController extends GetxController {
+class UpdationrequestController extends GetxController with  GetSingleTickerProviderStateMixin {
   RxString dropdownText = 'Marital Status'.obs as RxString;
   List<String> df = [
     'Marital Status',
@@ -14,6 +15,8 @@ class UpdationrequestController extends GetxController {
   Future startanimation() async {
     await Future.delayed(Duration(milliseconds: 1));
     animate.value= true;
+
+
     // await Future.delayed(Duration(milliseconds: 1800));
   }
   RxBool Upload=false.obs;

@@ -66,11 +66,11 @@ class UpdationrequestView extends GetView<UpdationrequestController> {
                   Obx(
                 () => AnimatedOpacity(
                   opacity: controller.animate.value?1:0,
-                  duration: Duration(milliseconds: 400),
+                  duration: Duration(milliseconds: 220),
                   child: AnimatedPadding(
-                    duration: Duration(milliseconds: 400),
+                    duration: Duration(milliseconds: 250),
                     padding: EdgeInsets.only(
-                      top: controller.animate.value ? 0 : 500,
+                      top: controller.animate.value ? 0 : 350,
                       left: controller.animate.value ? 0 : 90,
 
                     ),

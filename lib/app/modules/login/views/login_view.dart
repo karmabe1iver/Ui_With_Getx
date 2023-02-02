@@ -2,8 +2,6 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:vibration/vibration.dart';
 
 import '../../../components/mbutton.dart';
 import '../../../routes/app_pages.dart';
@@ -100,32 +98,44 @@ class LoginView extends GetView<LoginController> {
                               right: 18,
                               top: 18),
                           duration: Duration(milliseconds: 1800),
-                          child: TextFormField(
-                            obscureText: true,
-                            keyboardType: TextInputType.visiblePassword,
-                            onSaved: (value) {
-                              controller.password = value!;
-                            },
-                            controller: controller.passwordController,
-                            validator: (value) {
-                              return controller.validatePassword(value!);
-                            },
+                          child: Obx(
+                            () => TextFormField(
+                              obscureText: controller.obscureText.value,
+                              keyboardType: TextInputType.visiblePassword,
+                              onSaved: (value) {
+                                controller.password = value!;
+                              },
+                              controller: controller.passwordController,
+                              validator: (value) {
+                                return controller.validatePassword(value!);
+                              },
 
-                            // controller: controller.userCtrl,
+                              // controller: controller.userCtrl,
 
-                            //               validator: (val) => val.length < 4
-                            // ? 'Your password is too Password too short..'
-                            //     : null,
-                            style:
-                                TEXTSTYL(16.0, FontWeight.w400, Colors.black),
-                            decoration: InputDecoration(
+                              //               validator: (val) => val.length < 4
+                              // ? 'Your password is too Password too short..'
+                              //     : null,
+                              style:
+                                  TEXTSTYL(16.0, FontWeight.w400, Colors.black),
+                              decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 prefixIcon: Image.asset(AssetHelper.password),
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    controller.obscureText.value =
+                                        !controller.obscureText.value;
+                                  },
+                                  child: Icon(controller.obscureText.value
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
+                                ),
                                 contentPadding: EdgeInsets.all(9),
                                 hintText: 'Password',
-                                labelText: 'Password'),
+                                labelText: 'Password',
+                              ),
+                            ),
                           ),
                         ),
                         // ),
@@ -153,9 +163,9 @@ class LoginView extends GetView<LoginController> {
                                 () => AnimatedOpacity(
                                   duration: Duration(milliseconds: 1800),
                                   opacity: controller.animate.value ? 1 : 0,
-
                                   child: Checkbox(
-                                    overlayColor: MaterialStateProperty.all(Colors.blue),
+                                    overlayColor:
+                                        MaterialStateProperty.all(Colors.blue),
                                     focusColor: Colors.blue,
                                     value: controller.selected.value == 1,
                                     onChanged: (val) {
@@ -163,21 +173,25 @@ class LoginView extends GetView<LoginController> {
                                           ? controller.selected.value = 1
                                           : controller.selected.value = null;
                                       if (controller.selected.value == 1) {
-                                        SharedPreferences.getInstance().then(
-                                          (prefs) {
-                                            prefs.setBool("remember_me",
-                                                controller.selected.value == 1);
-                                            prefs.setString(
-                                                'email',
-                                                controller
-                                                    .emailController.text);
-                                            prefs.setString(
-                                                'password',
-                                                controller
-                                                    .passwordController.text);
-                                          },
-                                        );
+                                        controller.box.write('email',
+                                            controller.emailController.text);
+                                        controller.box.write('password',
+                                            controller.passwordController.text);
+
+                                        // SharedPreferences.getInstance()
+                                        //     .then((prefs) {
+                                        //   prefs.setBool("remember_me",
+                                        //       controller.selected.value == 1);
+                                        //   prefs.setString('email',
+                                        //       controller.emailController.text);
+                                        //   prefs.setString(
+                                        //       'password',
+                                        //       controller
+                                        //           .passwordController.text);
+                                        // },
+                                        // );
                                       }
+
                                       print(controller.selected.value);
                                     },
                                     hoverColor: Color.fromRGBO(18, 132, 198, 1),
@@ -185,8 +199,6 @@ class LoginView extends GetView<LoginController> {
                                     // Color.fromRGBO(18, 132, 198, 1),
                                     side: BorderSide(color: Colors.blue),
                                     shape: RoundedRectangleBorder(
-
-
                                         borderRadius: BorderRadius.circular(5)),
                                   ),
                                 ),
@@ -219,8 +231,7 @@ class LoginView extends GetView<LoginController> {
                     duration: Duration(milliseconds: 1800),
                     opacity: controller.animate.value ? 1 : 0,
                     child: Obx(
-    ()=> MButton(
-
+                      () => MButton(
                         onPress: () {
                           //controller.isButtonpressed.value=true;
                           controller.ButtonPressed();
@@ -234,7 +245,8 @@ class LoginView extends GetView<LoginController> {
                           // controller.userCtrl.value==val;
 
                           //  Get.offNamed(Routes.DASHBOARD);
-                        }, isButtonpressed: controller.isButtonpressed.value,
+                        },
+                        isButtonpressed: controller.isButtonpressed.value,
                         string: 'Login',
                       ),
                     ),

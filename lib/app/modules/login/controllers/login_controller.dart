@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vibration/vibration.dart';
 
@@ -13,7 +14,10 @@ import '../../../utils/err_m.dart';
 import '../../../utils/local_store.dart';
 
 class LoginController extends GetxController {
+  RxBool obscureText=true.obs;
+  final box = GetStorage();
   RxBool isButtonpressed = false.obs;
+
 
   Future ButtonPressed() async {
     isButtonpressed.value = true;
@@ -27,8 +31,14 @@ class LoginController extends GetxController {
 
   final Rxn<int> selected = Rxn<int>();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final TextEditingController emailController=TextEditingController();
+  final TextEditingController passwordController=TextEditingController();
 
-  late TextEditingController emailController, passwordController,newpasswordcontroller, confirmpasswordcontroller;
+  late TextEditingController
+  //emailController,
+      //passwordController,
+      newpasswordcontroller,
+      confirmpasswordcontroller;
   final FocusNode userCtrlfocusNode = FocusNode();
 
   final FocusNode pswdCtrlfocusNode = FocusNode();
@@ -59,10 +69,10 @@ class LoginController extends GetxController {
     super.onInit();
     loadUserEmailPassword();
     startanimation();
-    newpasswordcontroller=TextEditingController();
-    confirmpasswordcontroller=TextEditingController();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
+    newpasswordcontroller = TextEditingController();
+    confirmpasswordcontroller = TextEditingController();
+   // emailController = TextEditingController();
+   // passwordController = TextEditingController();
   }
 
   @override
@@ -154,21 +164,27 @@ class LoginController extends GetxController {
   }
 
   void loadUserEmailPassword() async {
-    {
-      SharedPreferences _prefs = await SharedPreferences.getInstance();
-      var _email = _prefs.getString("email") ?? "";
-      var _password = _prefs.getString("password") ?? "";
-      var _remeberMe = _prefs.getBool("remember_me") ?? false;
-      print(_remeberMe);
-      print(_email);
-      print(_password);
-      if (_remeberMe) {
-        selected == true;
-      }
-      emailController.text = _email ?? "";
-      passwordController.text = _password ?? "";
-    }
+    var _email = box.read("email") ?? "";
+    var _password = box.read("password") ?? "";
+    print(_email);
+    print(_password);
+
+    // {
+    //   SharedPreferences _prefs = await SharedPreferences.getInstance();
+    //   var _email = _prefs.getString("email") ?? "";
+    //   var _password = _prefs.getString("password") ?? "";
+    //   var _remeberMe = _prefs.getBool("remember_me") ?? false;
+    //   print(_remeberMe);
+    //   print(_email);
+    //   print(_password);
+    //   if (_remeberMe) {
+    //     selected == true;
+    //   }
+    emailController.text = _email ?? "";
+    passwordController.text = _password ?? "";
+    // }
   }
+
 }
 
 final count = 0.obs;
