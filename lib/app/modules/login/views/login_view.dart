@@ -1,3 +1,4 @@
+import 'package:Lakshore/app/utils/local_store.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -173,9 +174,9 @@ class LoginView extends GetView<LoginController> {
                                           ? controller.selected.value = 1
                                           : controller.selected.value = null;
                                       if (controller.selected.value == 1) {
-                                        controller.box.write('email',
+                                        LocalStore.loginData('email',
                                             controller.emailController.text);
-                                        controller.box.write('password',
+                                        LocalStore.loginData('password',
                                             controller.passwordController.text);
 
                                         // SharedPreferences.getInstance()

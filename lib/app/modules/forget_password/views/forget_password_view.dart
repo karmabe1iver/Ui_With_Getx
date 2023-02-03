@@ -106,6 +106,7 @@ class ForgetPasswordView extends GetView<LoginController> {
                     top: controller.animateclose.value ? 18 : 0),
                 duration: Duration(milliseconds: 600),
                 child: TextFormField(
+                  keyboardType: TextInputType.visiblePassword,
                   controller: controller.confirmpasswordcontroller,
                   onSaved: (Value) {
                     controller.confirmpasswordcontroller.text = Value!;

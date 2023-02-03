@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vibration/vibration.dart';
 
 import '../../../../app.dart';
@@ -15,7 +14,7 @@ import '../../../utils/local_store.dart';
 
 class LoginController extends GetxController {
   RxBool obscureText=true.obs;
-  final box = GetStorage();
+
   RxBool isButtonpressed = false.obs;
 
 
@@ -164,8 +163,8 @@ class LoginController extends GetxController {
   }
 
   void loadUserEmailPassword() async {
-    var _email = box.read("email") ?? "";
-    var _password = box.read("password") ?? "";
+    var _email = LocalStore.getData("email") ?? "";
+    var _password =LocalStore.getData("password") ?? "";
     print(_email);
     print(_password);
 

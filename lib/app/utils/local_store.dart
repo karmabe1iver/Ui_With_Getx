@@ -6,6 +6,8 @@ import '../data/login_response.dart';
 
 
 abstract class LocalStore {
+  final box = GetStorage();
+  static void loginData(String key,dynamic value )=> GetStorage().write(key, value);
   static void setData(String key, dynamic value) =>
       GetStorage().write(key, value);
 

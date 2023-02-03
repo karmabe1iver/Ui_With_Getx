@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:Lakshore/app/utils/local_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';import 'package:get/get.dart';
 
@@ -71,7 +72,14 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(milliseconds: 800));
     setState(()=> animate= true);
     await Future.delayed(Duration(milliseconds: 2800));
+
     Get.offNamed(Routes.LOGIN);
 
+  }
+  void loadUserEmailPassword() async {
+    var _email = LocalStore.getData("email") ?? "";
+    var _password = LocalStore.getData("password") ?? "";
+    print(_email);
+    print(_password);
   }
 }
