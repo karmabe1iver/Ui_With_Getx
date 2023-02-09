@@ -66,7 +66,7 @@ import '../modules/login/controllers/login_controller.dart';
                    Text(
                      '$string',
                      style:  TextStyle(
-                       fontSize: 20,
+                       fontSize: Get.mediaQuery.size.height*.024,
                        fontWeight:isButtonpressed?FontWeight.normal: FontWeight.w500,
                        fontFamily: 'Poppins',
                        color:isButtonpressed? Colors.white70:Colors.white,

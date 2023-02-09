@@ -1,3 +1,4 @@
+import 'package:Lakshore/app/components/image_common.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,12 +17,12 @@ class MyShiftView extends GetView<MyShiftController> {
         children: [
           Stack(children: [
             Container(
-              height: Get.height * .29,
+              height: Get.height * .28,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(60),
-                    bottomLeft: Radius.circular(60)),
+                    bottomRight: Radius.circular(50),
+                    bottomLeft: Radius.circular(50)),
                 boxShadow: <BoxShadow>[
                   BoxShadow(offset: Offset.zero, blurRadius: 2)
                 ],
@@ -31,25 +32,12 @@ class MyShiftView extends GetView<MyShiftController> {
                   Color.fromRGBO(44, 157, 215, 1)
                 ]),
               ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: Get.height * .19,
-                  )
-                ],
-              ),
             ),
-            Image.asset(
-              AssetHelper.component,
-              scale: 1,
-            ),
+            ImageCommon(),
             Positioned(
               left: 16,
-              top: 40,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+              top: 36,
+              child:
                   IconButton(
                     onPressed: () {
                       Get.back();
@@ -59,23 +47,24 @@ class MyShiftView extends GetView<MyShiftController> {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(
-                    width: Get.width * .19,
-                  ),
-                  Text(
-                    'My Shift',
-                    style: TEXTSTYLE(
-                      fontweight: FontWeight.w500,
-                      fontsize: 24.0,
-                      color: Colors.white,
+            ),
+                  Positioned(top: 44,
+                    left: 40,
+                    right: 40,
+                    child: Center(
+                      child: Text(
+                        'My Shift',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w500,
+                          fontsize: 24.0,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                     width: Get.width * .13,
-                  )
-                ],
-              ),
-            ),
+                  ),
             Positioned(
               left: 40,
               top: 100,
@@ -116,7 +105,7 @@ class MyShiftView extends GetView<MyShiftController> {
                         'Emp Id  :  xxxx xxxxx',
                         style: TEXTSTYLE(
                             fontweight: FontWeight.w500,
-                            fontsize: 18.0,
+                            fontsize: 14.0,
                             color: Colors.white),
                       )
                     ],
@@ -156,89 +145,97 @@ class MyShiftView extends GetView<MyShiftController> {
                         fontsize: 20.0,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Start Date :',
-                              style: TEXTSTYLE(
-                                fontweight: FontWeight.w500,
-                                color: Color.fromRGBO(18, 132, 198, 1),
-                                fontsize: 12.0,
+                    FittedBox(
+                      child: Row(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Start Date :',
+                                style: TEXTSTYLE(
+                                  fontweight: FontWeight.w500,
+                                  color: Color.fromRGBO(18, 132, 198, 1),
+                                  fontsize: 12.0,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'Dec 21, 2022',
-                              style: TEXTSTYLE(
-                                fontweight: FontWeight.w500,
-                                color: Colors.black,
-                                fontsize: 12.0,
+                              Text(
+                                'Dec 21, 2022',
+                                style: TEXTSTYLE(
+                                  fontweight: FontWeight.w500,
+                                  color: Colors.black,
+                                  fontsize: 12.0,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'End Date :',
+                                style: TEXTSTYLE(
+                                  fontweight: FontWeight.w500,
+                                  color: Color.fromRGBO(18, 132, 198, 1),
+                                  fontsize: 12.0,
+                                ),
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'End Date :',
-                              style: TEXTSTYLE(
-                                fontweight: FontWeight.w500,
-                                color: Color.fromRGBO(18, 132, 198, 1),
-                                fontsize: 12.0,
-                              ),
-                            ),
-                            Text(
-                              'Dec 21, 2022',
-                              style: TEXTSTYLE(
-                                fontweight: FontWeight.w500,
-                                color: Colors.black,
-                                fontsize: 12.0,
-                              ),
-                            )
-                          ],
-                        )
-                      ],
+                              Text(
+                                'Dec 21, 2022',
+                                style: TEXTSTYLE(
+                                  fontweight: FontWeight.w500,
+                                  color: Colors.black,
+                                  fontsize: 12.0,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    Row(children: [
-                      Text(
-                        'Time :',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          color: Color.fromRGBO(18, 132, 196, 1),
-                          fontsize: 12.0,
+                    
+                    FittedBox(
+                      child: Row(children: [
+                        Text(
+                          'Time :',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: Color.fromRGBO(18, 132, 196, 1),
+                            fontsize: 12.0,
+                          ),
                         ),
-                      ),
-                      Text(
-                        ' 9 am to 6 pm',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          color: Colors.black,
-                          fontsize: 12.0,
+                        Text(
+                          ' 9 am to 6 pm',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: Colors.black,
+                            fontsize: 12.0,
+                          ),
+                        )
+                      ]),
+                    ),
+                    
+                    FittedBox(
+                      child: Row(children: [
+                        Text(
+                          'Department  :',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: Color.fromRGBO(18, 132, 198, 1),
+                            fontsize: 12.0,
+                          ),
                         ),
-                      )
-                    ]),
-                    Row(children: [
-                      Text(
-                        'Department  :',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          color: Color.fromRGBO(18, 132, 198, 1),
-                          fontsize: 12.0,
-                        ),
-                      ),
-                      Text(
-                        ' Emergency Medicine',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          color: Colors.black,
-                          fontsize: 12.0,
-                        ),
-                      )
-                    ]),
+                        Text(
+                          ' Emergency Medicine',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w500,
+                            color: Colors.black,
+                            fontsize: 12.0,
+                          ),
+                        )
+                      ]),
+                    ),
                   ],
                 ),
               ),

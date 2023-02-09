@@ -4,8 +4,13 @@ import 'package:Lakshore/app/utils/local_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';import 'package:get/get.dart';
 
+import '../../../../app.dart';
+import '../../../data/apires.dart';
+import '../../../data/login_response.dart';
+import '../../../data/service/login_service.dart';
 import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
+import '../../../utils/mydio.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -69,11 +74,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future startanimation() async {
+
     await Future.delayed(Duration(milliseconds: 800));
     setState(()=> animate= true);
-    await Future.delayed(Duration(milliseconds: 2800));
+    await Future.delayed(Duration(milliseconds: 1800));
+    loadUserEmailPassword();
 
-    Get.offNamed(Routes.LOGIN);
 
   }
   void loadUserEmailPassword() async {
@@ -81,5 +87,29 @@ class _SplashScreenState extends State<SplashScreen> {
     var _password = LocalStore.getData("password") ?? "";
     print(_email);
     print(_password);
+    if (_email != '' && _password != '') {
+      final ApiResp resp = await LoginServices.fetchUser(_email, _password);
+      if (resp.ok == false) {
+        //MyUtils.msg(resp.msgs);
+        Get.offNamed(Routes.LOGIN);
+        // isLoggingProgress.value = false;
+        return;
+      }
+
+      User user = User.fromJson(resp.rdata);
+      user.username = _email;
+      App.token = user.token ?? '';
+      Get.offNamed(
+        Routes.DASHBOARD,
+      );
+
+      if (user.emailVerified == true) {
+        Get.offAllNamed(Routes.DASHBOARD);
+      }
+
+    }
+    else {
+      Get.offNamed(Routes.LOGIN);
+    }
   }
 }

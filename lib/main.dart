@@ -1,3 +1,4 @@
+import 'package:Lakshore/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,19 +13,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (value) => runApp(
-      ScreenUtilInit(
-          designSize: const Size(360, 690),
-          minTextAdapt: true,
-          splitScreenMode: true,
-          builder: (context, child) {
-            return GetMaterialApp(
-              theme: ThemeData(useMaterial3: true),
-              debugShowCheckedModeBanner: false,
-              title: "Application",
-              initialRoute: AppPages.INITIAL,
-              getPages: AppPages.routes,
-            );
-          }),
+      GetMaterialApp(
+        theme: ThemeData(useMaterial3: true),
+        debugShowCheckedModeBanner: false,
+        title: "Application",
+        initialRoute: AppPages.INITIAL,
+        getPages: AppPages.routes,
+      ),
     ),
   );
 }

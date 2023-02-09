@@ -12,8 +12,8 @@ Widget Mcard({AssetHelperImag, AssetHelperImag2, titile, onTap, scale}) {
     //     borderRadius: BorderRadius.circular(20.0),
     //   ),
     child: Container(
-      height: Get.height * .15,
-      width: Get.width * .4,
+      height: Get.mediaQuery.size.height * .16,
+      width: Get.mediaQuery.size.width * .38,
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(20), boxShadow: [
         BoxShadow(
@@ -36,7 +36,7 @@ Widget Mcard({AssetHelperImag, AssetHelperImag2, titile, onTap, scale}) {
                   scale: scale,
                 ),
                 Positioned(
-                    left: 90, bottom: 0, child: Image.asset(AssetHelperImag2))
+                    left: Get.width*.21, bottom: 0, child: Image.asset(AssetHelperImag2,scale: 1.2,))
               ],
             )
           else

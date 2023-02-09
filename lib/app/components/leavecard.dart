@@ -51,37 +51,38 @@ Widget LeaveCard(
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: Get.width * .55,
-                      child: Text(
-                        '$Reason',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Poppins',
-                          color: Colors.black,
+              Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: Get.width * .55,
+                        child: Text(
+                          '$Reason',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins',
+                            color: Colors.black,
+                          ),
+                          // TEXTSTYLE(
+                          //   fontweight: FontWeight.w600,
+                          //   color: Colors.black,
+                          //   fontsize: 20.0,
                         ),
-                        // TEXTSTYLE(
-                        //   fontweight: FontWeight.w600,
-                        //   color: Colors.black,
-                        //   fontsize: 20.0,
                       ),
-                    ),
-                    Text(
-                      '$Catogery',
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w200,
-                        color: Colors.grey,
-                        fontsize: 10.0,
-                      ),
-                    )
-                  ],
-                ),
+                      Text(
+                        '$Catogery',
+                        style: TEXTSTYLE(
+                          fontweight: FontWeight.w200,
+                          color: Colors.grey,
+                          fontsize: 10.0,
+                        ),
+                      )
+                    ],
+                  ),
+                
                 if (Status == 'Pending')
                   Container(
                     // height: 20,
@@ -91,9 +92,10 @@ Widget LeaveCard(
                       color: Color.fromRGBO(253, 231, 200, 1),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.only(left: 4.0,right: 4.0),
                       child: Wrap(
                         spacing: 5,
+                        direction: Axis.horizontal,
                         alignment: WrapAlignment.center,
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
@@ -113,17 +115,19 @@ Widget LeaveCard(
                 else if (Status == 'Approved')
                   Container(
                     // height: 20,
-                    // width: 100,
+                     //width: 120,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Color.fromRGBO(210, 246, 214, 1),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Wrap(
-                        spacing: 5,
-                        alignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
+                      padding: const EdgeInsets.only(left: 4.0,right: 4.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        // spacing: 5,
+                        // direction: Axis.horizontal,
+                        // alignment: WrapAlignment.center,
+                        // crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           Image.asset(
                             AssetHelper.approved,
@@ -144,7 +148,7 @@ Widget LeaveCard(
               children: [
                 Image.asset(
                   AssetHelper.calender,
-                  scale: 1.4,
+                  scale: 1.9,
                 ),
                 SizedBox(
                   width: 10,
@@ -170,10 +174,10 @@ Widget LeaveCard(
               ],
             ),
             if (stat == sts)
+
               Row(
-                children: [
-                  Expanded(
-                    child: Text(
+                  children: [
+                   Expanded(child:  Text(
                       '$ReasonDes',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -184,31 +188,33 @@ Widget LeaveCard(
                           fontweight: FontWeight.w200,
                           color: Colors.grey),
                     ),
-                  ),
-                  SizedBox(
-                    width: Get.width * .25,
-                  ),
-                  GestureDetector(
-                      onTap: OnTapE,
-                      //     () {
-                      //   Get.toNamed(Routes.LEAVE_REQUEST);
-                      // },
-                      child: Image.asset(Edit)),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  GestureDetector(
-                    onTap: onTap,
-                    //     () {
-                    //   Leavefield.remove(Index)
-                    // },
-                    child: Image.asset(
-                      Delete,
-                      scale: .8,
+  ),
+                    SizedBox(
+                      width: Get.width * .25,
                     ),
-                  ),
-                ],
-              ),
+                    GestureDetector(
+                        onTap: OnTapE,
+                        //     () {
+                        //   Get.toNamed(Routes.LEAVE_REQUEST);
+                        // },
+                        child: Image.asset(Edit)),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    GestureDetector(
+                      onTap: onTap,
+                      //     () {
+                      //   Leavefield.remove(Index)
+                      // },
+                      child: Image.asset(
+                        Delete,
+                        scale: .8,
+                      ),
+                    ),
+
+                  ],
+                ),
+
           ],
         ),
       ),

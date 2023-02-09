@@ -21,10 +21,10 @@ abstract class LoginServices {
     );
 
     if (resp is DioError) {
-      if (resp.response?.statusCode == 400) {
-        log('400 >> ${resp.response}');
-        showMsg("Invalid UserName or Password", "Login Failed");
-      }
+      // if (resp.response?.statusCode == 400) {
+      //   log('400 >> ${resp.response}');
+      //   showMsg("Invalid UserName or Password", "Login Failed");
+      // }
       if (resp.type == DioErrorType.connectTimeout) {
         showMsg(
             'Connection timed-out. Check internet connection.', "Login Failed");
@@ -32,10 +32,10 @@ abstract class LoginServices {
       if (resp.type == DioErrorType.receiveTimeout) {
         showMsg('Unable to connect to the server', "Login Failed");
       }
-      if (resp.type == DioErrorType.other) {
-        showMsg(
-            'Something went wrong with server communication', "Login Failed");
-      }
+      // if (resp.type == DioErrorType.other) {
+      //   showMsg(
+      //       'Something went wrong with server communication', "Login Failed");
+      // }
     } else {
       respNew = resp != null
           ? ApiResp(
@@ -63,4 +63,4 @@ abstract class LoginServices {
     }
     return respNew;
   }
-}
+ }

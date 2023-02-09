@@ -12,7 +12,7 @@ Widget dropDownBox({FunctioOnchanged, ListItem, ListValue, color, shadow}) {
       // child:
       Container(
     height: Get.height * .06,
-    width: 350,
+    width: Get.mediaQuery.size.width/1,
     decoration:
         BoxDecoration(
           border: Border.all(color:color==null? Colors.transparent:color),
@@ -37,7 +37,7 @@ Widget dropDownBox({FunctioOnchanged, ListItem, ListValue, color, shadow}) {
           hint: Text('Leave Type'),
           elevation: 10,
           style: TEXTSTYLE(
-              fontsize: 16.0, fontweight: FontWeight.w400, color: Colors.black),
+              fontsize: 14.0, fontweight: FontWeight.w400, color: Colors.black),
           onChanged:
               // This is called when the user selects an item.
               FunctioOnchanged,

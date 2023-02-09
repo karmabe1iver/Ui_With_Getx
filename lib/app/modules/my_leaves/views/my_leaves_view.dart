@@ -24,14 +24,15 @@ class MyLeavesView extends GetView<MyLeavesController> {
         body: Column(
           children: [
             Stack(
+              alignment: Alignment.topLeft,
               children: [
                 Container(
-                  height: Get.height * .29,
+                  //  height: Get.height * .29,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(60),
-                        bottomLeft: Radius.circular(60)),
+                        bottomRight: Radius.circular(50),
+                        bottomLeft: Radius.circular(50)),
 
                     //  color: Colors.blue
                     gradient: LinearGradient(colors: [
@@ -40,111 +41,123 @@ class MyLeavesView extends GetView<MyLeavesController> {
                     ]),
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 10,
-                      )
+                      Stack(
+                        children: [
+                          Container(),
+                          Container(
+                            width: Get.mediaQuery.size.width * .46,
+                            height: Get.mediaQuery.size.height * .22,
+                            child: Image.asset(
+                              AssetHelper.component,
+                              scale: 1.5,
+
+                              fit: BoxFit.fill,
+                              // scale: 1,
+                            ),
+                          ),
+                          Positioned(
+                            top: 90,
+                            left: 29,
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  maxRadius: 38,
+                                  child: ClipOval(
+                                      child: ProfileList.length != 0
+                                          ? Image.file(
+                                              ProfileList.last.profilePic,
+                                              width: 120,
+                                              height: 120,
+                                              scale: 1,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Image.asset(
+                                              AssetHelper.profileIMAGE)),
+                                  // Image.asset(
+                                  //   AssetHelper.profileIMAGE,
+                                  // ),
+                                  // maxRadius: 30,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Amila',
+                                      style: TEXTSTYLE(
+                                        fontsize: 20.0,
+                                        fontweight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Emp Id  :  xxxx xxxxx',
+                                      style: TEXTSTYLE(
+                                          fontweight: FontWeight.w500,
+                                          fontsize: 14.0,
+                                          color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          bottom: 28,
+                        ),
+                        child: Row(
+                          // spacing: 40,
+                          // direction: Axis.horizontal,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            LeaveField(
+                                NumberOfLeave: 30,
+                                LeaveCatogery: 'Total Leave'),
+                            LeaveField(
+                                NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
+                            LeaveField(
+                                NumberOfLeave: 18,
+                                LeaveCatogery: 'Casual Leave'),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                Image.asset(
-                  AssetHelper.component,
-                  scale: 1,
-                ),
                 Positioned(
                   left: 16,
-                  top: 40,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: Get.width * .16,
-                      ),
-                      Text(
-                        'My Leaves',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          fontsize: 24.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                      // SizedBox(
-                      //   width: Get.width * .13,
-                      // )
-                    ],
+                  top: Get.mediaQuery.size.height * .036,
+                  child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: Get.mediaQuery.size.height * .030,
+                    ),
                   ),
                 ),
                 Positioned(
                   left: 40,
-                  top: 100,
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        maxRadius: 28,
-                        child: ClipOval(
-                            child: ProfileList.length != 0
-                                ? Image.file(
-                                    ProfileList.last.profilePic,
-                                    width: 130,
-                                    height: 130,
-                                    scale: 1,
-                                    fit: BoxFit.cover,
-                                  )
-                                : Image.asset(AssetHelper.profileIMAGE)),
-                        // Image.asset(
-                        //   AssetHelper.profileIMAGE,
-                        // ),
-                        // maxRadius: 30,
+                  right: 40,
+                  top: Get.mediaQuery.size.height * .044,
+                  child: Center(
+                    child: Text(
+                      'My Leaves',
+                      style: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        fontsize: Get.mediaQuery.size.height * .032,
+                        color: Colors.white,
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Amila',
-                            style: TEXTSTYLE(
-                              fontsize: 17.0,
-                              fontweight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'Emp Id  :  xxxx xxxxx',
-                            style: TEXTSTYLE(
-                                fontweight: FontWeight.w500,
-                                fontsize: 12.0,
-                                color: Colors.white),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  left: 20,
-                  bottom: 20,
-                  child: Wrap(
-                    spacing: 40,
-                    //crossAxisAlignment:WrapCrossAlignment.center,
-                    children: [
-                      LeaveField(
-                          NumberOfLeave: 30, LeaveCatogery: 'Total Leave'),
-                      LeaveField(
-                          NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
-                      LeaveField(
-                          NumberOfLeave: 18, LeaveCatogery: 'Casual Leave'),
-                    ],
+                    ),
                   ),
                 ),
               ],

@@ -1,3 +1,4 @@
+import 'package:Lakshore/app/components/image_common.dart';
 import 'package:Lakshore/app/data/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +34,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
             Stack(
               children: [
                 Container(
-                  height: Get.height * .29,
+                  height: Get.height * .28,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -48,24 +49,23 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                     ]),
                     // color: Colors.blue
                   ),
-                  child: Column(
-                    children: [
-                      // SizedBox(
-                      //   height: Get.height * .19,
-                      // )
-                    ],
-                  ),
+                  // child: Column(
+                  //   children: [
+                  //     // SizedBox(
+                  //     //   height: Get.height * .19,
+                  //     // )
+                  //   ],
+                  // ),
                 ),
-                Image.asset(
-                  AssetHelper.component,
-                  scale: 1,
-                ),
+                ImageCommon(),
+                // Image.asset(
+                //   AssetHelper.component,
+                //   scale: 1,
+                // ),
                 Positioned(
                   left: 16,
-                  top: 40,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                  top: Get.mediaQuery.size.height * .036,
+                  child:
                       IconButton(
                         onPressed: () {
                           Get.back();
@@ -73,39 +73,40 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         icon: Icon(
                           Icons.arrow_back,
                           color: Colors.white,
+                          size:  Get.mediaQuery.size.height * .030,
                         ),
                       ),
-                      SizedBox(
-                        width: Get.width * .13,
-                      ),
-                      Text(
-                        'Leave Request',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          fontsize: 24.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: Get.width * .16,
-                      )
-                    ],
-                  ),
                 ),
+                      Positioned(
+                        left: 40,
+                        right: 40,
+                        top: Get.mediaQuery.size.height * .044,
+                        child: Center(
+                          child: Text(
+                            'Leave Request',
+                            style: TEXTSTYLE(
+                              fontweight: FontWeight.w500,
+                              fontsize:  Get.mediaQuery.size.height * .032,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+
                 Positioned(
-                  left: 40,
-                  top: 100,
+                  left: 36,
+                  top: Get.mediaQuery.size.height*.13,
                   child: Row(
                     children: [
                       CircleAvatar(
-                        maxRadius: 40,
+                        maxRadius: 38,
                         child:ClipOval(child:
                         ProfileList.length!=0
 
                             ? Image.file(
                           ProfileList.last.profilePic,
-                          width: 130,
-                          height: 130,
+                          width: 120,
+                          height: 120,
                           scale: 1,
                           fit: BoxFit.cover,
                         )
@@ -119,7 +120,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         // ),
                         //
                       SizedBox(
-                        width: 10,
+                        width: 20,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +137,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                             'Emp Id  :  xxxx xxxxx',
                             style: TEXTSTYLE(
                                 fontweight: FontWeight.w500,
-                                fontsize: 18.0,
+                                fontsize: 14.0,
                                 color: Colors.white),
                           )
                         ],
@@ -187,6 +188,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             GestureDetector(
                               onTap: () async {
@@ -223,9 +225,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                         blurRadius: 10,
                                       )
                                     ]),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 18.0, top: 12),
+                                child: Center(
                                   child: Wrap(
                                     spacing: 10,
                                     crossAxisAlignment:
@@ -233,14 +233,14 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                     children: [
                                       Image.asset(
                                         AssetHelper.calender,
-                                        scale: 1.8,
+                                        scale: 1.9,
                                       ),
                                       Obx(
                                         () => Text(
                                           // controller: ,
                                           style: TEXTSTYLE(
                                               fontweight: FontWeight.w400,
-                                              fontsize: 16.0,
+                                              fontsize: 14.0,
                                               color: Colors.black),
 
                                           '${controller.StartDate.value}',
@@ -302,9 +302,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                         blurRadius: 10,
                                       )
                                     ]),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 18.0, top: 12.0),
+                                child: Center(
                                   child: Wrap(
                                     spacing: 10,
                                     crossAxisAlignment:
@@ -312,7 +310,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                     children: [
                                       Image.asset(
                                         AssetHelper.calender,
-                                        scale: 1.8,
+                                        scale: 1.9,
                                       ),
                                       // if(pickDate)
                                       Obx(
@@ -320,7 +318,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                           // controller: ,
                                           style: TEXTSTYLE(
                                               fontweight: FontWeight.w400,
-                                              fontsize: 16.0,
+                                              fontsize: 14.0,
                                               color: Colors.black),
 
                                           '${controller.EndDate.value}',
@@ -372,7 +370,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                 inactiveFgColor:
                                     Color.fromRGBO(18, 132, 198, 1),
                                 initialLabelIndex: controller.Intial.value,
-                                fontSize: 17,
+                                fontSize: 14,
                                 totalSwitches: 2,
                                 labels: controller.Halforfull,
                                 radiusStyle: true,
@@ -479,7 +477,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
 
                               // initialValue: 'Reason',
                               style: TEXTSTYLE(
-                                fontsize: 18.0,
+                                fontsize: 16.0,
                                 fontweight: FontWeight.w500,
                               ),
                               decoration: InputDecoration(

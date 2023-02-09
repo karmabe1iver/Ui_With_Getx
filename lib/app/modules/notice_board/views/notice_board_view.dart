@@ -35,43 +35,55 @@ class NoticeBoardView extends GetView<NoticeBoardController> {
           ),
           Positioned(
             left: 16,
-            top: 40,
+            top: 36,
             child: Row(
+
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Color.fromRGBO(18, 132, 198, 1),
-                  ),
-                ),
-                SizedBox(
-                  width: Get.width * .16,
-                ),
-                Obx(
-                  () => AnimatedOpacity(
-                    duration: Duration(milliseconds: 1800),
-                    opacity: controller.animate.value ? 1 : 0,
-                    child: Text(
-                      'Notice Board',
-                      style: TEXTSTYLE(
-                        fontweight: FontWeight.w500,
-                        fontsize: 24.0,
-                        color: const Color.fromRGBO(18, 132, 198, 1),
-                      ),
+                    onPressed: () {
+                Get.back();
+                    },
+                    icon: const Icon(
+                Icons.arrow_back,
+                color: Color.fromRGBO(18, 132, 198, 1),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: Get.width * .13,
-                )
               ],
             ),
           ),
+                // SizedBox(
+                //   width: Get.width * .16,
+                // ),
+                Positioned(
+                        left: 40,
+                        right: 40,
+                        top: 44,
+                        child: Center(
+                          child:
+                          Obx(
+                                () => AnimatedOpacity(
+                              duration: Duration(milliseconds: 1800),
+                              opacity: controller.animate.value ? 1 : 0,
+
+                              child:Text(
+                            'Notice Board',
+                            style: TEXTSTYLE(
+                              fontweight: FontWeight.w500,
+                              fontsize: 24.0,
+                              color: const Color.fromRGBO(18, 132, 198, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                  ),
+                ),
+                // SizedBox(
+                //   width: Get.width * .13,
+                // )
+            
           Positioned(
             left: 30,
             top: 100,

@@ -15,20 +15,23 @@ class DashboardView extends GetView<DashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    return  WillPopScope(
-      onWillPop: ()async{
+    return WillPopScope(
+      onWillPop: () async {
         SystemNavigator.pop();
         return false;
-        },
+      },
       child: Scaffold(
-          body: SingleChildScrollView(
-            child: Wrap(
+        body: SingleChildScrollView(
+          child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+            if (constraints.maxWidth < 600.0) {
+              return Wrap(
                 children: [
                   Stack(
                     alignment: Alignment.topLeft,
                     children: [
                       Container(
-                        height: Get.height * .48,
+                        // height: Get.height * .46,
                         width: double.infinity,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -48,70 +51,92 @@ class DashboardView extends GetView<DashboardController> {
                             ]),
                         child: Column(children: [
                           SizedBox(
-                            height: Get.height * .11,
+                            height: Get.mediaQuery.size.height * .11,
                           ),
-                          InkWell(
-                            radius: 65,
-                            onDoubleTap: (){
-                              showImageViewer(context, controller.status.value != false
-                                  ? Image.file(
-                                controller.image.value!,
-                                //LocalStore.setData(user.profilepic,'photo'),
-                                scale: 1,
-                                fit: BoxFit.cover,
-                               ).image:Image.asset(AssetHelper.profileIMAGE).image,
-
-                                  swipeDismissible: false);
-                            },
-                            onTap: () {
-                              print(controller.image.value);
-                              Get.defaultDialog(
-                                  title: 'Upload',
-                                  backgroundColor: Color.fromRGBO(76, 178, 229, 1),
-                                  contentPadding: EdgeInsets.all(10),
-                                  content: Wrap(
-                                    runSpacing: 30,
-                                    spacing: 50,
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            controller.getImageCam();
-                                            Get.back();
-                                          },
-                                          icon: Icon(Icons.camera_alt_rounded)),
-                                      IconButton(
-                                          onPressed: () {
-                                            controller.getImage();
-                                            Get.back();
-                                          },
-                                          icon: Icon(Icons.photo)),
-                                    ],
-                                  ));
-                              // controller.getImage();
-                              // print('hi');
-                            },
-                            child: Obx(
-                              () => CircleAvatar(
-                                maxRadius: controller.animate.value ? 0 : 65,
-                                child: ClipOval(
-                                    child: controller.status.value != false
-                                        ? Image.file(
-                                            controller.image.value!,
-                                            //LocalStore.setData(user.profilepic,'photo'),
-                                            width: controller.animate.value ? 0 : 130,
-                                            height:
-                                                controller.animate.value ? 0 : 130,
-                                            scale: 1,
-                                            fit: BoxFit.cover,
-                                          )
-                                        : Image.asset(AssetHelper.profileIMAGE)),
+                          Stack(
+                            children: [
+                              InkWell(
+                                radius: 60,
+                                onDoubleTap: () {
+                                  showImageViewer(
+                                      context,
+                                      controller.status.value != false
+                                          ? Image.file(
+                                              controller.image.value!,
+                                              //LocalStore.setData(user.profilepic,'photo'),
+                                              scale: 1,
+                                              fit: BoxFit.cover,
+                                            ).image
+                                          : Image.asset(
+                                                  AssetHelper.profileIMAGE)
+                                              .image,
+                                      swipeDismissible: false);
+                                },
+                                onTap: () {
+                                  print(controller.image.value);
+                                  Get.defaultDialog(
+                                      title: 'Upload',
+                                      backgroundColor:
+                                          Color.fromRGBO(76, 178, 229, 1),
+                                      contentPadding: EdgeInsets.all(10),
+                                      content: Wrap(
+                                        runSpacing: 30,
+                                        spacing: 50,
+                                        children: [
+                                          IconButton(
+                                              onPressed: () {
+                                                controller.getImageCam();
+                                                Get.back();
+                                              },
+                                              icon: Icon(
+                                                  Icons.camera_alt_rounded)),
+                                          IconButton(
+                                              onPressed: () {
+                                                controller.getImage();
+                                                Get.back();
+                                              },
+                                              icon: Icon(Icons.photo)),
+                                        ],
+                                      ));
+                                  // controller.getImage();
+                                  // print('hi');
+                                },
+                                child: Obx(
+                                  () => CircleAvatar(
+                                    maxRadius:
+                                        controller.animate.value ? 0 : 60,
+                                    child: ClipOval(
+                                        child: controller.status.value !=
+                                                false
+                                            ? Image.file(
+                                                controller.image.value!,
+                                                //LocalStore.setData(user.profilepic,'photo'),
+                                                width:
+                                                    controller.animate.value
+                                                        ? 0
+                                                        : 120,
+                                                height:
+                                                    controller.animate.value
+                                                        ? 0
+                                                        : 120,
+                                                scale: 1,
+                                                fit: BoxFit.cover,
+                                              )
+                                            : Image.asset(
+                                                AssetHelper.profileIMAGE)),
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Obx(
-                              () => Wrap(runAlignment: WrapAlignment.center,
+                              () => Wrap(
+                                  alignment: WrapAlignment.center,
+                                  crossAxisAlignment:
+                                      WrapCrossAlignment.center,
+                                  //runAlignment: WrapAlignment.center,
 
                                   //spacing: 5,
                                   children: [
@@ -121,8 +146,10 @@ class DashboardView extends GetView<DashboardController> {
                                     Text(
                                       'Amila',
                                       style: TEXTSTYLE(
-                                        fontsize:
-                                            controller.animate.value ? 0.0 : 30.0,
+                                        fontsize: controller.animate.value
+                                            ? 20.0
+                                            : Get.mediaQuery.size.height *
+                                                .036,
                                         fontweight: FontWeight.w500,
                                         color: Colors.white,
                                       ),
@@ -131,93 +158,128 @@ class DashboardView extends GetView<DashboardController> {
                                       onPressed: () {
                                         Get.toNamed(Routes.PROFILEDETAILS);
                                       },
-                                      icon: Icon(Icons.edit_calendar_outlined),
+                                      icon: Icon(
+                                        Icons.edit_calendar_outlined,
+                                        size: controller.animate.value
+                                            ? 0.0
+                                            : Get.mediaQuery.size.height *
+                                                .030,
+                                      ),
                                       color: Colors.white,
                                     ),
                                   ]),
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * .01,
-                          ),
+                          // SizedBox(
+                          //   height:Get.mediaQuery.size.height*.006,
+                          // ),
                           Obx(
                             () => Text(
                               'Registered Nurse',
                               style: TEXTSTYLE(
-                                  fontweight: FontWeight.w500,
-                                  fontsize: controller.animate.value ? 0.0 : 20.0,
+                                  fontweight: FontWeight.w400,
+                                  fontsize: controller.animate.value
+                                      ? 0.0
+                                      : Get.mediaQuery.size.height *
+                                          .022, //20.0,
                                   color: Colors.white),
                             ),
                           ),
                           Obx(
-                            () => Text(
-                              'Emp Id : xxxx xxxxx',
-                              style: TEXTSTYLE(
-                                  fontweight: FontWeight.w500,
-                                  fontsize: controller.animate.value ? 0.0 : 17.0,
-                                  color: Colors.white),
+                            () => Padding(
+                              padding: const EdgeInsets.only(bottom: 28.0),
+                              child: Text(
+                                'Emp Id : xxxx xxxxx',
+                                style: TEXTSTYLE(
+                                    fontweight: FontWeight.w400,
+                                    fontsize: controller.animate.value
+                                        ? 16.0
+                                        : Get.mediaQuery.size.height * .017,
+                                    color: Colors.white),
+                              ),
                             ),
                           )
                         ]),
                       ),
-                      Image.asset(
-                        AssetHelper.component,
-                        scale: 1,
+                      Container(
+                        width: Get.mediaQuery.size.width * .46,
+                        height: Get.mediaQuery.size.height * .22,
+                        child: Image.asset(
+                          AssetHelper.component,
+                          scale: 1.5,
+
+                          fit: BoxFit.fill,
+                          // scale: 1,
+                        ),
                       ),
                       Positioned(
                         left: 16,
-                        top: 40,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                SystemNavigator.pop();
-                                //Get.back();
-                              },
-                              highlightColor: Colors.black,
-                              splashColor: Colors.black,
-                              splashRadius: 30,
-                              icon: Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(
-                              width: Get.width * .16,
-                            ),
-                            Text(
-                              'DashBoard',
-                              style: TEXTSTYLE(
-                                fontweight: FontWeight.w500,
-                                fontsize: 24.0,
-                                color: Colors.white,
-                              ),
-                            ),
-
-                            // SizedBox(
-                            //   width: Get.width * .13,
-                            // )
-                          ],
+                        top: Get.mediaQuery.size.height * .036,
+                        child: IconButton(
+                          onPressed: () {
+                            SystemNavigator.pop();
+                            //Get.back();
+                          },
+                          highlightColor: Colors.black,
+                          splashColor: Colors.black,
+                          splashRadius: 20,
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                            size: Get.mediaQuery.size.height * .030,
+                          ),
                         ),
+                        // SizedBox(
+                        //   width: Get.width * .16,
+                        // ),
+                        // Text(
+                        //   'DashBoard',
+                        //   style: TEXTSTYLE(
+                        //     fontweight: FontWeight.w500,
+                        //     fontsize: 24.0,
+                        //     color: Colors.white,
+                        //   ),
                       ),
+                      Positioned(
+                        left: 40,
+                        right: 40,
+                        top: Get.mediaQuery.size.height * .044,
+                        child: Center(
+                          child: Text(
+                            'DashBoard',
+                            style: TEXTSTYLE(
+                              fontweight: FontWeight.w500,
+                              fontsize: Get.mediaQuery.size.height * .032,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+
+                        // SizedBox(
+                        //   width: Get.width * .13,
+                        // )
+                      ),
+
+                      // ),
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 28),
                     child: Center(
                       child: Wrap(
-                        spacing: 20,
-                        runSpacing: 20,
+                        spacing: 24,
+                        runSpacing: 24,
                         children: [
                           // child: GridView.count(crossAxisCount: 2,
                           //   scrollDirection: Axis.vertical,
                           //   l
                           Mcard(
                             onTap: () {
-                              Get.toNamed(Routes.MY_LEAVES);
+                             // controller.animate.value = true;
+                               Get.toNamed(Routes.MY_LEAVES);
                             },
                             AssetHelperImag: AssetHelper.leave,
+                            scale: 1.1,
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'My Leaves',
                           ),
@@ -226,7 +288,7 @@ class DashboardView extends GetView<DashboardController> {
                               Get.toNamed(Routes.LEAVE_REQUEST);
                             },
                             AssetHelperImag: AssetHelper.leaverwquest,
-                            scale: .8,
+                            scale: .9,
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'Leave Request',
                           ),
@@ -235,6 +297,7 @@ class DashboardView extends GetView<DashboardController> {
                               Get.toNamed(Routes.MY_SHIFT);
                             },
                             AssetHelperImag: AssetHelper.calender,
+                            scale: 1.2,
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'My Shift',
                           ),
@@ -243,6 +306,7 @@ class DashboardView extends GetView<DashboardController> {
                               Get.toNamed(Routes.NOTICE_BOARD);
                             },
                             AssetHelperImag: AssetHelper.noticeboard,
+                            scale: 1.1,
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'Notice Board',
                           )
@@ -251,9 +315,12 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                   ),
                 ],
-              ),
-            ),
-
+              );
+            } else {
+              return Center(child: Text('hi screen Size is big'));
+            }
+          }),
+        ),
       ),
     );
   }
