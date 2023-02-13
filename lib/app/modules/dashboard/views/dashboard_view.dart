@@ -31,7 +31,7 @@ class DashboardView extends GetView<DashboardController> {
                     alignment: Alignment.topLeft,
                     children: [
                       Container(
-                        // height: Get.height * .46,
+                        //height: Get.height * .46,
                         width: double.infinity,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -213,10 +213,11 @@ class DashboardView extends GetView<DashboardController> {
                         ),
                       ),
                       Positioned(
-                        left: 16,
+                        right: 16,
                         top: Get.mediaQuery.size.height * .036,
                         child: IconButton(
                           onPressed: () {
+                            LocalStore.clearData();
                             SystemNavigator.pop();
                             //Get.back();
                           },
@@ -224,7 +225,7 @@ class DashboardView extends GetView<DashboardController> {
                           splashColor: Colors.black,
                           splashRadius: 20,
                           icon: Icon(
-                            Icons.arrow_back,
+                            Icons.logout_rounded,
                             color: Colors.white,
                             size: Get.mediaQuery.size.height * .030,
                           ),
@@ -317,7 +318,7 @@ class DashboardView extends GetView<DashboardController> {
                 ],
               );
             } else {
-              return Center(child: Text('hi screen Size is big'));
+              return Container(child: Center(child: Text('hi screen Size is big')));
             }
           }),
         ),

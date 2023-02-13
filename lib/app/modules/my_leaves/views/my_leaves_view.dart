@@ -45,7 +45,9 @@ class MyLeavesView extends GetView<MyLeavesController> {
                     children: [
                       Stack(
                         children: [
-                          Container(),
+                          Container(
+                            height: 180,
+                          ),
                           Container(
                             width: Get.mediaQuery.size.width * .46,
                             height: Get.mediaQuery.size.height * .22,
@@ -111,21 +113,24 @@ class MyLeavesView extends GetView<MyLeavesController> {
                       Padding(
                         padding: EdgeInsets.only(
                           bottom: 28,
+
                         ),
-                        child: Row(
-                          // spacing: 40,
-                          // direction: Axis.horizontal,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            LeaveField(
-                                NumberOfLeave: 30,
-                                LeaveCatogery: 'Total Leave'),
-                            LeaveField(
-                                NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
-                            LeaveField(
-                                NumberOfLeave: 18,
-                                LeaveCatogery: 'Casual Leave'),
-                          ],
+                        child: Expanded(
+                          child: Row(
+                            // spacing: 40,
+                            // direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              LeaveField(
+                                  NumberOfLeave: 30,
+                                  LeaveCatogery: 'Total Leave'),
+                              LeaveField(
+                                  NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
+                              LeaveField(
+                                  NumberOfLeave: 18,
+                                  LeaveCatogery: 'Casual Leave'),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -318,21 +323,4 @@ class MyLeavesView extends GetView<MyLeavesController> {
           ),
         ));
   }
-}
-
-Future<dynamic> ShowCapturedWidget(
-    BuildContext context, Uint8List capturedImage) {
-  return showDialog(
-    useSafeArea: false,
-    context: context,
-    builder: (context) => Scaffold(
-      appBar: AppBar(
-        title: Text("Captured widget screenshot"),
-      ),
-      body: Center(
-          child: capturedImage != null
-              ? Image.memory(capturedImage)
-              : Container()),
-    ),
-  );
 }

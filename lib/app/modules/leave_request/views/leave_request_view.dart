@@ -354,7 +354,7 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                   ]),
                               child: ToggleSwitch(
 
-                                minWidth: Get.width * .44,
+                                minWidth: Get.width * .70,
                                 minHeight: Get.height * .058,
                                 cornerRadius: 10.0,
                                 activeBgColors: [
