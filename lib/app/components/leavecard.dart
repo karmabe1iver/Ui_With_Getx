@@ -129,10 +129,12 @@ Widget LeaveCard(
                             Image.asset(
                               AssetHelper.approved,
                             ),
-                            Text(
-                              '$Status',
-                              style: TEXTSTYLE(
-                                color: Color.fromRGBO(53, 164, 67, 1),
+                            Auto(
+                              child: Text(
+                                '$Status',
+                                style: TEXTSTYLE(
+                                  color: Color.fromRGBO(53, 164, 67, 1),
+                                ),
                               ),
                             )
                           ],
