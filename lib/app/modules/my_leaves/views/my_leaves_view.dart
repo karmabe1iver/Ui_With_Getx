@@ -1,4 +1,4 @@
-import 'dart:typed_data';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -115,22 +115,20 @@ class MyLeavesView extends GetView<MyLeavesController> {
                           bottom: 28,
 
                         ),
-                        child: Expanded(
-                          child: Row(
-                            // spacing: 40,
-                            // direction: Axis.horizontal,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              LeaveField(
-                                  NumberOfLeave: 30,
-                                  LeaveCatogery: 'Total Leave'),
-                              LeaveField(
-                                  NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
-                              LeaveField(
-                                  NumberOfLeave: 18,
-                                  LeaveCatogery: 'Casual Leave'),
-                            ],
-                          ),
+                        child: Row(
+                          // spacing: 40,
+                           //direction: Axis.horizontal,
+                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            LeaveField(
+                                NumberOfLeave: 30,
+                                LeaveCatogery: 'Total Leave'),
+                            LeaveField(
+                                NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
+                            LeaveField(
+                                NumberOfLeave: 18,
+                                LeaveCatogery: 'Casual Leave'),
+                          ],
                         ),
                       ),
                     ],

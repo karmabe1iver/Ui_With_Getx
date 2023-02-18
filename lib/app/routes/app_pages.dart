@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/attendence/bindings/attendence_binding.dart';
+import '../modules/attendence/views/attendence_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forget_password/bindings/forget_password_binding.dart';
@@ -38,61 +40,66 @@ class AppPages {
         page: () => const LoginView(),
         binding: LoginBinding(),
         transition: Transition.downToUp,
-        transitionDuration:const Duration(milliseconds: 50)),
+        transitionDuration: const Duration(milliseconds: 50)),
     GetPage(
         name: _Paths.FORGET_PASSWORD,
         page: () => const ForgetPasswordView(),
         binding: ForgetPasswordBinding(),
         transition: Transition.downToUp,
-        transitionDuration:const Duration(milliseconds: 3)),
+        transitionDuration: const Duration(milliseconds: 3)),
     GetPage(
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
       transition: Transition.noTransition,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
     ),
     GetPage(
       name: _Paths.MY_LEAVES,
       page: () => const MyLeavesView(),
       binding: MyLeavesBinding(),
       transition: Transition.cupertinoDialog,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
     ),
     GetPage(
       name: _Paths.MY_SHIFT,
       page: () => const MyShiftView(),
       binding: MyShiftBinding(),
       transition: Transition.cupertinoDialog,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
     ),
     GetPage(
       name: _Paths.NOTICE_BOARD,
       page: () => const NoticeBoardView(),
       binding: NoticeBoardBinding(),
       transition: Transition.cupertinoDialog,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
     ),
     GetPage(
       name: _Paths.LEAVE_REQUEST,
       page: () => const LeaveRequestView(),
       binding: LeaveRequestBinding(),
       transition: Transition.cupertinoDialog,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
     ),
     GetPage(
       name: _Paths.PROFILEDETAILS,
       page: () => ProfiledetailsView(),
       binding: ProfiledetailsBinding(),
       transition: Transition.cupertinoDialog,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
     ),
     GetPage(
       name: _Paths.UPDATIONREQUEST,
       page: () => const UpdationrequestView(),
       binding: UpdationrequestBinding(),
       transition: Transition.noTransition,
-      transitionDuration:const Duration(milliseconds: 200),
+      transitionDuration: const Duration(milliseconds: 200),
+    ),
+    GetPage(
+      name: _Paths.ATTENDENCE,
+      page: () => const AttendenceView(),
+      binding: AttendenceBinding(),
     ),
   ];
 }

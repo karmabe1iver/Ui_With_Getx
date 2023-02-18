@@ -1,13 +1,14 @@
-
 import 'package:get_storage/get_storage.dart';
 
 import '../../app.dart';
 import '../data/login_response.dart';
 
-
 abstract class LocalStore {
   final box = GetStorage();
-  static void loginData(String key,dynamic value )=> GetStorage().write(key, value);
+
+  static void loginData(String key, dynamic value) =>
+      GetStorage().write(key, value);
+
   static void setData(String key, dynamic value) =>
       GetStorage().write(key, value);
 
@@ -27,7 +28,7 @@ abstract class LocalStore {
 class FetchDataFromLocalStore {
   userData() async {
     App.user = User(
-      profilepic:LocalStore.getData('photo'),
+      profilepic: LocalStore.getData('photo'),
       userid: LocalStore.getInt('user_id'),
       token: LocalStore.getString('token'),
       firstname: LocalStore.getString('user_firstname'),
@@ -43,6 +44,4 @@ class FetchDataFromLocalStore {
     );
     App.token = LocalStore.getString('token') ?? '';
   }
-
-
 }

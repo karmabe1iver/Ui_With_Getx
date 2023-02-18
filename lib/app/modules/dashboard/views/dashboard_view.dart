@@ -140,9 +140,9 @@ class DashboardView extends GetView<DashboardController> {
 
                                   //spacing: 5,
                                   children: [
-                                    SizedBox(
-                                      width: 30,
-                                    ),
+                                    // SizedBox(
+                                    //   width: 30,
+                                    // ),
                                     Text(
                                       'Amila',
                                       style: TEXTSTYLE(
@@ -154,19 +154,19 @@ class DashboardView extends GetView<DashboardController> {
                                         color: Colors.white,
                                       ),
                                     ),
-                                    IconButton(
-                                      onPressed: () {
-                                        Get.toNamed(Routes.PROFILEDETAILS);
-                                      },
-                                      icon: Icon(
-                                        Icons.edit_calendar_outlined,
-                                        size: controller.animate.value
-                                            ? 0.0
-                                            : Get.mediaQuery.size.height *
-                                                .030,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    // IconButton(
+                                    //   onPressed: () {
+                                    //     Get.toNamed(Routes.PROFILEDETAILS);
+                                    //   },
+                                    //   icon: Icon(
+                                    //     Icons.edit_calendar_outlined,
+                                    //     size: controller.animate.value
+                                    //         ? 0.0
+                                    //         : Get.mediaQuery.size.height *
+                                    //             .030,
+                                    //   ),
+                                    //   color: Colors.white,
+                                    // ),
                                   ]),
                             ),
                           ),
@@ -268,7 +268,7 @@ class DashboardView extends GetView<DashboardController> {
                     padding: const EdgeInsets.only(top: 28),
                     child: Center(
                       child: Wrap(
-                        spacing: 24,
+                        spacing: 32,
                         runSpacing: 24,
                         children: [
                           // child: GridView.count(crossAxisCount: 2,
@@ -310,6 +310,26 @@ class DashboardView extends GetView<DashboardController> {
                             scale: 1.1,
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'Notice Board',
+                          ),
+                          Mcard(
+                            onTap: () {
+                             // Get.toNamed(Routes.NOTICE_BOARD);
+                              Get.toNamed(Routes.ATTENDENCE);
+                            },
+                            AssetHelperImag: AssetHelper.noticeboard,
+                            scale: 1.1,
+                            AssetHelperImag2: AssetHelper.userSm,
+                            titile: 'Attendence',
+                          ),
+                          Mcard(
+                            onTap: () {
+                              // Get.toNamed(Routes.NOTICE_BOARD);
+                              Get.toNamed(Routes.PROFILEDETAILS);
+                            },
+                            AssetHelperImag: AssetHelper.userSm,
+                            scale: .6,
+                            AssetHelperImag2: AssetHelper.userSm,
+                            titile: 'Profile',
                           )
                         ],
                       ),
