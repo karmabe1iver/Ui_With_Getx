@@ -16,6 +16,8 @@ import '../modules/my_shift/bindings/my_shift_binding.dart';
 import '../modules/my_shift/views/my_shift_view.dart';
 import '../modules/notice_board/bindings/notice_board_binding.dart';
 import '../modules/notice_board/views/notice_board_view.dart';
+import '../modules/payslip/bindings/payslip_binding.dart';
+import '../modules/payslip/views/payslip_view.dart';
 import '../modules/profiledetails/bindings/profiledetails_binding.dart';
 import '../modules/profiledetails/views/profiledetails_view.dart';
 import '../modules/splash/views/splash_view.dart';
@@ -100,6 +102,11 @@ class AppPages {
       name: _Paths.ATTENDENCE,
       page: () => const AttendenceView(),
       binding: AttendenceBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYSLIP,
+      page: () => const PayslipView(),
+      binding: PayslipBinding(),
     ),
   ];
 }

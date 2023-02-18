@@ -333,11 +333,11 @@ class DashboardView extends GetView<DashboardController> {
                           // ),
                           Mcard(
                             onTap: () {
-                              // Get.toNamed(Routes.NOTICE_BOARD);
-                              Get.toNamed(Routes.PROFILEDETAILS);
+                               Get.toNamed(Routes.PAYSLIP);
+
                             },
-                            AssetHelperImag: AssetHelper.userSm,
-                            scale: .6,
+                            AssetHelperImag: AssetHelper.leaverwquest,
+                            scale: .9,
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'PaySlip',
                           )
