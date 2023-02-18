@@ -127,7 +127,7 @@ Widget Weeekoff(String day) => FittedBox(
                 ),
               ),
               Text(
-                'Off',
+                'WO',
                 style: TextStyle(
                   color: Colors.red,
                   fontSize: 14,

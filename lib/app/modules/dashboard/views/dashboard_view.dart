@@ -140,9 +140,9 @@ class DashboardView extends GetView<DashboardController> {
 
                                   //spacing: 5,
                                   children: [
-                                    // SizedBox(
-                                    //   width: 30,
-                                    // ),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
                                     Text(
                                       'Amila',
                                       style: TEXTSTYLE(
@@ -154,19 +154,19 @@ class DashboardView extends GetView<DashboardController> {
                                         color: Colors.white,
                                       ),
                                     ),
-                                    // IconButton(
-                                    //   onPressed: () {
-                                    //     Get.toNamed(Routes.PROFILEDETAILS);
-                                    //   },
-                                    //   icon: Icon(
-                                    //     Icons.edit_calendar_outlined,
-                                    //     size: controller.animate.value
-                                    //         ? 0.0
-                                    //         : Get.mediaQuery.size.height *
-                                    //             .030,
-                                    //   ),
-                                    //   color: Colors.white,
-                                    // ),
+                                    IconButton(
+                                      onPressed: () {
+                                        Get.toNamed(Routes.PROFILEDETAILS);
+                                      },
+                                      icon: Icon(
+                                        Icons.edit_calendar_outlined,
+                                        size: controller.animate.value
+                                            ? 0.0
+                                            : Get.mediaQuery.size.height *
+                                                .030,
+                                      ),
+                                      color: Colors.white,
+                                    ),
                                   ]),
                             ),
                           ),
@@ -321,6 +321,16 @@ class DashboardView extends GetView<DashboardController> {
                             AssetHelperImag2: AssetHelper.userSm,
                             titile: 'Attendence',
                           ),
+                          // Mcard(
+                          //   onTap: () {
+                          //     // Get.toNamed(Routes.NOTICE_BOARD);
+                          //     Get.toNamed(Routes.PROFILEDETAILS);
+                          //   },
+                          //   AssetHelperImag: AssetHelper.userSm,
+                          //   scale: .6,
+                          //   AssetHelperImag2: AssetHelper.userSm,
+                          //   titile: 'Profile',
+                          // ),
                           Mcard(
                             onTap: () {
                               // Get.toNamed(Routes.NOTICE_BOARD);
@@ -329,7 +339,7 @@ class DashboardView extends GetView<DashboardController> {
                             AssetHelperImag: AssetHelper.userSm,
                             scale: .6,
                             AssetHelperImag2: AssetHelper.userSm,
-                            titile: 'Profile',
+                            titile: 'PaySlip',
                           )
                         ],
                       ),
