@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../../components/image_common.dart';
@@ -8,13 +7,12 @@ import '../controllers/payslip_controller.dart';
 
 class PayslipView extends GetView<PayslipController> {
   const PayslipView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Stack(
-          children: [
-          Container(),
+        body: Stack(children: [
+      Container(),
       ImageCommon(),
       Positioned(
         left: 16,
@@ -44,9 +42,6 @@ class PayslipView extends GetView<PayslipController> {
           ),
         ),
       ),
-
-      ]
-      )
-    );
+    ]));
   }
 }

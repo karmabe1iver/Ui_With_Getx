@@ -2,6 +2,11 @@ import 'package:get/get.dart';
 
 class PayslipController extends GetxController {
   //TODO: Implement PayslipController
+  List<String> df = [
+    'Select  Month',
+    'Jan',
+    'Feb',
+  ].obs;
 
   final count = 0.obs;
   @override
