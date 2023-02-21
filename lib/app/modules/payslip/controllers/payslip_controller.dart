@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
 class PayslipController extends GetxController {
+
+  RxString CurrentMonth = DateTime.now().month.toString().obs;
   RxString SelectMonth= ''.obs;
   RxString dropdownText = 'Select  Month'.obs as RxString;
   List<String> df = [

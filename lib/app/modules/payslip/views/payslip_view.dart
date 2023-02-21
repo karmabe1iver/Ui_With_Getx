@@ -82,7 +82,7 @@ class PayslipView extends GetView<PayslipController> {
             child: Center(child: Column(
               children: [
                 MButton(onPress: (){
-
+                 print({controller.CurrentMonth.value});
                  controller.SelectMonth.value=  controller.dropdownText.value;
                 }, isButtonpressed: false,string: 'Submit',),
               SizedBox(height: 24,),

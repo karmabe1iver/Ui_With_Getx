@@ -67,6 +67,17 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
+            // AnimatedPositioned(
+            //   bottom: 60,
+            //   left:16,
+            //   right: animate?16:380,
+            //   duration: Duration(milliseconds: 1200),
+            //   child: AnimatedContainer(duration: Duration(milliseconds:1200),
+            //       height: 20,
+            //     //width: animate?10:0,
+            //     color: Colors.blue.shade300,
+            //   ),
+            // )
           ],
         ),
       ),
