@@ -1,8 +1,9 @@
 import 'dart:io';
 
-class ProfileModel{
+class ProfileModel {
   File profilePic;
-  ProfileModel({ required this.profilePic});
 
+  ProfileModel({required this.profilePic});
 }
-List<ProfileModel> ProfileList= <ProfileModel>[];
+
+List<ProfileModel> ProfileList = <ProfileModel>[];

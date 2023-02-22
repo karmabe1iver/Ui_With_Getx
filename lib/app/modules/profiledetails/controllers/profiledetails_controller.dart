@@ -4,6 +4,7 @@ class ProfiledetailsController extends GetxController {
   //TODO: Implement ProfiledetailsController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +17,6 @@ class ProfiledetailsController extends GetxController {
 
   @override
   void onClose() {}
+
   void increment() => count.value++;
 }

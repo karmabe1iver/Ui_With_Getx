@@ -1,4 +1,4 @@
-List<DateTime> FullDay=[
+List<DateTime> FullDay = [
   DateTime(2023, 1, 5),
   DateTime(2023, 1, 6),
   DateTime(2023, 1, 7),
@@ -8,19 +8,18 @@ List<DateTime> FullDay=[
   DateTime(2023, 1, 15),
   DateTime(2023, 1, 26),
 ];
-List<DateTime> HalfDay=[
+List<DateTime> HalfDay = [
   DateTime(2023, 1, 1),
   DateTime(2023, 1, 3),
-
 ];
-List<DateTime> WeekOff=[
+List<DateTime> WeekOff = [
   DateTime(2023, 1, 4),
   DateTime(2023, 1, 9),
   DateTime(2023, 1, 17),
   DateTime(2023, 1, 24),
   DateTime(2023, 1, 31),
-
-];List<DateTime> Prensent=[
+];
+List<DateTime> Prensent = [
   DateTime(2023, 1, 2),
   DateTime(2023, 1, 8),
   DateTime(2023, 1, 11),
@@ -36,9 +35,7 @@ List<DateTime> WeekOff=[
   DateTime(2023, 1, 27),
   DateTime(2023, 1, 28),
   DateTime(2023, 1, 29),
-
 ];
-List<DateTime> Absent=[
+List<DateTime> Absent = [
   DateTime(2023, 1, 30),
-
 ];

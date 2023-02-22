@@ -1,4 +1,3 @@
-import 'package:Lakshore/app/components/attendence_making_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';

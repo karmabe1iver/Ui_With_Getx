@@ -16,14 +16,14 @@ class ApiResp {
   List<dynamic> msgs;
 
   factory ApiResp.fromJson(Map<String, dynamic> json) => ApiResp(
-    ok: json["ok"],
-    rdata: json["rdata"],
-    msgs: List<dynamic>.from(json["msgs"].map((x) => x)),
-  );
+        ok: json["ok"],
+        rdata: json["rdata"],
+        msgs: List<dynamic>.from(json["msgs"].map((x) => x)),
+      );
 
   Map<String, dynamic> toJson() => {
-    "ok": ok,
-    "rdata": rdata,
-    "msgs": List<dynamic>.from(msgs.map((x) => x)),
-  };
+        "ok": ok,
+        "rdata": rdata,
+        "msgs": List<dynamic>.from(msgs.map((x) => x)),
+      };
 }

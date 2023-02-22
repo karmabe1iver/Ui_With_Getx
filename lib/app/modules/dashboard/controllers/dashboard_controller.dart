@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:Lakshore/app/data/profile.dart';
 import 'package:Lakshore/app/utils/asset_helper.dart';
-import 'package:Lakshore/app/utils/local_store.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';

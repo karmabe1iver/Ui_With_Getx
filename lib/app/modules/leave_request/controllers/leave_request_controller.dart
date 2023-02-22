@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,6 +61,5 @@ class LeaveRequestController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-
   }
 }

@@ -15,7 +15,6 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-
     // FormX fx = Get.put(FormX());
     return Obx(
       () => AnimatedOpacity(

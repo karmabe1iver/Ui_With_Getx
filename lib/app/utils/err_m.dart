@@ -16,9 +16,9 @@ void errM(Function() f, {String msg = "", String title = "Error"}) {
 
 Future errMAsync(Future<void> Function() f,
     {String msg = "",
-      String title = "Error",
-      isShowMsg = true,
-      dialogDismiss = false}) async {
+    String title = "Error",
+    isShowMsg = true,
+    dialogDismiss = false}) async {
   try {
     await f();
   } catch (e) {
@@ -35,14 +35,16 @@ Future errMAsync(Future<void> Function() f,
 }
 
 void showMsg(String msg, String title, {leadingIcon, isSuccess = false}) {
-  Vibration.vibrate(duration: 1000,);
+  Vibration.vibrate(
+    duration: 1000,
+  );
   Get.snackbar(
     title,
     msg,
     icon: leadingIcon,
     snackPosition: SnackPosition.TOP,
     backgroundColor:
-    isSuccess ? Colors.green : const Color.fromARGB(255, 177, 46, 46),
+        isSuccess ? Colors.green : const Color.fromARGB(255, 177, 46, 46),
     colorText: Colors.white,
     borderRadius: 5,
     padding: const EdgeInsets.all(10),

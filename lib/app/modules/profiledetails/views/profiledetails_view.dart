@@ -2,7 +2,6 @@ import 'package:Lakshore/app/components/profiledetials.dart';
 import 'package:Lakshore/app/components/textstyle.dart';
 import 'package:Lakshore/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../../data/profile.dart';

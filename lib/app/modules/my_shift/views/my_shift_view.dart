@@ -37,34 +37,34 @@ class MyShiftView extends GetView<MyShiftController> {
             Positioned(
               left: 16,
               top: 36,
-              child:
-                  IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
-                  ),
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+              ),
             ),
-                  Positioned(top: 44,
-                    left: 40,
-                    right: 40,
-                    child: Center(
-                      child: Text(
-                        'My Shift',
-                        style: TEXTSTYLE(
-                          fontweight: FontWeight.w500,
-                          fontsize: 24.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+            Positioned(
+              top: 44,
+              left: 40,
+              right: 40,
+              child: Center(
+                child: Text(
+                  'My Shift',
+                  style: TEXTSTYLE(
+                    fontweight: FontWeight.w500,
+                    fontsize: 24.0,
+                    color: Colors.white,
                   ),
-                  SizedBox(
-                    width: Get.width * .13,
-                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: Get.width * .13,
+            ),
             Positioned(
               left: 40,
               top: 100,
@@ -195,7 +195,6 @@ class MyShiftView extends GetView<MyShiftController> {
                         ],
                       ),
                     ),
-                    
                     FittedBox(
                       child: Row(children: [
                         Text(
@@ -216,7 +215,6 @@ class MyShiftView extends GetView<MyShiftController> {
                         )
                       ]),
                     ),
-                    
                     FittedBox(
                       child: Row(children: [
                         Text(

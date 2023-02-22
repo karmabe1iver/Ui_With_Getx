@@ -1,16 +1,12 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibration/vibration.dart';
 
 import '../../../components/mbutton.dart';
-import '../../../components/mtextformfield.dart';
 import '../../../components/textstyle.dart';
 import '../../../routes/app_pages.dart';
 import '../../../utils/asset_helper.dart';
 import '../../login/controllers/login_controller.dart';
-import '../../login/views/login_view.dart';
-import '../controllers/forget_password_controller.dart';
 
 class ForgetPasswordView extends GetView<LoginController> {
   const ForgetPasswordView({Key? key}) : super(key: key);

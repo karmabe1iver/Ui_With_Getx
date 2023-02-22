@@ -12,19 +12,21 @@ Widget dropDownBox({FunctioOnchanged, ListItem, ListValue, color, shadow}) {
       // child:
       Container(
     height: Get.height * .06,
-    width: Get.mediaQuery.size.width/1,
-    decoration:
-        BoxDecoration(
-          border: Border.all(color:color==null? Colors.transparent:color),
-            borderRadius: BorderRadius.circular(10), boxShadow:shadow==null? [
-      BoxShadow(
-        color: Colors.grey.shade300,
-        offset: Offset.zero,
+    width: Get.mediaQuery.size.width / 1,
+    decoration: BoxDecoration(
+        border: Border.all(color: color == null ? Colors.transparent : color),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: shadow == null
+            ? [
+                BoxShadow(
+                  color: Colors.grey.shade300,
+                  offset: Offset.zero,
 
-        blurRadius: 10,
-        blurStyle: BlurStyle.outer, //spreadRadius: 35
-      )
-    ]:shadow),
+                  blurRadius: 10,
+                  blurStyle: BlurStyle.outer, //spreadRadius: 35
+                )
+              ]
+            : shadow),
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     // decoration: BoxDecoration(
     //     color: Colors.white, borderRadius: BorderRadius.circular(10)),

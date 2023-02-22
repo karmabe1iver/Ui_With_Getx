@@ -16,14 +16,14 @@ class ApiMsg {
   String title;
 
   factory ApiMsg.fromJson(Map<String, dynamic> json) => ApiMsg(
-    msg: json["msg"],
-    msgType: json["msgType"],
-    title: json["title"],
-  );
+        msg: json["msg"],
+        msgType: json["msgType"],
+        title: json["title"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "msg": msg,
-    "msgType": msgType,
-    "title": title,
-  };
+        "msg": msg,
+        "msgType": msgType,
+        "title": title,
+      };
 }

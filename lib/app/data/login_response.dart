@@ -42,40 +42,41 @@ class User {
   String profilepic;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    firstname: json["firstname"],
-    lastname: json["lastname"],
-    userid: json["userid"],
-    emailVerified: json["email_verified"],
-    twoFactorRequired: json["two_factor_required"],
-    token: json["token"] ?? '',
-    rolename: json["rolename"] ?? '',
-    roleid: json["roleid"] ?? -1,
-    custid: json["custid"] ?? -1,
-    custname: json["custname"] ?? '',
-    root: json["root"] ?? false,
-    authSecret: json["auth_secret"],
-    twoFactorDefault: json["two_factor_default"],
-    twoFactorMethods:
-    List<int>.from(json["two_factor_methods"] ?? [0].map((x) => x)), profilepic: '',
-  );
+        firstname: json["firstname"],
+        lastname: json["lastname"],
+        userid: json["userid"],
+        emailVerified: json["email_verified"],
+        twoFactorRequired: json["two_factor_required"],
+        token: json["token"] ?? '',
+        rolename: json["rolename"] ?? '',
+        roleid: json["roleid"] ?? -1,
+        custid: json["custid"] ?? -1,
+        custname: json["custname"] ?? '',
+        root: json["root"] ?? false,
+        authSecret: json["auth_secret"],
+        twoFactorDefault: json["two_factor_default"],
+        twoFactorMethods:
+            List<int>.from(json["two_factor_methods"] ?? [0].map((x) => x)),
+        profilepic: '',
+      );
 
   Map<String, dynamic> toJson() => {
-    "firstname": firstname,
-    "lastname": lastname,
-    "userid": userid,
-    "email_verified": emailVerified,
-    "two_factor_required": twoFactorRequired,
-    "token": token,
-    "rolename": rolename,
-    "roleid": roleid,
-    "custid": custid,
-    "custname": custname,
-    "root": root,
-    "auth_secret": authSecret,
-    "two_factor_default": twoFactorDefault,
-    "two_factor_methods":
-    List<dynamic>.from(twoFactorMethods!.map((x) => x)),
-  };
+        "firstname": firstname,
+        "lastname": lastname,
+        "userid": userid,
+        "email_verified": emailVerified,
+        "two_factor_required": twoFactorRequired,
+        "token": token,
+        "rolename": rolename,
+        "roleid": roleid,
+        "custid": custid,
+        "custname": custname,
+        "root": root,
+        "auth_secret": authSecret,
+        "two_factor_default": twoFactorDefault,
+        "two_factor_methods":
+            List<dynamic>.from(twoFactorMethods!.map((x) => x)),
+      };
 }
 
 // To parse this JSON data, do
@@ -104,9 +105,9 @@ class TwoFactorVerifyResponse {
       );
 
   Map<String, dynamic> toJson() => {
-    "valid": valid,
-    "auth": auth?.toJson(),
-  };
+        "valid": valid,
+        "auth": auth?.toJson(),
+      };
 }
 
 class Auth {
@@ -135,28 +136,28 @@ class Auth {
   bool? root;
 
   factory Auth.fromJson(Map<String, dynamic> json) => Auth(
-    firstname: json["firstname"],
-    lastname: json["lastname"],
-    userid: json["userid"],
-    email: json["email"],
-    token: json["token"],
-    rolename: json["rolename"],
-    roleid: json["roleid"],
-    custid: json["custid"],
-    custname: json["custname"],
-    root: json["root"],
-  );
+        firstname: json["firstname"],
+        lastname: json["lastname"],
+        userid: json["userid"],
+        email: json["email"],
+        token: json["token"],
+        rolename: json["rolename"],
+        roleid: json["roleid"],
+        custid: json["custid"],
+        custname: json["custname"],
+        root: json["root"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "firstname": firstname,
-    "lastname": lastname,
-    "userid": userid,
-    "email": email,
-    "token": token,
-    "rolename": rolename,
-    "roleid": roleid,
-    "custid": custid,
-    "custname": custname,
-    "root": root,
-  };
+        "firstname": firstname,
+        "lastname": lastname,
+        "userid": userid,
+        "email": email,
+        "token": token,
+        "rolename": rolename,
+        "roleid": roleid,
+        "custid": custid,
+        "custname": custname,
+        "root": root,
+      };
 }

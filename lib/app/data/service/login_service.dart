@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 
 import '../../utils/err_m.dart';
@@ -11,7 +9,7 @@ abstract class LoginServices {
   static Future<ApiResp> fetchUser(String userId, String pswd) async {
     dynamic resp;
     await errMAsync(
-          () async {
+      () async {
         resp = await MyDio().customPost(
           'token/',
           data: {'email': userId, 'password': pswd},
@@ -39,28 +37,28 @@ abstract class LoginServices {
     } else {
       respNew = resp != null
           ? ApiResp(
-        ok: true,
-        rdata: resp,
-        msgs: [
-          ApiMsg(
-            msg: "",
-            msgType: "",
-            title: "Success",
-          )
-        ],
-      )
+              ok: true,
+              rdata: resp,
+              msgs: [
+                ApiMsg(
+                  msg: "",
+                  msgType: "",
+                  title: "Success",
+                )
+              ],
+            )
           : ApiResp(
-        ok: false,
-        rdata: "",
-        msgs: [
-          ApiMsg(
-            msg: "Server response failed",
-            msgType: "0",
-            title: "Failed",
-          )
-        ],
-      );
+              ok: false,
+              rdata: "",
+              msgs: [
+                ApiMsg(
+                  msg: "Server response failed",
+                  msgType: "0",
+                  title: "Failed",
+                )
+              ],
+            );
     }
     return respNew;
   }
- }
+}

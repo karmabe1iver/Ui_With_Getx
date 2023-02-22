@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:Lakshore/app/components/mbutton.dart';
 import 'package:Lakshore/app/components/profiledetials.dart';
 import 'package:Lakshore/app/components/textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:get/get.dart';
 
 import '../../../components/dropdown.dart';
@@ -65,14 +62,13 @@ class UpdationrequestView extends GetView<UpdationrequestController> {
                   // child:
                   Obx(
                 () => AnimatedOpacity(
-                  opacity: controller.animate.value?1:0,
+                  opacity: controller.animate.value ? 1 : 0,
                   duration: Duration(milliseconds: 220),
                   child: AnimatedPadding(
                     duration: Duration(milliseconds: 250),
                     padding: EdgeInsets.only(
                       top: controller.animate.value ? 0 : 350,
                       left: controller.animate.value ? 0 : 90,
-
                     ),
                     child: DetailsCard(
                       Dcolor: Colors.white,
@@ -172,7 +168,8 @@ class UpdationrequestView extends GetView<UpdationrequestController> {
                                         style: TEXTSTYLE(
                                           fontsize: 15.0,
                                           fontweight: FontWeight.w500,
-                                          color: Color.fromRGBO(44, 157, 215, 1),
+                                          color:
+                                              Color.fromRGBO(44, 157, 215, 1),
                                         ),
                                       )),
                           ),

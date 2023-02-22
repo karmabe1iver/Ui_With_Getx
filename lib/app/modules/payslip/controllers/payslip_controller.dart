@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,14 +6,17 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../data/payslip_model.dart';
 
 class PayslipController extends GetxController {
-  List<Uri> toLaunch =[
-    Uri(scheme: 'https', host: 'africau.edu', path: '/images/default/sample.pdf')
+  List<Uri> toLaunch = [
+    Uri(
+        scheme: 'https',
+        host: 'africau.edu',
+        path: '/images/default/sample.pdf')
   ];
-
 
   //Uri(scheme: 'https', host: 'africau.edu', path: '/images/default/sample.pdf')
 
-  static get index =>PaySlip.length-1;
+  static get index => PaySlip.length - 1;
+
   Future<void> launchInBrowser(Uri url) async {
     if (!await launchUrl(
       url,
@@ -25,9 +27,9 @@ class PayslipController extends GetxController {
   }
 
   RxString CurrentMonth = DateTime.now().month.toString().obs;
-  RxString SelectMonth= ''.obs;
+  RxString SelectMonth = ''.obs;
   RxString dropdownText = 'Select  Month'.obs as RxString;
-  List<String> df =['Select  Month'];
+  List<String> df = ['Select  Month'];
 
   //PaySlip[index].Month.obs as List<String>;
   //     [
@@ -40,10 +42,10 @@ class PayslipController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    for(int i =0; i<=index; i++ ) {
+    for (int i = 0; i <= index; i++) {
       df.add(PaySlip[i].Month);
     }
-    for(int i = 0 ; i<=index; i++){
+    for (int i = 0; i <= index; i++) {
       toLaunch.add(PaySlip[i].pay);
     }
   }
@@ -59,6 +61,4 @@ class PayslipController extends GetxController {
   }
 
   void increment() => count.value++;
-
-
 }

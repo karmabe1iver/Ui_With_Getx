@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../components/textstyle.dart';
-import '../../../utils/asset_helper.dart';
 import '../controllers/notice_board_controller.dart';
 
 class NoticeBoardView extends GetView<NoticeBoardController> {

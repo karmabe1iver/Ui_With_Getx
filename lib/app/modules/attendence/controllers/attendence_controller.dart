@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:Lakshore/app/data/attenance_model.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:get/get.dart';
@@ -21,7 +18,7 @@ class AttendenceController extends GetxController {
   int leng = HalfDay.length;
   int length = WeekOff.length;
   int lengt = Prensent.length;
-  int le= Absent.length;
+  int le = Absent.length;
 
   @override
   void onInit() {
@@ -60,7 +57,8 @@ class AttendenceController extends GetxController {
             title: 'FL',
             icon: Present(Prensent[i].day.toString())),
       );
-    }for (int i = 0; i < le; i++) {
+    }
+    for (int i = 0; i < le; i++) {
       markedUpDates.add(
         Absent[i],
         new Event(

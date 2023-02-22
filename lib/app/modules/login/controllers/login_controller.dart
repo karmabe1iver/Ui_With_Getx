@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:vibration/vibration.dart';
 
 import '../../../../app.dart';
@@ -13,10 +12,9 @@ import '../../../utils/err_m.dart';
 import '../../../utils/local_store.dart';
 
 class LoginController extends GetxController {
-  RxBool obscureText=true.obs;
+  RxBool obscureText = true.obs;
 
   RxBool isButtonpressed = false.obs;
-
 
   Future ButtonPressed() async {
     isButtonpressed.value = true;
@@ -30,11 +28,11 @@ class LoginController extends GetxController {
 
   final Rxn<int> selected = Rxn<int>();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
-  final TextEditingController emailController=TextEditingController();
-  final TextEditingController passwordController=TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   late TextEditingController
-  //emailController,
+      //emailController,
       //passwordController,
       newpasswordcontroller,
       confirmpasswordcontroller;
@@ -70,8 +68,8 @@ class LoginController extends GetxController {
     startanimation();
     newpasswordcontroller = TextEditingController();
     confirmpasswordcontroller = TextEditingController();
-   // emailController = TextEditingController();
-   // passwordController = TextEditingController();
+    // emailController = TextEditingController();
+    // passwordController = TextEditingController();
   }
 
   @override
@@ -164,7 +162,7 @@ class LoginController extends GetxController {
 
   void loadUserEmailPassword() async {
     var _email = LocalStore.getData("email") ?? "";
-    var _password =LocalStore.getData("password") ?? "";
+    var _password = LocalStore.getData("password") ?? "";
     print(_email);
     print(_password);
 
@@ -183,7 +181,6 @@ class LoginController extends GetxController {
     passwordController.text = _password ?? "";
     // }
   }
-
 }
 
 final count = 0.obs;

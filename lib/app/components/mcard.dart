@@ -36,7 +36,12 @@ Widget Mcard({AssetHelperImag, AssetHelperImag2, titile, onTap, scale}) {
                   scale: scale,
                 ),
                 Positioned(
-                    left: Get.width*.21, bottom: 0, child: Image.asset(AssetHelperImag2,scale: 1.2,))
+                    left: Get.width * .21,
+                    bottom: 0,
+                    child: Image.asset(
+                      AssetHelperImag2,
+                      scale: 1.2,
+                    ))
               ],
             )
           else

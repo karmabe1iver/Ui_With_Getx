@@ -106,19 +106,16 @@ class DashboardView extends GetView<DashboardController> {
                                     maxRadius:
                                         controller.animate.value ? 0 : 60,
                                     child: ClipOval(
-                                        child: controller.status.value !=
-                                                false
+                                        child: controller.status.value != false
                                             ? Image.file(
                                                 controller.image.value!,
                                                 //LocalStore.setData(user.profilepic,'photo'),
-                                                width:
-                                                    controller.animate.value
-                                                        ? 0
-                                                        : 120,
-                                                height:
-                                                    controller.animate.value
-                                                        ? 0
-                                                        : 120,
+                                                width: controller.animate.value
+                                                    ? 0
+                                                    : 120,
+                                                height: controller.animate.value
+                                                    ? 0
+                                                    : 120,
                                                 scale: 1,
                                                 fit: BoxFit.cover,
                                               )
@@ -134,8 +131,7 @@ class DashboardView extends GetView<DashboardController> {
                             child: Obx(
                               () => Wrap(
                                   alignment: WrapAlignment.center,
-                                  crossAxisAlignment:
-                                      WrapCrossAlignment.center,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
                                   //runAlignment: WrapAlignment.center,
 
                                   //spacing: 5,
@@ -148,8 +144,7 @@ class DashboardView extends GetView<DashboardController> {
                                       style: TEXTSTYLE(
                                         fontsize: controller.animate.value
                                             ? 20.0
-                                            : Get.mediaQuery.size.height *
-                                                .036,
+                                            : Get.mediaQuery.size.height * .036,
                                         fontweight: FontWeight.w500,
                                         color: Colors.white,
                                       ),
@@ -162,8 +157,7 @@ class DashboardView extends GetView<DashboardController> {
                                         Icons.edit_calendar_outlined,
                                         size: controller.animate.value
                                             ? 0.0
-                                            : Get.mediaQuery.size.height *
-                                                .030,
+                                            : Get.mediaQuery.size.height * .030,
                                       ),
                                       color: Colors.white,
                                     ),
@@ -276,8 +270,8 @@ class DashboardView extends GetView<DashboardController> {
                           //   l
                           Mcard(
                             onTap: () {
-                             // controller.animate.value = true;
-                               Get.toNamed(Routes.MY_LEAVES);
+                              // controller.animate.value = true;
+                              Get.toNamed(Routes.MY_LEAVES);
                             },
                             AssetHelperImag: AssetHelper.leave,
                             scale: 1.1,
@@ -313,7 +307,7 @@ class DashboardView extends GetView<DashboardController> {
                           ),
                           Mcard(
                             onTap: () {
-                             // Get.toNamed(Routes.NOTICE_BOARD);
+                              // Get.toNamed(Routes.NOTICE_BOARD);
                               Get.toNamed(Routes.ATTENDENCE);
                             },
                             AssetHelperImag: AssetHelper.noticeboard,
@@ -333,8 +327,7 @@ class DashboardView extends GetView<DashboardController> {
                           // ),
                           Mcard(
                             onTap: () {
-                               Get.toNamed(Routes.PAYSLIP);
-
+                              Get.toNamed(Routes.PAYSLIP);
                             },
                             AssetHelperImag: AssetHelper.leaverwquest,
                             scale: .9,
@@ -348,7 +341,8 @@ class DashboardView extends GetView<DashboardController> {
                 ],
               );
             } else {
-              return Container(child: Center(child: Text('hi screen Size is big')));
+              return Container(
+                  child: Center(child: Text('hi screen Size is big')));
             }
           }),
         ),

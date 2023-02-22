@@ -65,60 +65,56 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                 Positioned(
                   left: 16,
                   top: Get.mediaQuery.size.height * .036,
-                  child:
-                      IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                          size:  Get.mediaQuery.size.height * .030,
-                        ),
-                      ),
+                  child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: Get.mediaQuery.size.height * .030,
+                    ),
+                  ),
                 ),
-                      Positioned(
-                        left: 40,
-                        right: 40,
-                        top: Get.mediaQuery.size.height * .044,
-                        child: Center(
-                          child: Text(
-                            'Leave Request',
-                            style: TEXTSTYLE(
-                              fontweight: FontWeight.w500,
-                              fontsize:  Get.mediaQuery.size.height * .032,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                Positioned(
+                  left: 40,
+                  right: 40,
+                  top: Get.mediaQuery.size.height * .044,
+                  child: Center(
+                    child: Text(
+                      'Leave Request',
+                      style: TEXTSTYLE(
+                        fontweight: FontWeight.w500,
+                        fontsize: Get.mediaQuery.size.height * .032,
+                        color: Colors.white,
                       ),
+                    ),
+                  ),
+                ),
 
                 Positioned(
                   left: 36,
-                  top: Get.mediaQuery.size.height*.13,
+                  top: Get.mediaQuery.size.height * .13,
                   child: Row(
                     children: [
                       CircleAvatar(
                         maxRadius: 38,
-                        child:ClipOval(child:
-                        ProfileList.length!=0
-
-                            ? Image.file(
-                          ProfileList.last.profilePic,
-                          width: 120,
-                          height: 120,
-                          scale: 1,
-                          fit: BoxFit.cover,
-                        )
-                            : Image.asset(AssetHelper.profileIMAGE)
-
-                        ),
+                        child: ClipOval(
+                            child: ProfileList.length != 0
+                                ? Image.file(
+                                    ProfileList.last.profilePic,
+                                    width: 120,
+                                    height: 120,
+                                    scale: 1,
+                                    fit: BoxFit.cover,
+                                  )
+                                : Image.asset(AssetHelper.profileIMAGE)),
                       ),
-                    // Image.file(
-                        //     ProfileList.last.profilePic,                            //AssetHelper.profileIMAGE,
-                        //   ),
-                        // ),
-                        //
+                      // Image.file(
+                      //     ProfileList.last.profilePic,                            //AssetHelper.profileIMAGE,
+                      //   ),
+                      // ),
+                      //
                       SizedBox(
                         width: 20,
                       ),
@@ -280,7 +276,9 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
 
                                   print(controller.EndDate.value);
                                 } else {
-                                  Vibration.vibrate(duration: 100,);
+                                  Vibration.vibrate(
+                                    duration: 100,
+                                  );
                                   Get.defaultDialog(
                                       middleText: 'Please Select StartDate');
                                 }
@@ -353,7 +351,6 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                                     )
                                   ]),
                               child: ToggleSwitch(
-
                                 minWidth: Get.width * .70,
                                 minHeight: Get.height * .058,
                                 cornerRadius: 10.0,
@@ -499,110 +496,115 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Obx(
-    ()=> MButton(
-                                  onPress: () {
-                                   controller.ButtonPressed();
-                                    if (controller.dropdownText.value !=
-                                            'Leave Type ' &&
-                                        controller.StartDate.value !=
-                                            'StartDate' &&
-                                        controller.EndDate.value != 'EndDate' &&
-                                        controller.departmentType.value !=
-                                            'Department Head' &&
-                                        controller.Reson.text != '') {
-                                      print(controller.dropdownText.value);
-                                      print(controller.StartDate.value);
-                                      print(controller.EndDate.value);
-                                      print(controller.Intial.value);
-                                      print(controller.departmentType.value);
-                                      print(controller.Reson.text);
+                              () => MButton(
+                                onPress: () {
+                                  controller.ButtonPressed();
+                                  if (controller.dropdownText.value !=
+                                          'Leave Type ' &&
+                                      controller.StartDate.value !=
+                                          'StartDate' &&
+                                      controller.EndDate.value != 'EndDate' &&
+                                      controller.departmentType.value !=
+                                          'Department Head' &&
+                                      controller.Reson.text != '') {
+                                    print(controller.dropdownText.value);
+                                    print(controller.StartDate.value);
+                                    print(controller.EndDate.value);
+                                    print(controller.Intial.value);
+                                    print(controller.departmentType.value);
+                                    print(controller.Reson.text);
 
-                                      //Leavefieldd.add(controller.Leavefield.first);
-                                      Get.defaultDialog(
-                                        title: 'Please Check Once More!!',
-                                        contentPadding: EdgeInsets.only(
-                                            top: 10,
-                                            bottom: 20,
-                                            left: 10,
-                                            right: 10),
-                                        content: Container(
-                                          child: Wrap(
-                                            direction: Axis.vertical,
-                                            spacing: 5,
-                                            runSpacing: 5,
-                                            children: [
+                                    //Leavefieldd.add(controller.Leavefield.first);
+                                    Get.defaultDialog(
+                                      title: 'Please Check Once More!!',
+                                      contentPadding: EdgeInsets.only(
+                                          top: 10,
+                                          bottom: 20,
+                                          left: 10,
+                                          right: 10),
+                                      content: Container(
+                                        child: Wrap(
+                                          direction: Axis.vertical,
+                                          spacing: 5,
+                                          runSpacing: 5,
+                                          children: [
+                                            RichTex(
+                                                text: 'Leave Type :',
+                                                inputtext:
+                                                    ' ${controller.dropdownText.value}'),
+                                            RichTex(
+                                                text: 'Leave From :',
+                                                inputtext:
+                                                    ' ${controller.StartDate.value} - ${controller.EndDate.value}'),
+                                            if (controller.Intial.value == 0)
                                               RichTex(
-                                                  text: 'Leave Type :',
-                                                  inputtext:
-                                                      ' ${controller.dropdownText.value}'),
+                                                  text: 'Full day or Half :',
+                                                  inputtext: ' Full day')
+                                            else
                                               RichTex(
-                                                  text: 'Leave From :',
-                                                  inputtext:
-                                                      ' ${controller.StartDate.value} - ${controller.EndDate.value}'),
-                                              if (controller.Intial.value == 0)
-                                                RichTex(
-                                                    text: 'Full day or Half :',
-                                                    inputtext: ' Full day')
-                                              else
-                                                RichTex(
-                                                    text: 'Full day or Half :',
-                                                    inputtext: ' Half Day'),
-                                              RichTex(
-                                                  text: 'Department :',
-                                                  inputtext:
-                                                      ' ${controller.departmentType.value}'),
-                                              RichTex(
-                                                  text: 'Reson :',
-                                                  inputtext:
-                                                      ' ${controller.Reson.value.text}')
-                                            ],
-                                          ),
+                                                  text: 'Full day or Half :',
+                                                  inputtext: ' Half Day'),
+                                            RichTex(
+                                                text: 'Department :',
+                                                inputtext:
+                                                    ' ${controller.departmentType.value}'),
+                                            RichTex(
+                                                text: 'Reson :',
+                                                inputtext:
+                                                    ' ${controller.Reson.value.text}')
+                                          ],
                                         ),
-                                        textCancel: 'Edit',
-                                        onCancel: () {},
-                                        radius: 30.0,
-                                        textConfirm: 'Confirm & View Status',
-                                        confirmTextColor: Colors.white,
-                                        onConfirm: () {
-                                          Leavefieldd.add(LeaveModel(
-                                              sts: true,
-                                              Status: 'Pending',
-                                              Reason: controller.Reson.text,
-                                              Category:
-                                                  controller.dropdownText.value,
-                                              LeaveFrom:
-                                                  controller.StartDate.value,
-                                              LeaveTo: controller.EndDate.value,
-                                              ResonDes: controller.Reson.text));
-                                          Get.offNamed(Routes.MY_LEAVES);
-                                        },
-                                      );
-                                    } else {
-                                     controller.ButtonPressed();
-                                      Vibration.vibrate(duration: 100,);
-                                      Get.snackbar(
-                                        'Fill Details ',
-                                        'Please  Fill Missing details ',
-                                        snackPosition: SnackPosition.TOP,
-                                        backgroundColor: Colors.white,
-                                        colorText:
-                                            Color.fromRGBO(44, 157, 215, 1),
-                                        icon: Icon(
-                                          Icons.alarm,
-                                          color: Color.fromRGBO(7, 178, 229, 1),
-                                        ),
-                                        //       backgroundGradient:LinearGradient(
-                                        //     colors: [
-                                        //   Color.fromRGBO(7, 178, 229, 1),
-                                        //   Color.fromRGBO(44, 157, 215, 1)
-                                        // ]),
-                                        isDismissible: true,
-                                        dismissDirection:
-                                            DismissDirection.horizontal,
-                                      );
-                                    }
-                                  },
-                                  string: 'Submit Request', isButtonpressed: controller.isButtonpressed.value,),
+                                      ),
+                                      textCancel: 'Edit',
+                                      onCancel: () {},
+                                      radius: 30.0,
+                                      textConfirm: 'Confirm & View Status',
+                                      confirmTextColor: Colors.white,
+                                      onConfirm: () {
+                                        Leavefieldd.add(LeaveModel(
+                                            sts: true,
+                                            Status: 'Pending',
+                                            Reason: controller.Reson.text,
+                                            Category:
+                                                controller.dropdownText.value,
+                                            LeaveFrom:
+                                                controller.StartDate.value,
+                                            LeaveTo: controller.EndDate.value,
+                                            ResonDes: controller.Reson.text));
+                                        Get.offNamed(Routes.MY_LEAVES);
+                                      },
+                                    );
+                                  } else {
+                                    controller.ButtonPressed();
+                                    Vibration.vibrate(
+                                      duration: 100,
+                                    );
+                                    Get.snackbar(
+                                      'Fill Details ',
+                                      'Please  Fill Missing details ',
+                                      snackPosition: SnackPosition.TOP,
+                                      backgroundColor: Colors.white,
+                                      colorText:
+                                          Color.fromRGBO(44, 157, 215, 1),
+                                      icon: Icon(
+                                        Icons.alarm,
+                                        color: Color.fromRGBO(7, 178, 229, 1),
+                                      ),
+                                      //       backgroundGradient:LinearGradient(
+                                      //     colors: [
+                                      //   Color.fromRGBO(7, 178, 229, 1),
+                                      //   Color.fromRGBO(44, 157, 215, 1)
+                                      // ]),
+                                      isDismissible: true,
+                                      dismissDirection:
+                                          DismissDirection.horizontal,
+                                    );
+                                  }
+                                },
+                                string: 'Submit Request',
+                                isButtonpressed:
+                                    controller.isButtonpressed.value,
+                              ),
                             ),
                           ],
                         ),

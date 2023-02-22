@@ -9,7 +9,7 @@ class ImageCommon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    Container(
+    return Container(
       width: Get.mediaQuery.size.width * .46,
       height: Get.mediaQuery.size.height * .22,
       child: Image.asset(

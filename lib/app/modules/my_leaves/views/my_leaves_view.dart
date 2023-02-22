@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
@@ -113,12 +111,11 @@ class MyLeavesView extends GetView<MyLeavesController> {
                       Padding(
                         padding: EdgeInsets.only(
                           bottom: 28,
-
                         ),
                         child: Row(
                           // spacing: 40,
-                           //direction: Axis.horizontal,
-                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          //direction: Axis.horizontal,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             LeaveField(
                                 NumberOfLeave: 30,

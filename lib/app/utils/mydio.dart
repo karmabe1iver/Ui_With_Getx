@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../app.dart';
 import '../data/apires.dart';
-
 
 ApiResp respNew = ApiResp(
   ok: false,
@@ -47,17 +47,15 @@ class MyDio {
     };
   }
 
-
-
   Future<dynamic> customPost(
-      String path, {
-        data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onSendProgress,
-        ProgressCallback? onReceivedProgress,
-      }) async {
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceivedProgress,
+  }) async {
     try {
       // Dio dio = Dio();
       // (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
@@ -119,14 +117,14 @@ class MyDio {
   }
 
   Future<dynamic> customPatch(
-      String path, {
-        data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onSendProgress,
-        ProgressCallback? onReceivedProgress,
-      }) async {
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceivedProgress,
+  }) async {
     try {
       Response resp = await _dio.patch(baseUrl + path,
           data: data,
@@ -176,14 +174,14 @@ class MyDio {
   }
 
   Future<dynamic> post(
-      String path, {
-        data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onSendProgress,
-        ProgressCallback? onReceivedProgress,
-      }) async {
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceivedProgress,
+  }) async {
     try {
       Response resp = await _dio.post(baseUrl + path,
           data: data,
@@ -250,14 +248,14 @@ class MyDio {
   }
 
   Future<dynamic> get(
-      String path, {
-        data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onSendProgress,
-        ProgressCallback? onReceivedProgress,
-      }) async {
+    String path, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceivedProgress,
+  }) async {
     try {
       Response resp = await _dio.get(baseUrl + path,
           options: Options(
