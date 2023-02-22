@@ -1,7 +1,10 @@
 import 'package:Lakshore/app/components/mbutton.dart';
+import 'package:Lakshore/app/data/payslip_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../components/dropdown.dart';
 import '../../../components/image_common.dart';
@@ -10,6 +13,10 @@ import '../controllers/payslip_controller.dart';
 
 class PayslipView extends GetView<PayslipController> {
   const PayslipView({Key? key}) : super(key: key);
+
+  num get index => PaySlip.length;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +70,9 @@ class PayslipView extends GetView<PayslipController> {
                       controller.dropdownText.value = value!;
                       print(controller.dropdownText.value);
                     },
-                    ListItem: controller.df
-                        .map<DropdownMenuItem<String>>((String value) {
+                    ListItem:
+                    controller.df
+                   .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
@@ -74,23 +82,47 @@ class PayslipView extends GetView<PayslipController> {
               ),
             ),
           ),
-
           Positioned(
             top: 260,
             left: 40,
             right: 40,
-            child: Center(child: Column(
-              children: [
-                MButton(onPress: (){
-                 print({controller.CurrentMonth.value});
-                 controller.SelectMonth.value=  controller.dropdownText.value;
-                }, isButtonpressed: false,string: 'Submit',),
-              SizedBox(height: 24,),
-              Obx(() => controller.SelectMonth.value==''?Text(''):controller.SelectMonth.value=='Select  Month'? Text('Please Select Month',style: TEXTSTYLE(fontweight: FontWeight.w600,fontsize: 12.0,),): Text('PaySlip of ${controller.SelectMonth.value}',style: TEXTSTYLE(fontweight: FontWeight.w600,fontsize: 12.0,),)),
-              ],
-            )),
+            child: Center(
+                child: Column(children: [
+              MButton(
+                onPress: () async {
+                  for (int i=0; i<=index ;i++) {
+                    if(controller.dropdownText.value==controller.df[i]) {
+                      controller.launchInBrowser(controller.toLaunch[i]);
+                    }
+                  }
+                  print(controller.CurrentMonth.value);
+                  controller.SelectMonth.value = controller.dropdownText.value;
+                },
+                isButtonpressed: false,
+                string: 'Submit',
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Obx(() => controller.SelectMonth.value == ''
+                  ? Text('')
+                  : controller.SelectMonth.value == 'Select  Month'
+                      ? Text(
+                          'Please Select Month',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w600,
+                            fontsize: 12.0,
+                          ),
+                        )
+                      : Text(
+                          'PaySlip of ${controller.SelectMonth.value}',
+                          style: TEXTSTYLE(
+                            fontweight: FontWeight.w600,
+                            fontsize: 12.0,
+                          ),
+                        )),
+            ])),
           )
-          
         ],
       ),
     );
