@@ -44,15 +44,15 @@ List<PaySlipModel> PaySlip = <PaySlipModel>[
   PaySlipModel(
     pay: Uri(
         scheme: 'https',
-        host: 'africau.edu',
-        path: '/images/default/sample.pdf'),
+        host: 'chat.openai.com',
+        path: '/chat'),
     Month: 'June 2023',
   ),
   PaySlipModel(
     pay: Uri(
         scheme: 'https',
-        host: 'africau.edu',
-        path: '/images/default/sample.pdf'),
+        host: 'tamilblasters.rent',
+        ),
     Month: 'July  2023',
   ),
   PaySlipModel(
@@ -79,15 +79,15 @@ List<PaySlipModel> PaySlip = <PaySlipModel>[
   PaySlipModel(
     pay: Uri(
         scheme: 'https',
-        host: 'africau.edu',
-        path: '/images/default/sample.pdf'),
+        host: 'instagram.com',
+        ),
     Month: 'November 2023',
   ),
   PaySlipModel(
     pay: Uri(
         scheme: 'https',
-        host: 'africau.edu',
-        path: '/images/default/sample.pdf'),
+        host: 'medium.com',
+       ),
     Month: 'December 2023',
   ),
 ];

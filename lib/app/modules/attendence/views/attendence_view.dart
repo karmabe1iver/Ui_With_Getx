@@ -65,46 +65,42 @@ class AttendenceView extends GetView<AttendenceController> {
                     color: Colors.grey,
                   ),
                   headerTextStyle: TEXTSTYLE(
-                    color: Colors.black,
+                    color: Colors.blue.shade400,
                     fontweight: FontWeight.w600,
                     fontsize: 20.0,
                   ),
                   showHeaderButton: true,
+                  todayTextStyle: TEXTSTYLE(
+                    color: Colors.blue,
+                    fontweight: FontWeight.w400,
+                  ),
                   headerText: controller.currentMonth.value,
                   todayBorderColor: Colors.transparent,
                   weekDayPadding: EdgeInsets.only(bottom: 18),
-                  weekdayTextStyle: TextStyle(
+                  weekdayTextStyle: TEXTSTYLE(
                       color: Colors.blue,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18),
+                      fontweight: FontWeight.w400,
+                      fontsize: 18.0),
                   selectedDayButtonColor: Colors.transparent,
                   selectedDayBorderColor: Colors.transparent,
                   daysHaveCircularBorder: false,
                   showOnlyCurrentMonthDate: true,
-                  weekendTextStyle: TextStyle(
+                  weekendTextStyle: TEXTSTYLE(
                     color: Colors.black,
                   ),
                   thisMonthDayBorderColor: Colors.transparent,
                   weekFormat: false,
                   weekDayFormat: WeekdayFormat.short,
-
-                  // firstDayOfWeek: 4,
                   markedDatesMap: controller.markedUpDates,
                   height: 450.0,
                   width: double.infinity,
                   selectedDateTime: controller.currentDate,
-                  //targetDateTime: targetDateTime,
-                  //controller.targetDateTime,
                   customGridViewPhysics: NeverScrollableScrollPhysics(),
                   markedDateShowIcon: true,
                   markedDateIconBuilder: (event) {
                     return event.icon;
                   },
-                  selectedDayTextStyle: TextStyle(color: Colors.black),
                   showHeader: true,
-                  todayTextStyle: TextStyle(
-                    color: Colors.blue,
-                  ),
                   todayButtonColor: Colors.transparent,
                   minSelectedDate:
                       controller.currentDate.subtract(Duration(days: 360)),

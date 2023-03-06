@@ -16,7 +16,7 @@ ApiResp respNew = ApiResp(
 );
 
 class MyDio {
-  static String baseUrl = 'http://54.166.108.170:4000/workhorse/api/';
+  static String baseUrl = 'https://webappguru.in/api/app';
 
   late Dio _dio;
 
@@ -32,7 +32,7 @@ class MyDio {
       responseType: ResponseType.plain,
       headers: {
         Headers.contentTypeHeader: "application/json",
-        if (App.token.isNotEmpty) "Authorization": "Token ${App.user.token}",
+       // if (App.token.isNotEmpty) "Authorization": "Token ${App.user.token}",
         //if (App.subOrgs.isNotEmpty) "Suborg": App.selectedSuborg.id,
       },
     );

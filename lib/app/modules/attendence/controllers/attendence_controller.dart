@@ -8,7 +8,7 @@ import '../../../components/attendence_making_widget.dart';
 
 class AttendenceController extends GetxController {
   DateTime currentDate = DateTime.now();
-  Rx<String> currentMonth = DateFormat.yMMM().format(DateTime(2023, 2, 1)).obs;
+  Rx<String> currentMonth = DateFormat.yMMM().format(DateTime.now()).obs;
 
   DateTime targetDateTime = DateTime.now();
   EventList<Event> markedUpDates = new EventList<Event>(
@@ -36,7 +36,7 @@ class AttendenceController extends GetxController {
         HalfDay[i],
         new Event(
             date: HalfDay[i],
-            title: 'FL',
+            title: 'HF',
             icon: Halfday(HalfDay[i].day.toString())),
       );
     }

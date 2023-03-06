@@ -25,23 +25,23 @@ abstract class LocalStore {
   static void clearData() async => GetStorage().erase();
 }
 
-class FetchDataFromLocalStore {
-  userData() async {
-    App.user = User(
-      profilepic: LocalStore.getData('photo'),
-      userid: LocalStore.getInt('user_id'),
-      token: LocalStore.getString('token'),
-      firstname: LocalStore.getString('user_firstname'),
-      lastname: LocalStore.getString('user_lastname'),
-      emailVerified: LocalStore.getBool('user_email_verified'),
-      twoFactorRequired: LocalStore.getBool('user_two_factor_required'),
-      rolename: LocalStore.getString('user_rolename'),
-      custid: LocalStore.getInt('user_cust_id'),
-      custname: LocalStore.getString('user_cust_name'),
-      username: LocalStore.getString('user_name'),
-      roleid: LocalStore.getInt('user_role_id'),
-      root: LocalStore.getBool('user_root'),
-    );
-    App.token = LocalStore.getString('token') ?? '';
-  }
-}
+// class FetchDataFromLocalStore {
+//   userData() async {
+//     App.user = login(
+//       profilepic: LocalStore.getData('photo'),
+//       userid: LocalStore.getInt('user_id'),
+//       token: LocalStore.getString('token'),
+//       firstname: LocalStore.getString('user_firstname'),
+//       lastname: LocalStore.getString('user_lastname'),
+//       emailVerified: LocalStore.getBool('user_email_verified'),
+//       twoFactorRequired: LocalStore.getBool('user_two_factor_required'),
+//       rolename: LocalStore.getString('user_rolename'),
+//       custid: LocalStore.getInt('user_cust_id'),
+//       custname: LocalStore.getString('user_cust_name'),
+//       username: LocalStore.getString('user_name'),
+//       roleid: LocalStore.getInt('user_role_id'),
+//       root: LocalStore.getBool('user_root'),
+//     );
+//     App.token = LocalStore.getString('token') ?? '';
+//   }
+// }

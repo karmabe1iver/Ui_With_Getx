@@ -11,7 +11,7 @@ abstract class LoginServices {
     await errMAsync(
       () async {
         resp = await MyDio().customPost(
-          'token/',
+          '/login',
           data: {'email': userId, 'password': pswd},
         );
       },

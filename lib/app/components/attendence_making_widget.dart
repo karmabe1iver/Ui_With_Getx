@@ -95,13 +95,13 @@ Widget Fullday(String day) => FittedBox(
                   fontSize: 14,
                 ),
               ),
-              Text(
-                'FL',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                ),
-              ),
+              // Text(
+              //   'FL',
+              //   style: TextStyle(
+              //     color: Colors.white,
+              //     fontSize: 14,
+              //   ),
+              // ),
             ],
           )),
     );
@@ -125,13 +125,13 @@ Widget Weeekoff(String day) => FittedBox(
                   fontSize: 14,
                 ),
               ),
-              Text(
-                'WO',
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 14,
-                ),
-              ),
+              // Text(
+              //   'WO',
+              //   style: TextStyle(
+              //     color: Colors.red,
+              //     fontSize: 14,
+              //   ),
+              // ),
             ],
           )),
     ); //WeekOff.length,);
@@ -155,13 +155,13 @@ Widget Halfday(String day) => FittedBox(
                   fontSize: 14,
                 ),
               ),
-              Text(
-                'HF',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                ),
-              ),
+              // Text(
+              //   'HF',
+              //   style: TextStyle(
+              //     color: Colors.white,
+              //     fontSize: 14,
+              //   ),
+              // ),
             ],
           )),
     ); //WeekOff.length,);
@@ -185,13 +185,13 @@ Widget Present(String day) => FittedBox(
                   fontSize: 14,
                 ),
               ),
-              Text(
-                'P',
-                style: TextStyle(
-                  color: Colors.limeAccent.shade700,
-                  fontSize: 14,
-                ),
-              ),
+              // Text(
+              //   ' ',
+              //   style: TextStyle(
+              //     color: Colors.limeAccent.shade700,
+              //     fontSize: 14,
+              //   ),
+              // ),
             ],
           )),
       //Icon(Icons.check_rounded,color: Colors.lightGreen.shade900,),
@@ -202,7 +202,7 @@ Widget absent(String day) => FittedBox(
           height: 40,
           width: 40,
           decoration: new BoxDecoration(
-            color: Colors.white,
+            color: Colors.black,
             borderRadius: BorderRadius.all(Radius.circular(10)),
             // border: Border.all(color: Colors.blue, width: 2.0)
           ),
@@ -216,13 +216,13 @@ Widget absent(String day) => FittedBox(
                   fontSize: 14,
                 ),
               ),
-              Text(
-                'Ab',
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 14,
-                ),
-              ),
+              // Text(
+              //   'Ab',
+              //   style: TextStyle(
+              //     color: Colors.red,
+              //     fontSize: 14,
+              //   ),
+              // ),
             ],
           )
           //child: Icon(Icons.close_rounded,color: Colors.red,),
