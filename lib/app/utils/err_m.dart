@@ -34,12 +34,13 @@ Future errMAsync(Future<void> Function() f,
   }
 }
 
-void showMsg(String msg, String title, {leadingIcon, isSuccess = false}) {
+void showMsg(String msg, String title, {leadingIcon, isSuccess =false}) {
   Vibration.vibrate(
     duration: 1000,
   );
   Get.snackbar(
     title,
+
     msg,
     icon: leadingIcon,
     snackPosition: SnackPosition.TOP,

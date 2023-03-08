@@ -110,14 +110,21 @@ class _SplashScreenState extends State<SplashScreen> {
         return;
       }
 
-      User user = User.fromJson(resp.rdata);
-      user.username = _email;
-      App.token = user.token ?? '';
+      LoginResp user = LoginResp.fromJson(resp.rdata);
+      List<Datum> us= user.data;
+       print('::  ${us.last.employeeId}');
+       App.User=us.last;
+      //App.token = user.token ?? '';
+      LocalStore.setData('Emp_id', us.last.employeeId);
+      LocalStore.setData('user_name', us.last.name);
+      LocalStore.setData('Cl_Bal', us.last.clBal);
+      LocalStore.setData('pl_bal', us.last.plBal);
+      LocalStore.setData('sic_bal', us.last.siklBal);
       Get.offNamed(
         Routes.DASHBOARD,
       );
 
-      if (user.emailVerified == true) {
+      if (us!= null) {
         Get.offAllNamed(Routes.DASHBOARD);
       }
     } else {

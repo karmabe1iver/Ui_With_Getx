@@ -2,8 +2,16 @@ import 'package:get/get.dart';
 
 class ProfiledetailsController extends GetxController {
   //TODO: Implement ProfiledetailsController
+  RxBool animate = false.obs;
 
-  final count = 0.obs;
+  Future startanimation() async {
+    await Future.delayed(Duration(milliseconds: 1));
+    animate.value = true;
+
+    await Future.delayed(Duration(milliseconds: 800));
+    animate.value= false;
+  }
+
 
   @override
   void onInit() {
@@ -16,7 +24,9 @@ class ProfiledetailsController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
 
-  void increment() => count.value++;
+  }
+
+
 }

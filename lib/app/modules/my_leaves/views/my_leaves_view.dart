@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:vibration/vibration.dart';
 
+import '../../../../app.dart';
 import '../../../components/leavecard.dart';
 import '../../../components/leavefield.dart';
 import '../../../components/textstyle.dart';
@@ -87,7 +86,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Amila',
+                                      App.User.name.toString(),
                                       style: TEXTSTYLE(
                                         fontsize: 20.0,
                                         fontweight: FontWeight.w500,
@@ -95,7 +94,8 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                       ),
                                     ),
                                     Text(
-                                      'Emp Id  :  xxxx xxxxx',
+                                      'Emp Id  : ${App.User.employeeId.toString()}',
+                                      //'Emp Id  :  xxxx xxxxx',
                                       style: TEXTSTYLE(
                                           fontweight: FontWeight.w500,
                                           fontsize: 14.0,
@@ -118,13 +118,20 @@ class MyLeavesView extends GetView<MyLeavesController> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             LeaveField(
-                                NumberOfLeave: 30,
+                                NumberOfLeave:
+                                    int.parse(App.User.siklBal.toString()) +
+                                        int.parse(App.User.clBal.toString()) +
+                                        int.parse(App.User.plBal.toString()),
                                 LeaveCatogery: 'Total Leave'),
                             LeaveField(
-                                NumberOfLeave: 12, LeaveCatogery: 'Sick Leave'),
+                                NumberOfLeave: App.User.siklBal,
+                                LeaveCatogery: 'Sick Leave'),
                             LeaveField(
-                                NumberOfLeave: 18,
+                                NumberOfLeave: App.User.clBal,
                                 LeaveCatogery: 'Casual Leave'),
+                            LeaveField(
+                                NumberOfLeave: App.User.plBal,
+                                LeaveCatogery: 'Personal Leave')
                           ],
                         ),
                       ),
@@ -183,95 +190,42 @@ class MyLeavesView extends GetView<MyLeavesController> {
                             padding: const EdgeInsets.only(
                               bottom: 24.0,
                             ),
-                            child: SingleChildScrollView(
-                              // physics: BouncingScrollPhysics(),
-                              child: Slidable(
-                                direction: Axis.horizontal,
-                                endActionPane:
-                                    controller.LeaveFieldd[index].sts == true
-                                        ? ActionPane(
-                                            extentRatio: .25,
-                                            motion: ScrollMotion(),
-                                            children: [
-                                              SlidableAction(
-                                                onPressed: (context) {
-                                                  Leavefieldd.removeAt(index);
-                                                  controller.LeaveFieldd
-                                                      .removeAt(index);
-                                                },
-                                                backgroundColor: Colors.indigo,
-                                                foregroundColor: Colors.white,
-                                                icon: Icons.delete,
-                                                label: 'Delete',
-                                              )
-                                            ],
-                                          )
-                                        : ActionPane(
-                                            extentRatio: .001,
-                                            motion: ScrollMotion(),
-                                            children: []),
-                                startActionPane:
-                                    controller.LeaveFieldd[index].sts == true
-                                        ? ActionPane(
-                                            extentRatio: .25,
-                                            motion: ScrollMotion(),
-                                            children: [
-                                              SlidableAction(
-                                                onPressed: (context) async {
-                                                  await Share.share(
-                                                      ' Leave Request \n\n Leave Type :${controller.LeaveFieldd[index].Category} \n Leave From :${controller.LeaveFieldd[index].LeaveFrom} - ${controller.LeaveFieldd[index].LeaveTo}\n Reson :${controller.LeaveFieldd[index].ResonDes}');
-                                                },
-                                                backgroundColor: Colors.indigo,
-                                                foregroundColor: Colors.white,
-                                                icon: Icons.share,
-                                                label: 'Share',
-                                              )
-                                            ],
-                                          )
-                                        : ActionPane(
-                                            extentRatio: .001,
-                                            motion: ScrollMotion(),
-                                            children: []),
-                                child: Wrap(
-                                  runSpacing: 40,
-                                  children: [
-                                    LeaveCard(
-                                      sts: controller.LeaveFieldd[index].sts,
-                                      //Leavefield[index].sts,
-                                      Reason:
-                                          controller.LeaveFieldd[index].Reason,
-                                      Catogery: controller
-                                          .LeaveFieldd[index].Category,
-                                      Status:
-                                          controller.LeaveFieldd[index].Status,
-                                      StatusBgColor:
-                                          Color.fromRGBO(253, 231, 200, 1),
-                                      StatusImg: AssetHelper.pending,
-                                      StatusTextColor:
-                                          Color.fromRGBO(255, 149, 3, 1),
-                                      LeaveFrom: controller
-                                          .LeaveFieldd[index].LeaveFrom,
-                                      LeaveTo:
-                                          controller.LeaveFieldd[index].LeaveTo,
-                                      ReasonDes: controller
-                                          .LeaveFieldd[index].ResonDes,
-                                      Edit: AssetHelper.edit,
-                                      OnTapE: () {
-                                        Get.offAndToNamed(
-                                          Routes
-                                              .LEAVE_REQUEST, //arguments: controller.Leavefield[index]
-                                        );
-                                      },
-                                      onTap: () {
-                                        Vibration.vibrate(duration: 10);
-                                        Leavefieldd.removeAt(index);
-                                        controller.LeaveFieldd.removeAt(index);
-                                      },
-                                      Delete: AssetHelper.delete,
-                                    ),
-                                  ],
+                            child: Wrap(
+                              runSpacing: 40,
+                              children: [
+                                LeaveCard(
+                                  sts: controller.LeaveFieldd[index].sts,
+                                  //Leavefield[index].sts,
+                                  Reason: controller.LeaveFieldd[index].Reason,
+                                  Catogery:
+                                      controller.LeaveFieldd[index].Category,
+                                  Status: controller.LeaveFieldd[index].Status,
+                                  StatusBgColor:
+                                      Color.fromRGBO(253, 231, 200, 1),
+                                  StatusImg: AssetHelper.pending,
+                                  StatusTextColor:
+                                      Color.fromRGBO(255, 149, 3, 1),
+                                  LeaveFrom:
+                                      controller.LeaveFieldd[index].LeaveFrom,
+                                  LeaveTo:
+                                      controller.LeaveFieldd[index].LeaveTo,
+                                  ReasonDes:
+                                      controller.LeaveFieldd[index].ResonDes,
+                                  Edit: AssetHelper.edit,
+                                  OnTapE: () {
+                                    Get.offAndToNamed(
+                                      Routes
+                                          .LEAVE_REQUEST, //arguments: controller.Leavefield[index]
+                                    );
+                                  },
+                                  onTap: () {
+                                    Vibration.vibrate(duration: 10);
+                                    Leavefieldd.removeAt(index);
+                                    controller.LeaveFieldd.removeAt(index);
+                                  },
+                                  Delete: AssetHelper.delete,
                                 ),
-                              ),
+                              ],
                             ),
                           );
                         },

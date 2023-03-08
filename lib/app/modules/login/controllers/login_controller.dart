@@ -1,3 +1,4 @@
+import 'package:Lakshore/app/data/apimssg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -119,26 +120,40 @@ class LoginController extends GetxController {
           backgroundColor: Color.fromRGBO(18, 132, 198, 1));
     } else {
       final ApiResp resp = await LoginServices.fetchUser(emaill, pswdd);
-      if (resp.ok == false) {
+       LoginErrResp Use= LoginErrResp.fromJson(resp.rdata);
+
+      if (Use.success== 'false') {
         //MyUtils.msg(resp.msgs);
-        isLoggingProgress.value = false;
+        Get.snackbar('login Failed','check username and password',backgroundColor: Colors.red);
         return;
       }
 
-      User user = User.fromJson(resp.rdata);
-      user.username = email;
-      App.token = user.token ?? '';
+
+
+      LoginResp user = LoginResp.fromJson(resp.rdata);
+
+      List<Datum> us= user.data;
+      print('::  ${us.last.employeeId}');
+      App.User=us.last;
+      //App.token = user.token ?? '';
+      LocalStore.setData('Emp_id', us.last.employeeId);
+      LocalStore.setData('user_name', us.last.name);
+      LocalStore.setData('Cl_Bal', us.last.clBal);
+      LocalStore.setData('pl_bal', us.last.plBal);
+      LocalStore.setData('sic_bal', us.last.siklBal);
+      //user.username = email;
+      // App.token = user.token ?? '';
       Get.offNamed(
         Routes.DASHBOARD,
       );
-      LocalStore.setData('user_id', user.userid);
-      LocalStore.setData('token', user.token);
-      LocalStore.setData('user_firstname', user.firstname);
-      LocalStore.setData('user_lastname', user.lastname);
-      LocalStore.setData('user_email_verified', user.emailVerified);
-      App.user = user;
+      // LocalStore.setData('user_id', user.userid);
+      // LocalStore.setData('token', user.token);
+      // LocalStore.setData('user_firstname', user.firstname);
+      // LocalStore.setData('user_lastname', user.lastname);
+      // LocalStore.setData('user_email_verified', user.emailVerified);
+      //App.User = user;
 
-      if (App.token.isEmpty && user.twoFactorRequired == false) {
+      if (us==null) {
         Vibration.vibrate(
           duration: 100,
         );
@@ -147,7 +162,7 @@ class LoginController extends GetxController {
         return;
       }
 
-      if (user.emailVerified == true) {
+      if (us!= null) {
         Get.offAllNamed(Routes.DASHBOARD);
       } else {
         showMsg("Email not verified", "Failed");

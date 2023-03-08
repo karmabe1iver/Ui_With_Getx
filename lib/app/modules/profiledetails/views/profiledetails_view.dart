@@ -28,138 +28,148 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
               color: Color.fromRGBO(44, 157, 215, 1),
             ),
           ),
-          Positioned(
-            top: 40,
-            left: 25,
-            right: 25,
-            child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    maxRadius: 48,
-                    child: ClipOval(
-                        child: ProfileList.length != 0
-                            ? Image.file(
-                                ProfileList.last.profilePic,
-                                width: 130,
-                                height: 130,
-                                scale: 1,
-                                fit: BoxFit.cover,
-                              )
-                            : Image.asset(AssetHelper.profileIMAGE)),
-                  ),
-                ],
-              ),
-              DetailsCard(
-                  heading: 'Profile Details',
+           Positioned(
+              top: controller.animate.value?170:40,
+              left: controller.animate.value?72:25,
+              right: controller.animate.value?0:25,
+
+              child: Column(children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      maxRadius: 48,
+                      child: ClipOval(
+                          child: ProfileList.length != 0
+                              ? Image.file(
+                                  ProfileList.last.profilePic,
+                                  width: 130,
+                                  height: 130,
+                                  scale: 1,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset(AssetHelper.profileIMAGE)),
+                    ),
+                  ],
+                ),
+                Obx(
+                    ()=> AnimatedPadding(
+                      duration: Duration(milliseconds: 400),
+
+
+                      padding: EdgeInsets.only(left: controller.animate.value?30:0,top: controller.animate.value?500:0),
+                      child: DetailsCard(
+                        heading: 'Profile Details',
+                        wrap: Wrap(direction: Axis.vertical, children: [
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Employee ID  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: 'XXX XXXX',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Name :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: 'Amile',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Gender  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: 'Female',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Email  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: 'amile@gmail.com',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Date Of Birth  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: '20 JAN 19',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Phone Numer  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: '7012345630',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Qualification  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: 'GNM',
+                                  style: _style(),
+                                )
+                              ])),
+                          RichText(
+                              text: TextSpan(
+                                  text: 'Maritial Status  :  ',
+                                  style: _textStyle(),
+                                  children: [
+                                TextSpan(
+                                  text: 'Married',
+                                  style: _style(),
+                                )
+                              ])),
+                        ])),
+                    ),
+                ),
+                DetailsCard(
+                  heading: 'Job details',
                   wrap: Wrap(direction: Axis.vertical, children: [
-                    RichText(
-                        text: TextSpan(
-                            text: 'Employee ID  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: 'XXX XXXX',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Name :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: 'Amile',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Gender  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: 'Female',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Email  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: 'amile@gmail.com',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Date Of Birth  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: '20 JAN 19',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Phone Numer  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: '7012345630',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Qualification  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: 'GNM',
-                            style: _style(),
-                          )
-                        ])),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Maritial Status  :  ',
-                            style: _textStyle(),
-                            children: [
-                          TextSpan(
-                            text: 'Married',
-                            style: _style(),
-                          )
-                        ])),
-                  ])),
-              DetailsCard(
-                heading: 'Job details',
-                wrap: Wrap(direction: Axis.vertical, children: [
-                  content(field: 'Branch', deatail: 'Kochi'),
-                  content(field: 'Catogery', deatail: 'Nurse'),
-                  content(field: 'Desigination', deatail: 'General Nurse'),
-                  content(field: 'Date of joining', deatail: '20 feb 2022'),
-                ]),
-              ),
-              DetailsCard(
-                  heading: 'Bank Details',
-                  wrap: Wrap(
-                    direction: Axis.vertical,
-                    children: [
-                      content(
-                          field: 'Account Holder Name', deatail: 'Amile Angel'),
-                      content(
-                          field: 'Account Number', deatail: '9998013456211'),
-                      content(field: 'Bank name', deatail: 'Axis Bank'),
-                      content(field: 'IFSC code', deatail: 'AXRl0000123'),
-                      content(field: 'Branch', deatail: 'kochi')
-                    ],
-                  )),
-            ]),
-          ),
+                    content(field: 'Branch', deatail: 'Kochi'),
+                    content(field: 'Catogery', deatail: 'Nurse'),
+                    content(field: 'Desigination', deatail: 'General Nurse'),
+                    content(field: 'Date of joining', deatail: '20 feb 2022'),
+                  ]),
+                ),
+                DetailsCard(
+                    heading: 'Bank Details',
+                    wrap: Wrap(
+                      direction: Axis.vertical,
+                      children: [
+                        content(
+                            field: 'Account Holder Name', deatail: 'Amile Angel'),
+                        content(
+                            field: 'Account Number', deatail: '9998013456211'),
+                        content(field: 'Bank name', deatail: 'Axis Bank'),
+                        content(field: 'IFSC code', deatail: 'AXRl0000123'),
+                        content(field: 'Branch', deatail: 'kochi')
+                      ],
+                    )),
+              ]),
+            ),
+
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
@@ -169,6 +179,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
           child: Icon(Icons.edit_calendar_outlined),
           backgroundColor: Color.fromRGBO(18, 132, 198, 1),
           onPressed: () {
+            controller.startanimation();
             Get.toNamed(Routes.UPDATIONREQUEST);
           },
         ),

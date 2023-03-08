@@ -2,6 +2,7 @@ import 'package:Lakshore/app/components/image_common.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../app.dart';
 import '../../../components/textstyle.dart';
 import '../../../data/profile.dart';
 import '../../../utils/asset_helper.dart';
@@ -94,7 +95,8 @@ class MyShiftView extends GetView<MyShiftController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Amila',
+                        App.User.name.toString(),
+                       // 'Amila',
                         style: TEXTSTYLE(
                           fontsize: 24.0,
                           fontweight: FontWeight.w500,
@@ -102,7 +104,7 @@ class MyShiftView extends GetView<MyShiftController> {
                         ),
                       ),
                       Text(
-                        'Emp Id  :  xxxx xxxxx',
+                        'Emp Id  :  ${App.User.employeeId}',
                         style: TEXTSTYLE(
                             fontweight: FontWeight.w500,
                             fontsize: 14.0,

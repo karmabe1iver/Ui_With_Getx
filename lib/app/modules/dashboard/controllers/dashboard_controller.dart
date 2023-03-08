@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../data/login_response.dart';
+
 class DashboardController extends GetxController {
   RxBool animate = false.obs;
   Rx<bool> status = false.obs;
+ // List<Datum> Profile =[];
   Rx<File?> image = File('super').obs;
   final ImagePicker imagepicked = ImagePicker();
   final count = 0.obs;

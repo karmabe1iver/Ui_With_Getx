@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:vibration/vibration.dart';
 
+import '../../../../app.dart';
 import '../../../components/dailogcontent.dart';
 import '../../../components/dropdown.dart';
 import '../../../components/mbutton.dart';
@@ -122,7 +123,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Amila',
+                            App.User.name.toString(),
+                            //'Amila',
                             style: TEXTSTYLE(
                               fontsize: 24.0,
                               fontweight: FontWeight.w500,
@@ -130,7 +132,8 @@ class LeaveRequestView extends GetView<LeaveRequestController> {
                             ),
                           ),
                           Text(
-                            'Emp Id  :  xxxx xxxxx',
+                            'Emp Id  : ${App.User.employeeId}',
+                               // ' xxxx xxxxx',
                             style: TEXTSTYLE(
                                 fontweight: FontWeight.w500,
                                 fontsize: 14.0,

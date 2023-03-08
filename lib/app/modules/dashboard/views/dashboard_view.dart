@@ -1,9 +1,11 @@
+import 'package:Lakshore/app/data/login_response.dart';
 import 'package:Lakshore/app/utils/local_store.dart';
 import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../../app.dart';
 import '../../../components/mcard.dart';
 import '../../../components/textstyle.dart';
 import '../../../routes/app_pages.dart';
@@ -139,6 +141,16 @@ class DashboardView extends GetView<DashboardController> {
                                     SizedBox(
                                       width: 30,
                                     ),
+                                    App.User.name!=null?Text(
+                                      App.User.name.toString(),
+                                      style: TEXTSTYLE(
+                                        fontsize: controller.animate.value
+                                            ? 20.0
+                                            : Get.mediaQuery.size.height * .036,
+                                        fontweight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ):
                                     Text(
                                       'Amila',
                                       style: TEXTSTYLE(
@@ -182,7 +194,15 @@ class DashboardView extends GetView<DashboardController> {
                           Obx(
                             () => Padding(
                               padding: const EdgeInsets.only(bottom: 28.0),
-                              child: Text(
+                              child:LocalStore.getData('Emp_id')!=null? Text(
+                                'Emp Id : ${App.User.employeeId}',
+                                style: TEXTSTYLE(
+                                    fontweight: FontWeight.w400,
+                                    fontsize: controller.animate.value
+                                        ? 16.0
+                                        : Get.mediaQuery.size.height * .017,
+                                    color: Colors.white),
+                              ):Text(
                                 'Emp Id : xxxx xxxxx',
                                 style: TEXTSTYLE(
                                     fontweight: FontWeight.w400,

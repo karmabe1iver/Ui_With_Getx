@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:Lakshore/app/data/login_response.dart';
 import 'package:dio/dio.dart';
 
 import '../../utils/err_m.dart';
@@ -15,47 +18,39 @@ abstract class LoginServices {
           data: {'email': userId, 'password': pswd},
         );
       },
-      title: 'Login Failed',
+      title: 'Login Success',
     );
 
     if (resp is DioError) {
-      // if (resp.response?.statusCode == 400) {
-      //   log('400 >> ${resp.response}');
-      //   showMsg("Invalid UserName or Password", "Login Failed");
-      // }
-      if (resp.type == DioErrorType.connectTimeout) {
+      if (resp.response?.statusCode == 400) {
+        log('400 >> ${resp.response}');
+        showMsg("Invalid UserName or Password", "Login Failed");
+      }
+      if (resp.type == DioErrorType.connectionTimeout) {
         showMsg(
             'Connection timed-out. Check internet connection.', "Login Failed");
       }
       if (resp.type == DioErrorType.receiveTimeout) {
         showMsg('Unable to connect to the server', "Login Failed");
       }
-      // if (resp.type == DioErrorType.other) {
-      //   showMsg(
-      //       'Something went wrong with server communication', "Login Failed");
-      // }
+      if (resp.type == DioErrorType.unknown) {
+        showMsg(
+            'Something went wrong with server communication', "Login Failed");
+      }
     } else {
       respNew = resp != null
           ? ApiResp(
               ok: true,
               rdata: resp,
-              msgs: [
-                ApiMsg(
-                  msg: "",
-                  msgType: "",
-                  title: "Success",
-                )
+              msgs:  [
+
               ],
             )
           : ApiResp(
               ok: false,
               rdata: "",
               msgs: [
-                ApiMsg(
-                  msg: "Server response failed",
-                  msgType: "0",
-                  title: "Failed",
-                )
+                ' failed'
               ],
             );
     }

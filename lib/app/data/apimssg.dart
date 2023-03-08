@@ -1,29 +1,27 @@
 import 'dart:convert';
 
-ApiMsg apiMsgFromJson(String str) => ApiMsg.fromJson(json.decode(str));
+import 'dart:convert';
 
-String apiMsgToJson(ApiMsg data) => json.encode(data.toJson());
+LoginErrResp loginErrRespFromJson(String str) => LoginErrResp.fromJson(json.decode(str));
 
-class ApiMsg {
-  ApiMsg({
-    required this.msg,
-    required this.msgType,
-    required this.title,
+String loginErrRespToJson(LoginErrResp data) => json.encode(data.toJson());
+
+class LoginErrResp {
+  LoginErrResp({
+    this.success,
+    this.message,
   });
 
-  String msg;
-  String msgType;
-  String title;
+  String? success;
+  String? message;
 
-  factory ApiMsg.fromJson(Map<String, dynamic> json) => ApiMsg(
-        msg: json["msg"],
-        msgType: json["msgType"],
-        title: json["title"],
-      );
+  factory LoginErrResp.fromJson(Map<String, dynamic> json) => LoginErrResp(
+    success: json["success"],
+    message: json["message"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "msg": msg,
-        "msgType": msgType,
-        "title": title,
-      };
+    "success": success,
+    "message": message,
+  };
 }

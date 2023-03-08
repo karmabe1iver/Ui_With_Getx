@@ -142,36 +142,34 @@ Widget LeaveCard(
                   )
               ],
             ),
-            Expanded(
-              child: Row(
-                children: [
-                  Image.asset(
-                    AssetHelper.calender,
-                    scale: 1.9,
+            Row(
+              children: [
+                Image.asset(
+                  AssetHelper.calender,
+                  scale: 1.9,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                RichText(
+                  text: TextSpan(
+                    text: 'Leave From  : ',
+                    style: TEXTSTYLE(
+                        color: Colors.grey,
+                        fontweight: FontWeight.w400,
+                        fontsize: 13.0),
+                    children: [
+                      TextSpan(
+                        text: '$LeaveFrom - $LeaveTo',
+                        style: TEXTSTYLE(
+                            fontweight: FontWeight.bold,
+                            fontsize: 12.0,
+                            color: Colors.black),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Leave From  : ',
-                      style: TEXTSTYLE(
-                          color: Colors.grey,
-                          fontweight: FontWeight.w400,
-                          fontsize: 13.0),
-                      children: [
-                        TextSpan(
-                          text: '$LeaveFrom - $LeaveTo',
-                          style: TEXTSTYLE(
-                              fontweight: FontWeight.bold,
-                              fontsize: 12.0,
-                              color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             if (stat == sts)
               Row(
