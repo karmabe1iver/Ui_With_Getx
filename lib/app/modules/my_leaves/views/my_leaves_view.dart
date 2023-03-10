@@ -86,6 +86,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
+                                      App.User.name==null?'Amila':
                                       App.User.name.toString(),
                                       style: TEXTSTYLE(
                                         fontsize: 20.0,
@@ -94,6 +95,7 @@ class MyLeavesView extends GetView<MyLeavesController> {
                                       ),
                                     ),
                                     Text(
+                                      App.User.employeeId==null?'Emp id : XXXXXXXxX':
                                       'Emp Id  : ${App.User.employeeId.toString()}',
                                       //'Emp Id  :  xxxx xxxxx',
                                       style: TEXTSTYLE(
@@ -118,19 +120,19 @@ class MyLeavesView extends GetView<MyLeavesController> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             LeaveField(
-                                NumberOfLeave:
-                                    int.parse(App.User.siklBal.toString()) +
+                                NumberOfLeave:App.User.siklBal==null?'':
+                                        int.parse(App.User.siklBal.toString()) +
                                         int.parse(App.User.clBal.toString()) +
                                         int.parse(App.User.plBal.toString()),
                                 LeaveCatogery: 'Total Leave'),
                             LeaveField(
-                                NumberOfLeave: App.User.siklBal,
+                                NumberOfLeave: App.User.siklBal==null?'':App.User.siklBal,
                                 LeaveCatogery: 'Sick Leave'),
                             LeaveField(
-                                NumberOfLeave: App.User.clBal,
+                                NumberOfLeave: App.User.clBal==null?'':App.User.clBal,
                                 LeaveCatogery: 'Casual Leave'),
                             LeaveField(
-                                NumberOfLeave: App.User.plBal,
+                                NumberOfLeave: App.User.plBal==null?'':App.User.plBal,
                                 LeaveCatogery: 'Personal Leave')
                           ],
                         ),

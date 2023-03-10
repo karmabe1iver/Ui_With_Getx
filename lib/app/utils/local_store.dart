@@ -33,12 +33,19 @@ class FetchDataFromLocalStore {
       siklBal: LocalStore.getData('sic_bal'),
       plBal: LocalStore.getData('pl_bal'),
       clBal: LocalStore.getData('Cl_bal'),
+      gender: LocalStore.getData('gender'),
+      email: LocalStore.getData('email'),
+      companyDoj: LocalStore.getData('Doj'),
+      dob: LocalStore.getData('DoB'),
+      phone: LocalStore.getData('phone_number'),
+      qualification: LocalStore.getData('quilfication'),
+      maritalStatusId: LocalStore.getData('Maritial_Status'),
     );
-   // App.token = LocalStore.getString('token
-   // '
-   // )
-   // ??
-   // '
+    // App.token = LocalStore.getString('token
+    // '
+    // )
+    // ??
+    // '
     //';
   }
 }

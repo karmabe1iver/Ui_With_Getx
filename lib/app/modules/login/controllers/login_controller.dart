@@ -138,9 +138,22 @@ class LoginController extends GetxController {
       //App.token = user.token ?? '';
       LocalStore.setData('Emp_id', us.last.employeeId);
       LocalStore.setData('user_name', us.last.name);
+      LocalStore.setData('gender', us.last.gender);
+      LocalStore.setData('email', us.last.email);
+      LocalStore.setData('Doj', us.last.companyDoj);
+      LocalStore.setData('DoB', us.last.dob);
+      LocalStore.setData('phone_number', us.last.phone);
+      LocalStore.setData('quilfication', us.last.qualification);
+      LocalStore.setData('Maritial_Status', us.last.maritalStatusId);
       LocalStore.setData('Cl_Bal', us.last.clBal);
       LocalStore.setData('pl_bal', us.last.plBal);
       LocalStore.setData('sic_bal', us.last.siklBal);
+      LocalStore.setData('Account_Holdername', us.last.accountHolderName);
+      LocalStore.setData('Account_number', us.last.accountNumber);
+      LocalStore.setData('Account_ifscCode', us.last.ifscCode);
+      LocalStore.setData('bank_name', us.last.bankName);
+      LocalStore.setData('Bank_branch', us.last.branchLocation);
+
       //user.username = email;
       // App.token = user.token ?? '';
       Get.offNamed(

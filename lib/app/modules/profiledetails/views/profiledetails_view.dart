@@ -3,7 +3,9 @@ import 'package:Lakshore/app/components/textstyle.dart';
 import 'package:Lakshore/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
+import '../../../../app.dart';
 import '../../../data/profile.dart';
 import '../../../utils/asset_helper.dart';
 import '../controllers/profiledetails_controller.dart';
@@ -29,9 +31,9 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
             ),
           ),
            Positioned(
-              top: controller.animate.value?170:40,
-              left: controller.animate.value?72:25,
-              right: controller.animate.value?0:25,
+              top:40,
+              left: 25,
+              right: 25,
 
               child: Column(children: [
                 Row(
@@ -52,13 +54,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                     ),
                   ],
                 ),
-                Obx(
-                    ()=> AnimatedPadding(
-                      duration: Duration(milliseconds: 400),
-
-
-                      padding: EdgeInsets.only(left: controller.animate.value?30:0,top: controller.animate.value?500:0),
-                      child: DetailsCard(
+               DetailsCard(
                         heading: 'Profile Details',
                         wrap: Wrap(direction: Axis.vertical, children: [
                           RichText(
@@ -67,7 +63,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: 'XXX XXXX',
+                                  text:App.User.employeeId==null?'XXX XXXX':App.User.employeeId,
                                   style: _style(),
                                 )
                               ])),
@@ -77,7 +73,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: 'Amile',
+                                  text:App.User.name==null? 'Amile':App.User.name,
                                   style: _style(),
                                 )
                               ])),
@@ -97,7 +93,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: 'amile@gmail.com',
+                                  text:App.User.email ?? 'amile@gmail.com',
                                   style: _style(),
                                 )
                               ])),
@@ -107,7 +103,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: '20 JAN 19',
+                                  text:App.User.dob==null?'20 JAN 19'  :DateFormat.yMd().format(App.User.dob!).toString(),
                                   style: _style(),
                                 )
                               ])),
@@ -117,7 +113,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: '7012345630',
+                                  text:App.User.phone?? '7012345630',
                                   style: _style(),
                                 )
                               ])),
@@ -127,7 +123,7 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: 'GNM',
+                                  text:App.User.qualification?? '',
                                   style: _style(),
                                 )
                               ])),
@@ -137,20 +133,18 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                                   style: _textStyle(),
                                   children: [
                                 TextSpan(
-                                  text: 'Married',
+                                  text:App.User.maritalStatusId?? '',
                                   style: _style(),
                                 )
                               ])),
                         ])),
-                    ),
-                ),
                 DetailsCard(
                   heading: 'Job details',
                   wrap: Wrap(direction: Axis.vertical, children: [
-                    content(field: 'Branch', deatail: 'Kochi'),
-                    content(field: 'Catogery', deatail: 'Nurse'),
-                    content(field: 'Desigination', deatail: 'General Nurse'),
-                    content(field: 'Date of joining', deatail: '20 feb 2022'),
+                    content(field: 'Branch', deatail: 'Kochi (not api)'),
+                    content(field: 'Catogery', deatail: 'Nurse (not api)'),
+                    content(field: 'Desigination', deatail: 'General Nurse (not api)'),
+                    content(field: 'Date of joining', deatail:App.User.companyDoj==null?'':DateFormat.yMMMd().format(App.User.companyDoj!)?? '20 feb 2022'),
                   ]),
                 ),
                 DetailsCard(
@@ -159,12 +153,12 @@ class ProfiledetailsView extends GetView<ProfiledetailsController> {
                       direction: Axis.vertical,
                       children: [
                         content(
-                            field: 'Account Holder Name', deatail: 'Amile Angel'),
+                            field: 'Account Holder Name', deatail:App.User.accountHolderName?? 'Amile Angel'),
                         content(
-                            field: 'Account Number', deatail: '9998013456211'),
-                        content(field: 'Bank name', deatail: 'Axis Bank'),
-                        content(field: 'IFSC code', deatail: 'AXRl0000123'),
-                        content(field: 'Branch', deatail: 'kochi')
+                            field: 'Account Number', deatail: App.User.accountNumber??'9998013456211'),
+                        content(field: 'Bank name', deatail:App.User.bankName?? 'Axis Bank'),
+                        content(field: 'IFSC code', deatail:App.User.ifscCode?? 'AXRl0000123'),
+                        content(field: 'Branch', deatail:App.User.branchLocation?? '')
                       ],
                     )),
               ]),
